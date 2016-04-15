@@ -13,9 +13,9 @@ MAKEFILE      = Makefile
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../BestResidence -I. -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtGui.framework/Headers -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/jordan/Documents/Qt/5.6/clang_64/mkspecs/macx-clang -F/Users/jordan/Documents/Qt/5.6/clang_64/lib
+CFLAGS        = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
+INCPATH       = -I../BestResidence -I. -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtGui.framework/Headers -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/jordan/Documents/Qt/5.6/clang_64/mkspecs/macx-clang -F/Users/jordan/Documents/Qt/5.6/clang_64/lib
 QMAKE         = /Users/jordan/Documents/Qt/5.6/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -35,7 +35,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = BestResidence1.0.0
 DISTDIR = /Users/jordan/Dropbox/Cours/L3\ -\ S6/Interface\ homme-machine/Projet/BestResidence/build-BestResidence-Desktop_Qt_5_6_0_clang_64bit-Debug/.tmp/BestResidence1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-LFLAGS        = -headerpad_max_install_names -stdlib=libc++ -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk -mmacosx-version-min=10.7 -Wl,-rpath,/Users/jordan/Documents/Qt/5.6/clang_64/lib
+LFLAGS        = -headerpad_max_install_names -stdlib=libc++ -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wl,-rpath,/Users/jordan/Documents/Qt/5.6/clang_64/lib
 LIBS          = $(SUBLIBS) -F/Users/jordan/Documents/Qt/5.6/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
@@ -562,11 +562,14 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_ajout.cpp
 moc_mainwindow.cpp: /Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
 		../BestResidence/mainwindow.h
 	/Users/jordan/Documents/Qt/5.6/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/jordan/Documents/Qt/5.6/clang_64/mkspecs/macx-clang -I'/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence' -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtGui.framework/Headers -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtCore.framework/Headers -I. -F/Users/jordan/Documents/Qt/5.6/clang_64/lib ../BestResidence/mainwindow.h -o moc_mainwindow.cpp
 
 moc_ajout.cpp: /Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_ajout.h \
 		../BestResidence/ajout.h
 	/Users/jordan/Documents/Qt/5.6/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/jordan/Documents/Qt/5.6/clang_64/mkspecs/macx-clang -I'/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence' -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtGui.framework/Headers -I/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtCore.framework/Headers -I. -F/Users/jordan/Documents/Qt/5.6/clang_64/lib ../BestResidence/ajout.h -o moc_ajout.cpp
 
@@ -596,19 +599,42 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 main.o: ../BestResidence/main.cpp ../BestResidence/mainwindow.h \
 		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../BestResidence/ajout.h \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_ajout.h \
 		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../BestResidence/main.cpp
 
-mainwindow.o: ../BestResidence/mainwindow.cpp ../BestResidence/mainwindow.h \
+mainwindow.o: ../BestResidence/mainwindow.cpp /Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../BestResidence/mainwindow.h \
 		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../BestResidence/ajout.h \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_ajout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../BestResidence/mainwindow.cpp
 
-ajout.o: ../BestResidence/ajout.cpp ../BestResidence/ajout.h \
+ajout.o: ../BestResidence/ajout.cpp /Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../BestResidence/ajout.h \
 		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QDialog \
-		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qdialog.h
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_ajout.h \
+		../BestResidence/mainwindow.h \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
+		/Users/jordan/Documents/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ajout.o ../BestResidence/ajout.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

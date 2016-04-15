@@ -19,7 +19,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTableView>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -30,8 +30,8 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QPushButton *pushButton;
-    QTableView *tableBiens;
     QLabel *label;
+    QTableWidget *tableBiens;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -40,26 +40,44 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(500, 358);
+        MainWindow->resize(599, 358);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(340, 10, 151, 61));
+        pushButton->setGeometry(QRect(410, 10, 151, 61));
         pushButton->setFlat(false);
-        tableBiens = new QTableView(centralWidget);
-        tableBiens->setObjectName(QStringLiteral("tableBiens"));
-        tableBiens->setGeometry(QRect(0, 80, 501, 231));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(30, 20, 201, 31));
+        label->setGeometry(QRect(60, 20, 201, 31));
         QFont font;
         font.setPointSize(29);
         label->setFont(font);
+        tableBiens = new QTableWidget(centralWidget);
+        if (tableBiens->columnCount() < 6)
+            tableBiens->setColumnCount(6);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tableBiens->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tableBiens->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableBiens->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tableBiens->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tableBiens->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        tableBiens->setHorizontalHeaderItem(5, __qtablewidgetitem5);
+        tableBiens->setObjectName(QStringLiteral("tableBiens"));
+        tableBiens->setGeometry(QRect(0, 80, 601, 231));
+        tableBiens->setShowGrid(false);
+        tableBiens->setGridStyle(Qt::SolidLine);
+        tableBiens->setColumnCount(6);
+        tableBiens->verticalHeader()->setVisible(false);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 500, 22));
+        menuBar->setGeometry(QRect(0, 0, 599, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -81,6 +99,18 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         pushButton->setText(QApplication::translate("MainWindow", "Ajouter une annonce", 0));
         label->setText(QApplication::translate("MainWindow", "BestResidence", 0));
+        QTableWidgetItem *___qtablewidgetitem = tableBiens->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Photo", 0));
+        QTableWidgetItem *___qtablewidgetitem1 = tableBiens->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Bien", 0));
+        QTableWidgetItem *___qtablewidgetitem2 = tableBiens->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Pi\303\250ces", 0));
+        QTableWidgetItem *___qtablewidgetitem3 = tableBiens->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "Superficie", 0));
+        QTableWidgetItem *___qtablewidgetitem4 = tableBiens->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "Ville", 0));
+        QTableWidgetItem *___qtablewidgetitem5 = tableBiens->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "Prix", 0));
     } // retranslateUi
 
 };

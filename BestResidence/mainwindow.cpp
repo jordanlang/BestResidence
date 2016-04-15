@@ -1,4 +1,5 @@
 #include <QMessageBox>
+#include <QTableWidget>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ajout.h"
@@ -22,7 +23,26 @@ void MainWindow::on_pushButton_clicked()
     ajout_bien.exec();
 
     if(!annule) {
-        //ui->tableBiens->
+        wdg_photo = new QTableWidgetItem();
+        wdg_bien = new QTableWidgetItem();
+        wdg_pieces = new QTableWidgetItem();
+        wdg_superficie = new QTableWidgetItem();
+        wdg_ville = new QTableWidgetItem();
+        wdg_prix = new QTableWidgetItem();
+
+        wdg_bien->setText(this->typeBien);
+        wdg_pieces->setText(QString::number(this->nbPieces));
+        wdg_superficie->setText(QString::number(this->superficie));
+        wdg_ville->setText(this->ville);
+        wdg_prix->setText(QString::number(this->prix));
+
+        int i = ui->tableBiens->rowCount();
+        ui->tableBiens->insertRow(i);
+        ui->tableBiens->setItem(i, 1, wdg_bien);
+        ui->tableBiens->setItem(i, 2, wdg_pieces);
+        ui->tableBiens->setItem(i, 3, wdg_superficie);
+        ui->tableBiens->setItem(i, 4, wdg_ville);
+        ui->tableBiens->setItem(i, 5, wdg_prix);
     }
 }
 

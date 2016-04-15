@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
+    <width>599</width>
     <height>358</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>410</x>
       <y>10</y>
       <width>151</width>
       <height>61</height>
@@ -33,20 +33,10 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QTableView" name="tableBiens">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>80</y>
-      <width>501</width>
-      <height>231</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>60</x>
       <y>20</y>
       <width>201</width>
       <height>31</height>
@@ -61,13 +51,65 @@
      <string>BestResidence</string>
     </property>
    </widget>
+   <widget class="QTableWidget" name="tableBiens">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>80</y>
+      <width>601</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="showGrid">
+     <bool>false</bool>
+    </property>
+    <property name="gridStyle">
+     <enum>Qt::SolidLine</enum>
+    </property>
+    <property name="columnCount">
+     <number>6</number>
+    </property>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Photo</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Bien</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Pièces</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Superficie</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Ville</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Prix</string>
+     </property>
+    </column>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>500</width>
+     <width>599</width>
      <height>22</height>
     </rect>
    </property>

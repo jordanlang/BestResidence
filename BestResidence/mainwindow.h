@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTableWidget>
 
 namespace Ui {
 class MainWindow;
@@ -44,6 +45,12 @@ private:
     QString photoPrincipale;
     QString photosSupp[10];
     bool annule;
+    QTableWidgetItem* wdg_photo;
+    QTableWidgetItem* wdg_bien;
+    QTableWidgetItem* wdg_pieces;
+    QTableWidgetItem* wdg_superficie;
+    QTableWidgetItem* wdg_ville;
+    QTableWidgetItem* wdg_prix;
 };
 
 #endif // MAINWINDOW_H
