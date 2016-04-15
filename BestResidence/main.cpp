@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ajout.h"
 #include <QApplication>
+#include <QDomDocument>
+#include <QtXml>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {

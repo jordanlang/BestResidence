@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QTableWidget>
+#include <QDomDocument>
+#include <QtXml>
+#include <iostream>
 
 namespace Ui {
 class MainWindow;
@@ -33,6 +36,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QDomDocument *dom;
     QString typeAnnonce;
     QString typeBien;
     int nbPieces;

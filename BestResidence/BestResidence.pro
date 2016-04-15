@@ -25,3 +25,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     ajout.ui \
     annonce.ui
+
+DISTFILES += \
+    annonces.xml

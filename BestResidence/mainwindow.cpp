@@ -1,5 +1,8 @@
 #include <QMessageBox>
 #include <QTableWidget>
+#include <QDomDocument>
+#include <QtXml>
+#include <iostream>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ajout.h"
@@ -10,6 +13,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    dom = new QDomDocument("annonces");
+    QFile xml_doc("annonces.xml");// On choisit le fichier contenant les informations XML.
+    if(!xml_doc.open(QIODevice::ReadOnly))// Si l'on n'arrive pas à ouvrir le fichier XML.
+    {
+        QMessageBox::warning(this,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Vérifiez que le nom est le bon et que le document est bien placé");
+        return;
+    }
+    if (!dom->setContent(&xml_doc)) // Si l'on n'arrive pas à associer le fichier XML à l'objet DOM.
+    {
+            xml_doc.close();
+            QMessageBox::warning(this,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être attribué à l'objet QDomDocument.");
+            return;
+    }
+    xml_doc.close();
 }
 
 MainWindow::~MainWindow()
