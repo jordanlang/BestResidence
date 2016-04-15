@@ -22,6 +22,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <item>
     <property name="text">
      <string>Maison</string>
@@ -87,6 +90,9 @@
      <width>48</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>IBeamCursor</cursorShape>
    </property>
   </widget>
   <widget class="QLabel" name="l_mCarre">
@@ -303,6 +309,9 @@
      <width>201</width>
      <height>26</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <item>
     <property name="text">

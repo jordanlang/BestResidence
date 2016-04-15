@@ -7,6 +7,9 @@
 #include "ui_mainwindow.h"
 #include "ajout.h"
 #include "ui_ajout.h"
+#include "annonce.h"
+#include "ui_annonce.h"
+#include <string>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -125,4 +128,12 @@ void MainWindow::setPhotosSupp(QString ps[])
 void MainWindow::setAnnule(bool b)
 {
     this->annule = b;
+}
+
+void MainWindow::on_tableBiens_clicked(const QModelIndex &index)
+{
+
+    QMessageBox::warning(this,"bla",QString::number(index.row()));
+    Annonce voir_annonce(this);
+
 }

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ajout.h"
+#include "annonce.h"
 #include <QApplication>
 #include <QDomDocument>
 #include <QtXml>

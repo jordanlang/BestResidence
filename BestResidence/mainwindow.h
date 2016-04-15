@@ -34,6 +34,8 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_tableBiens_clicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     QDomDocument *dom;
