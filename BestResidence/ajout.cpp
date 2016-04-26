@@ -9,6 +9,7 @@ Ajout::Ajout(QWidget *parent, Qt::WindowFlags f) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    ((MainWindow*)this->parent())->setAnnule(true);
 }
 
 Ajout::~Ajout()

@@ -16,25 +16,97 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    dom = new QDomDocument("annonces");
-    QFile xml_doc("annonces.xml");// On choisit le fichier contenant les informations XML.
-    if(!xml_doc.open(QIODevice::ReadOnly))// Si l'on n'arrive pas à ouvrir le fichier XML.
-    {
-        QMessageBox::warning(this,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Vérifiez que le nom est le bon et que le document est bien placé");
-        return;
-    }
-    if (!dom->setContent(&xml_doc)) // Si l'on n'arrive pas à associer le fichier XML à l'objet DOM.
-    {
-            xml_doc.close();
-            QMessageBox::warning(this,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être attribué à l'objet QDomDocument.");
-            return;
-    }
-    xml_doc.close();
+    readXmlFile();
+    addTabToList();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::readXmlFile()
+{
+    QXmlStreamReader reader; // Objet servant à la lecture du fichier Xml
+    QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
+    QFile fileXml(fileXmlName);
+
+    // Ouverture du fichier XML en lecture seule et en mode texte (Sort de la fonction si le fichier ne peut etre ouvert).
+    if (!fileXml.open(QFile::ReadOnly | QFile::Text))
+        return;
+
+    // Initialise l'instance reader avec le flux XML venant de file
+    reader.setDevice(&fileXml);
+
+    // charge les informations du fichier xml dans l'application
+    QString element = "id";
+    int id = 0;
+    reader.readNext();
+    while (!reader.atEnd())
+    {
+        if(reader.isStartElement()) {
+            if(reader.name() == element) {
+                if(element == "id") {
+                    nb_annonces += 1;
+                    element = "annonce";
+                } else if(element == "annonce") {
+                    annonces[id][0] = reader.readElementText();
+                    element = "bien";
+                } else if(element == "bien") {
+                    annonces[id][1] = reader.readElementText();
+                    element = "pieces";
+                } else if(element == "pieces") {
+                    annonces[id][2] = reader.readElementText();
+                    element = "superficie";
+                } else if(element == "superficie") {
+                    annonces[id][3] = reader.readElementText();
+                    element = "ville";
+                } else if(element == "ville") {
+                    annonces[id][4] = reader.readElementText();
+                    element = "prix";
+                } else if(element == "prix") {
+                    annonces[id][5] = reader.readElementText();
+                    id += 1;
+                    element = "id";
+                }
+            }
+        }
+        reader.readNext();
+    }
+
+    fileXml.close();
+}
+
+void MainWindow::addTabToList()
+{
+    ui->tableBiens->clear();
+
+    for(int i=0; i<nb_annonces; i++)
+    {
+        wdg_bien = new QTableWidgetItem();
+        wdg_pieces = new QTableWidgetItem();
+        wdg_superficie = new QTableWidgetItem();
+        wdg_ville = new QTableWidgetItem();
+        wdg_prix = new QTableWidgetItem();
+
+        wdg_bien->setText(annonces[i][1]);
+        wdg_pieces->setText(annonces[i][2]);
+        wdg_superficie->setText(annonces[i][3]);
+        wdg_ville->setText(annonces[i][4]);
+        wdg_prix->setText(annonces[i][5]);
+
+        ui->tableBiens->insertRow(i);
+        ui->tableBiens->setItem(i, 1, wdg_bien);
+        ui->tableBiens->setItem(i, 2, wdg_pieces);
+        ui->tableBiens->setItem(i, 3, wdg_superficie);
+        ui->tableBiens->setItem(i, 4, wdg_ville);
+        ui->tableBiens->setItem(i, 5, wdg_prix);
+    }
+}
+
+void MainWindow::writeXmlFile()
+{
+
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -43,26 +115,14 @@ void MainWindow::on_pushButton_clicked()
     ajout_bien.exec();
 
     if(!annule) {
-        wdg_photo = new QTableWidgetItem();
-        wdg_bien = new QTableWidgetItem();
-        wdg_pieces = new QTableWidgetItem();
-        wdg_superficie = new QTableWidgetItem();
-        wdg_ville = new QTableWidgetItem();
-        wdg_prix = new QTableWidgetItem();
+        annonces[nb_annonces][1] = this->typeBien;
+        annonces[nb_annonces][2] = QString::number(this->nbPieces);
+        annonces[nb_annonces][3] = QString::number(this->superficie);
+        annonces[nb_annonces][4] = this->ville;
+        annonces[nb_annonces][5] = QString::number(this->prix);
+        nb_annonces += 1;
 
-        wdg_bien->setText(this->typeBien);
-        wdg_pieces->setText(QString::number(this->nbPieces));
-        wdg_superficie->setText(QString::number(this->superficie));
-        wdg_ville->setText(this->ville);
-        wdg_prix->setText(QString::number(this->prix));
-
-        int i = ui->tableBiens->rowCount();
-        ui->tableBiens->insertRow(i);
-        ui->tableBiens->setItem(i, 1, wdg_bien);
-        ui->tableBiens->setItem(i, 2, wdg_pieces);
-        ui->tableBiens->setItem(i, 3, wdg_superficie);
-        ui->tableBiens->setItem(i, 4, wdg_ville);
-        ui->tableBiens->setItem(i, 5, wdg_prix);
+        addTabToList();
     }
 }
 
@@ -135,5 +195,4 @@ void MainWindow::on_tableBiens_clicked(const QModelIndex &index)
 
     QMessageBox::warning(this,"bla",QString::number(index.row()));
     Annonce voir_annonce(this);
-
 }

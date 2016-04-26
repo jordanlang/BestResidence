@@ -30,13 +30,17 @@ public:
     void setPhotoPrincipale(QString);
     void setPhotosSupp(QString[]);
     void setAnnule(bool);
+    QString annonces[10000][6];
+    int nb_annonces;
+    void addTabToList();
 
 private slots:
     void on_pushButton_clicked();
-
     void on_tableBiens_clicked(const QModelIndex &index);
 
 private:
+    void readXmlFile();
+    void writeXmlFile();
     Ui::MainWindow *ui;
     QDomDocument *dom;
     QString typeAnnonce;
