@@ -92,7 +92,7 @@
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>IBeamCursor</cursorShape>
+    <cursorShape>ArrowCursor</cursorShape>
    </property>
   </widget>
   <widget class="QLabel" name="l_mCarre">
@@ -215,6 +215,9 @@
      <height>131</height>
     </rect>
    </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>IBeamCursor</cursorShape>
+   </property>
   </widget>
   <widget class="QLabel" name="l_prix">
    <property name="geometry">
@@ -284,6 +287,9 @@
      <height>21</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="text">
     <string>...</string>
    </property>
@@ -333,6 +339,9 @@
      <height>21</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="text">
     <string>Ajouter</string>
    </property>
@@ -345,6 +354,9 @@
      <width>71</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string>Ajouter</string>
@@ -371,6 +383,9 @@
      <width>31</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string>...</string>

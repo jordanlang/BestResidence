@@ -214,6 +214,19 @@
     <string>Esc</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>430</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ofrre disponible depuis le </string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
