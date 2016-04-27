@@ -343,7 +343,5 @@ void MainWindow::setAnnule(bool b)
 
 void MainWindow::on_tableBiens_clicked(const QModelIndex &index)
 {
-
-    QMessageBox::warning(this,"bla",QString::number(index.row()));
-    Annonce voir_annonce(this);
+    Annonce voir_annonce(this,index.row());
 }

@@ -9,7 +9,7 @@ class Annonce : public QDialog
     Q_OBJECT
 
 public:
-    explicit Annonce(QWidget *parent = Q_NULLPTR, Qt::WindowFlags f = Qt::WindowFlags());
+    explicit Annonce(QWidget *parent = Q_NULLPTR,int line =0, Qt::WindowFlags f = Qt::WindowFlags());
     ~Annonce();
 
 private slots:
