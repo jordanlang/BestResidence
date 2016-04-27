@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTabWidget" name="onglets">
+   <widget class="QTabWidget" name="tableClient">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -24,13 +24,13 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
       <string>Offres de ventes</string>
      </attribute>
-     <widget class="QTableWidget" name="tableBiens">
+     <widget class="QTableWidget" name="tableOffreVente">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -790,7 +790,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QTableWidget" name="tableBiens_9">
+     <widget class="QTableWidget" name="tableOffreLocation">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -876,7 +876,7 @@
      <attribute name="title">
       <string>Biens vendus</string>
      </attribute>
-     <widget class="QTableWidget" name="tableBiens_3">
+     <widget class="QTableWidget" name="tableBienVendu">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -898,7 +898,7 @@
        <enum>Qt::SolidLine</enum>
       </property>
       <property name="columnCount">
-       <number>8</number>
+       <number>7</number>
       </property>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
@@ -931,11 +931,6 @@
       <column>
        <property name="text">
         <string>Prix</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Client</string>
        </property>
       </column>
       <column>
@@ -1327,7 +1322,7 @@
      <attribute name="title">
       <string>Biens loués</string>
      </attribute>
-     <widget class="QTableWidget" name="tableBiens_4">
+     <widget class="QTableWidget" name="tableBienLoue">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -1349,7 +1344,7 @@
        <enum>Qt::SolidLine</enum>
       </property>
       <property name="columnCount">
-       <number>8</number>
+       <number>7</number>
       </property>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
@@ -1382,11 +1377,6 @@
       <column>
        <property name="text">
         <string>Prix</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Client</string>
        </property>
       </column>
       <column>
@@ -1800,7 +1790,7 @@
        <enum>Qt::SolidLine</enum>
       </property>
       <property name="columnCount">
-       <number>8</number>
+       <number>6</number>
       </property>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
@@ -1822,27 +1812,17 @@
       </column>
       <column>
        <property name="text">
-        <string>Adresse</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>Ville</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Contact</string>
+        <string>Courriel</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Nombre de contrats</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Date création</string>
+        <string>Téléphone</string>
        </property>
       </column>
      </widget>
