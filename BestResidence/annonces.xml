@@ -26,11 +26,15 @@
     </immobilier>
     <client>
         <identifiant></identifiant>
+        <genre></genre>
         <nom></nom>
         <prenom></prenom>
+        <datenaissance></datenaissance>
         <adresseclient></adresseclient>
         <villeclient></villeclient>
-        <contact></contact>
+        <codepostalclient></codepostalclient>
+        <courriel></courriel>
+        <telephone></telephone>
         <nbcontrats></nbcontrats>
         <datecreation></datecreation>
     </client>

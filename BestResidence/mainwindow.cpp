@@ -126,27 +126,39 @@ void MainWindow::readXmlFile()
                     element_client = "identifiant";
                 } else if(element_client == "identifiant") {
                     clients[id_client][0] = reader.readElementText();
+                    element_client = "genre";
+                } else if(element_client == "genre") {
+                    clients[id_client][1] = reader.readElementText();
                     element_client = "nom";
                 } else if(element_client == "nom") {
-                    clients[id_client][1] = reader.readElementText();
+                    clients[id_client][2] = reader.readElementText();
                     element_client = "prenom";
                 } else if(element_client == "prenom") {
-                    clients[id_client][2] = reader.readElementText();
+                    clients[id_client][3] = reader.readElementText();
+                    element_client = "datenaissance";
+                } else if(element_client == "datenaissance") {
+                    clients[id_client][4] = reader.readElementText();
                     element_client = "adresseclient";
                 } else if(element_client == "adresseclient") {
-                    clients[id_client][3] = reader.readElementText();
+                    clients[id_client][5] = reader.readElementText();
                     element_client = "villeclient";
                 } else if(element_client == "villeclient") {
-                    clients[id_client][4] = reader.readElementText();
-                    element_client = "contact";
-                } else if(element_client == "contact") {
-                    clients[id_client][5] = reader.readElementText();
+                    clients[id_client][6] = reader.readElementText();
+                    element_client = "codepostalclient";
+                } else if(element_client == "codepostalclient") {
+                    clients[id_client][7] = reader.readElementText();
+                    element_client = "courriel";
+                } else if(element_client == "courriel") {
+                    clients[id_client][8] = reader.readElementText();
+                    element_client = "telephone";
+                } else if(element_client == "telephone") {
+                    clients[id_client][9] = reader.readElementText();
                     element_client = "nbcontrats";
                 } else if(element_client == "nbcontrats") {
-                    clients[id_client][6] = reader.readElementText();
+                    clients[id_client][10] = reader.readElementText();
                     element_client = "datecreation";
                 } else if(element_client == "datecreation") {
-                    clients[id_client][7] = reader.readElementText();
+                    clients[id_client][11] = reader.readElementText();
                     id_client += 1;
                     element_client = "client";
                 }
@@ -158,30 +170,202 @@ void MainWindow::readXmlFile()
     fileXml.close();
 }
 
-void MainWindow::addTabToList()
+void MainWindow::initAnnonces()
 {
-    ui->tableBiens->clear();
+    nb_aff_annonces_vente = 0;
+    nb_aff_annonces_location = 0;
+    nb_aff_histo_vente = 0;
+    nb_aff_histo_location = 0;
 
     for(int i=0; i<nb_annonces; i++)
     {
+        if(annonces[i][0] == "Vente" && annonces[i][19] == 0) {
+            for(int j=0; j<22; j++) {
+                aff_annonces_vente[nb_aff_annonces_vente][j] = annonces[i][j];
+            }
+            nb_aff_annonces_vente += 1;
+        } else if(annonces[i][0] == "Location" && annonces[i][19] == 0) {
+            for(int j=0; j<22; j++) {
+                aff_annonces_location[nb_aff_annonces_location][j] = annonces[i][j];
+            }
+            nb_aff_annonces_location += 1;
+        } else if(annonces[i][0] == "Vente" && annonces[i][19] == 1) {
+            for(int j=0; j<22; j++) {
+                aff_histo_vente[nb_aff_histo_vente][j] = annonces[i][j];
+            }
+            nb_aff_histo_vente += 1;
+        } else {
+            for(int j=0; j<22; j++) {
+                aff_histo_location[nb_aff_histo_location][j] = annonces[i][j];
+            }
+            nb_aff_histo_location += 1;
+        }
+    }
+}
+
+void MainWindow::addTabAnnoncesVente()
+{
+    ui->tableOffreVente->clear();
+
+    for(int i=0; i<nb_aff_annonces_vente; i++)
+    {
+        wdg_photo = new QTableWidgetItem();
         wdg_bien = new QTableWidgetItem();
         wdg_pieces = new QTableWidgetItem();
         wdg_superficie = new QTableWidgetItem();
         wdg_ville = new QTableWidgetItem();
         wdg_prix = new QTableWidgetItem();
+        wdg_date = new QTableWidgetItem();
 
-        wdg_bien->setText(annonces[i][1]);
-        wdg_pieces->setText(annonces[i][2]);
-        wdg_superficie->setText(annonces[i][3]);
-        wdg_ville->setText(annonces[i][5]);
-        wdg_prix->setText(annonces[i][8]);
+        QIcon icon(aff_annonces_vente[i][10]);
+        wdg_photo->setIcon(icon);
+        wdg_bien->setText(aff_annonces_vente[i][1]);
+        wdg_pieces->setText(aff_annonces_vente[i][2]);
+        wdg_superficie->setText(aff_annonces_vente[i][3]);
+        wdg_ville->setText(aff_annonces_vente[i][5]);
+        wdg_prix->setText(aff_annonces_vente[i][8]);
+        wdg_date->setText(aff_annonces_vente[i][9]);
 
-        ui->tableBiens->insertRow(i);
-        ui->tableBiens->setItem(i, 1, wdg_bien);
-        ui->tableBiens->setItem(i, 2, wdg_pieces);
-        ui->tableBiens->setItem(i, 3, wdg_superficie);
-        ui->tableBiens->setItem(i, 4, wdg_ville);
-        ui->tableBiens->setItem(i, 5, wdg_prix);
+        ui->tableOffreVente->insertRow(i);
+        ui->tableOffreVente->setItem(i, 0, wdg_photo);
+        ui->tableOffreVente->setItem(i, 1, wdg_bien);
+        ui->tableOffreVente->setItem(i, 2, wdg_pieces);
+        ui->tableOffreVente->setItem(i, 3, wdg_superficie);
+        ui->tableOffreVente->setItem(i, 4, wdg_ville);
+        ui->tableOffreVente->setItem(i, 5, wdg_prix);
+        ui->tableOffreVente->setItem(i, 6, wdg_date);
+    }
+}
+
+void MainWindow::addTabAnnoncesLocation()
+{
+    ui->tableOffreLocation->clear();
+
+    for(int i=0; i<nb_aff_annonces_location; i++)
+    {
+        wdg_photo = new QTableWidgetItem();
+        wdg_bien = new QTableWidgetItem();
+        wdg_pieces = new QTableWidgetItem();
+        wdg_superficie = new QTableWidgetItem();
+        wdg_ville = new QTableWidgetItem();
+        wdg_prix = new QTableWidgetItem();
+        wdg_date = new QTableWidgetItem();
+
+        QIcon icon(aff_annonces_location[i][10]);
+        wdg_photo->setIcon(icon);
+        wdg_bien->setText(aff_annonces_location[i][1]);
+        wdg_pieces->setText(aff_annonces_location[i][2]);
+        wdg_superficie->setText(aff_annonces_location[i][3]);
+        wdg_ville->setText(aff_annonces_location[i][5]);
+        wdg_prix->setText(aff_annonces_location[i][8]);
+        wdg_date->setText(aff_annonces_location[i][9]);
+
+        ui->tableOffreLocation->insertRow(i);
+        ui->tableOffreLocation->setItem(i, 0, wdg_photo);
+        ui->tableOffreLocation->setItem(i, 1, wdg_bien);
+        ui->tableOffreLocation->setItem(i, 2, wdg_pieces);
+        ui->tableOffreLocation->setItem(i, 3, wdg_superficie);
+        ui->tableOffreLocation->setItem(i, 4, wdg_ville);
+        ui->tableOffreLocation->setItem(i, 5, wdg_prix);
+        ui->tableOffreLocation->setItem(i, 6, wdg_date);
+    }
+}
+
+void MainWindow::addTabHistoVente()
+{
+    ui->tableBienVendu->clear();
+
+    for(int i=0; i<nb_aff_histo_vente; i++)
+    {
+        wdg_photo = new QTableWidgetItem();
+        wdg_bien = new QTableWidgetItem();
+        wdg_pieces = new QTableWidgetItem();
+        wdg_superficie = new QTableWidgetItem();
+        wdg_ville = new QTableWidgetItem();
+        wdg_prix = new QTableWidgetItem();
+        wdg_date = new QTableWidgetItem();
+
+        QIcon icon(aff_histo_vente[i][10]);
+        wdg_photo->setIcon(icon);
+        wdg_bien->setText(aff_histo_vente[i][1]);
+        wdg_pieces->setText(aff_histo_vente[i][2]);
+        wdg_superficie->setText(aff_histo_vente[i][3]);
+        wdg_ville->setText(aff_histo_vente[i][5]);
+        wdg_prix->setText(aff_histo_vente[i][8]);
+        wdg_date->setText(aff_histo_vente[i][9]);
+
+        ui->tableBienVendu->insertRow(i);
+        ui->tableBienVendu->setItem(i, 0, wdg_photo);
+        ui->tableBienVendu->setItem(i, 1, wdg_bien);
+        ui->tableBienVendu->setItem(i, 2, wdg_pieces);
+        ui->tableBienVendu->setItem(i, 3, wdg_superficie);
+        ui->tableBienVendu->setItem(i, 4, wdg_ville);
+        ui->tableBienVendu->setItem(i, 5, wdg_prix);
+        ui->tableBienVendu->setItem(i, 6, wdg_date);
+    }
+}
+
+void MainWindow::addTabHistoLocation()
+{
+    ui->tableBienLoue->clear();
+
+    for(int i=0; i<nb_aff_histo_location; i++)
+    {
+        wdg_photo = new QTableWidgetItem();
+        wdg_bien = new QTableWidgetItem();
+        wdg_pieces = new QTableWidgetItem();
+        wdg_superficie = new QTableWidgetItem();
+        wdg_ville = new QTableWidgetItem();
+        wdg_prix = new QTableWidgetItem();
+        wdg_date = new QTableWidgetItem();
+
+        QIcon icon(aff_histo_location[i][10]);
+        wdg_photo->setIcon(icon);
+        wdg_bien->setText(aff_histo_location[i][1]);
+        wdg_pieces->setText(aff_histo_location[i][2]);
+        wdg_superficie->setText(aff_histo_location[i][3]);
+        wdg_ville->setText(aff_histo_location[i][5]);
+        wdg_prix->setText(aff_histo_location[i][8]);
+        wdg_date->setText(aff_histo_location[i][9]);
+
+        ui->tableBienLoue->insertRow(i);
+        ui->tableBienLoue->setItem(i, 0, wdg_photo);
+        ui->tableBienLoue->setItem(i, 1, wdg_bien);
+        ui->tableBienLoue->setItem(i, 2, wdg_pieces);
+        ui->tableBienLoue->setItem(i, 3, wdg_superficie);
+        ui->tableBienLoue->setItem(i, 4, wdg_ville);
+        ui->tableBienLoue->setItem(i, 5, wdg_prix);
+        ui->tableBienLoue->setItem(i, 6, wdg_date);
+    }
+}
+
+void MainWindow::addTabClients()
+{
+    ui->tableClients->clear();
+
+    for(int i=0; i<nb_clients; i++)
+    {
+        wdg_id_client = new QTableWidgetItem();
+        wdg_nom = new QTableWidgetItem();
+        wdg_prenom = new QTableWidgetItem();
+        wdg_ville = new QTableWidgetItem();
+        wdg_courriel = new QTableWidgetItem();
+        wdg_telephone = new QTableWidgetItem();
+
+        wdg_id_client->setText(clients[i][0]);
+        wdg_nom->setText(clients[i][2]);
+        wdg_prenom->setText(clients[i][3]);
+        wdg_ville->setText(clients[i][6]);
+        wdg_courriel->setText(clients[i][8]);
+        wdg_telephone->setText(clients[i][9]);
+
+        ui->tableBienLoue->insertRow(i);
+        ui->tableBienLoue->setItem(i, 0, wdg_id_client);
+        ui->tableBienLoue->setItem(i, 1, wdg_nom);
+        ui->tableBienLoue->setItem(i, 2, wdg_prenom);
+        ui->tableBienLoue->setItem(i, 4, wdg_ville);
+        ui->tableBienLoue->setItem(i, 5, wdg_courriel);
+        ui->tableBienLoue->setItem(i, 6, wdg_telephone);
     }
 }
 
@@ -222,6 +406,8 @@ void MainWindow::writeXmlFile()
         writer.writeTextElement("supp7", annonces[i][17]);
         writer.writeTextElement("supp8", annonces[i][18]);
         writer.writeTextElement("histo", annonces[i][19]);
+        writer.writeTextElement("idprop", annonces[i][20]);
+        writer.writeTextElement("idclient", annonces[i][21]);
         writer.writeEndElement();
     }
 
@@ -229,13 +415,17 @@ void MainWindow::writeXmlFile()
     {
         writer.writeStartElement("client");
         writer.writeTextElement("identifiant", clients[i][0]);
-        writer.writeTextElement("nom", clients[i][1]);
-        writer.writeTextElement("prenom", clients[i][2]);
-        writer.writeTextElement("adresseclient", clients[i][3]);
-        writer.writeTextElement("villeclient", clients[i][4]);
-        writer.writeTextElement("contact", clients[i][5]);
-        writer.writeTextElement("nbcontrats", clients[i][6]);
-        writer.writeTextElement("datecreation", clients[i][7]);
+        writer.writeTextElement("genre", clients[i][1]);
+        writer.writeTextElement("nom", clients[i][2]);
+        writer.writeTextElement("prenom", clients[i][3]);
+        writer.writeTextElement("datenaissance", clients[i][4]);
+        writer.writeTextElement("adresseclient", clients[i][5]);
+        writer.writeTextElement("villeclient", clients[i][6]);
+        writer.writeTextElement("codepostalclient", clients[i][7]);
+        writer.writeTextElement("courriel", clients[i][8]);
+        writer.writeTextElement("telephone", clients[i][9]);
+        writer.writeTextElement("nbcontrats", clients[i][10]);
+        writer.writeTextElement("datecreation", clients[i][11]);
         writer.writeEndElement();
     }
 

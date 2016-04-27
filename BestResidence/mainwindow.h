@@ -31,14 +31,23 @@ public:
     void setPhotosSupp(QString[]);
     void setAnnule(bool);
     QString annonces[1000][22];
-    QString clients[1000][8];
+    QString clients[1000][12];
     QString aff_annonces_vente[1000][22];
     QString aff_annonces_location[1000][22];
     QString aff_histo_vente[1000][22];
     QString aff_histo_location[1000][22];
-    int nb_annonces;
-    int nb_clients;
-    void addTabToList();
+    int nb_annonces = 0;
+    int nb_clients = 0;
+    int nb_aff_annonces_vente = 0;
+    int nb_aff_annonces_location = 0;
+    int nb_aff_histo_vente = 0;
+    int nb_aff_histo_location = 0;
+    void addTabAnnoncesVente();
+    void addTabAnnoncesLocation();
+    void addTabHistoVente();
+    void addTabHistoLocation();
+    void addTabClients();
+    void initAnnonces();
 
 private slots:
     void on_pushButton_clicked();
@@ -61,12 +70,19 @@ private:
     QString photoPrincipale;
     QString photosSupp[8];
     bool annule;
+
     QTableWidgetItem* wdg_photo;
     QTableWidgetItem* wdg_bien;
     QTableWidgetItem* wdg_pieces;
     QTableWidgetItem* wdg_superficie;
     QTableWidgetItem* wdg_ville;
     QTableWidgetItem* wdg_prix;
+    QTableWidgetItem* wdg_date;
+    QTableWidgetItem* wdg_id_client;
+    QTableWidgetItem* wdg_nom;
+    QTableWidgetItem* wdg_prenom;
+    QTableWidgetItem* wdg_courriel;
+    QTableWidgetItem* wdg_telephone;
 };
 
 #endif // MAINWINDOW_H
