@@ -21,6 +21,8 @@
         <supp7></supp7>
         <supp8></supp8>
         <histo></histo>
+        <idprop></idprop>
+        <idclient></idclient>
     </immobilier>
     <client>
         <identifiant></identifiant>

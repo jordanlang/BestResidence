@@ -111,6 +111,12 @@ void MainWindow::readXmlFile()
                     element_immo = "histo";
                 } else if(element_immo == "histo") {
                     annonces[id_immo][19] = reader.readElementText();
+                    element_immo = "idprop";
+                } else if(element_immo == "idprop") {
+                    annonces[id_immo][20] = reader.readElementText();
+                    element_immo = "idclient";
+                } else if(element_immo == "idclient") {
+                    annonces[id_immo][21] = reader.readElementText();
                     id_immo += 1;
                     element_immo = "immobilier";
                 }

@@ -30,9 +30,12 @@ public:
     void setPhotoPrincipale(QString);
     void setPhotosSupp(QString[]);
     void setAnnule(bool);
-    QString annonces[10000][20];
+    QString annonces[10000][22];
     QString clients[10000][8];
-    QString aff_annonces_ventes[10000][18];
+    QString aff_annonces_vente[10000][22];
+    QString aff_annonces_location[10000][22];
+    QString aff_histo_vente[10000][22];
+    QString aff_histo_location[10000][22];
     int nb_annonces;
     int nb_clients;
     void addTabToList();
