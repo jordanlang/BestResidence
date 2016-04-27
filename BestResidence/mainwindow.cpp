@@ -343,5 +343,5 @@ void MainWindow::setAnnule(bool b)
 
 void MainWindow::on_tableBiens_clicked(const QModelIndex &index)
 {
-    Annonce voir_annonce(this,index.row());
+    //Annonce voir_annonce(this);
 }
