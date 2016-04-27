@@ -4,7 +4,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-Annonce::Annonce(QWidget *parent, Qt::WindowFlags f ) :
+Annonce::Annonce(QWidget *parent,int line, Qt::WindowFlags f ) :
     QDialog(parent, f),
     ui(new Ui::DialogAnnonce)
 {
