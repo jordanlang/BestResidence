@@ -17,7 +17,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     readXmlFile();
-    addTabToList();
+    initAnnonces();
+    addTabAnnoncesVente();
+    addTabAnnoncesLocation();
+    addTabHistoVente();
+    addTabHistoLocation();
+    addTabClients();
 }
 
 MainWindow::~MainWindow()
@@ -179,17 +184,17 @@ void MainWindow::initAnnonces()
 
     for(int i=0; i<nb_annonces; i++)
     {
-        if(annonces[i][0] == "Vente" && annonces[i][19] == 0) {
+        if(annonces[i][0] == "Vente" && annonces[i][19] == "0") {
             for(int j=0; j<22; j++) {
                 aff_annonces_vente[nb_aff_annonces_vente][j] = annonces[i][j];
             }
             nb_aff_annonces_vente += 1;
-        } else if(annonces[i][0] == "Location" && annonces[i][19] == 0) {
+        } else if(annonces[i][0] == "Location" && annonces[i][19] == "0") {
             for(int j=0; j<22; j++) {
                 aff_annonces_location[nb_aff_annonces_location][j] = annonces[i][j];
             }
             nb_aff_annonces_location += 1;
-        } else if(annonces[i][0] == "Vente" && annonces[i][19] == 1) {
+        } else if(annonces[i][0] == "Vente" && annonces[i][19] == "1") {
             for(int j=0; j<22; j++) {
                 aff_histo_vente[nb_aff_histo_vente][j] = annonces[i][j];
             }
@@ -205,7 +210,7 @@ void MainWindow::initAnnonces()
 
 void MainWindow::addTabAnnoncesVente()
 {
-    ui->tableOffreVente->clear();
+    ui->tableOffreVente->clearContents();
 
     for(int i=0; i<nb_aff_annonces_vente; i++)
     {
@@ -239,7 +244,7 @@ void MainWindow::addTabAnnoncesVente()
 
 void MainWindow::addTabAnnoncesLocation()
 {
-    ui->tableOffreLocation->clear();
+    ui->tableOffreLocation->clearContents();
 
     for(int i=0; i<nb_aff_annonces_location; i++)
     {
@@ -273,7 +278,7 @@ void MainWindow::addTabAnnoncesLocation()
 
 void MainWindow::addTabHistoVente()
 {
-    ui->tableBienVendu->clear();
+    ui->tableBienVendu->clearContents();
 
     for(int i=0; i<nb_aff_histo_vente; i++)
     {
@@ -307,7 +312,7 @@ void MainWindow::addTabHistoVente()
 
 void MainWindow::addTabHistoLocation()
 {
-    ui->tableBienLoue->clear();
+    ui->tableBienLoue->clearContents();
 
     for(int i=0; i<nb_aff_histo_location; i++)
     {
@@ -341,7 +346,7 @@ void MainWindow::addTabHistoLocation()
 
 void MainWindow::addTabClients()
 {
-    ui->tableClients->clear();
+    ui->tableClient->clearContents();
 
     for(int i=0; i<nb_clients; i++)
     {
@@ -459,9 +464,12 @@ void MainWindow::on_pushButton_clicked()
         annonces[nb_annonces][15] = this->photosSupp[5];
         annonces[nb_annonces][16] = this->photosSupp[6];
         annonces[nb_annonces][17] = this->photosSupp[7];
+        annonces[nb_annonces][19] = "0";
 
         nb_annonces += 1;
-        addTabToList();
+        initAnnonces();
+        addTabAnnoncesVente();
+        addTabAnnoncesLocation();
     }
 }
 
@@ -530,9 +538,10 @@ void MainWindow::setAnnule(bool b)
 {
     this->annule = b;
 }
-
+/*
 void MainWindow::on_tableBiens_clicked(const QModelIndex &index)
 {
     QMessageBox::warning(this,"","blabla");
     //Annonce voir_annonce(this);
 }
+*/

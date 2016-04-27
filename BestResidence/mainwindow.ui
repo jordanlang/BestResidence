@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTabWidget" name="tableClient">
+   <widget class="QTabWidget" name="mainWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -1768,7 +1768,7 @@
        <string>BestResidence</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableBiens_8">
+     <widget class="QTableWidget" name="tableClient">
       <property name="geometry">
        <rect>
         <x>20</x>

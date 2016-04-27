@@ -3,13 +3,13 @@
     <immobilier>
         <annonce>Vente</annonce>
         <bien>Maison</bien>
-        <pieces>7</pieces>
-        <superficie>150</superficie>
-        <adresse>41 avenue FM</adresse>
+        <pieces>10</pieces>
+        <superficie>90</superficie>
+        <adresse>67 rue coucou</adresse>
         <ville>Strasbourg</ville>
-        <codepostal>67200</codepostal>
-        <description>Belle maison</description>
-        <prix>20000</prix>
+        <codepostal>67000</codepostal>
+        <description>C'est beau !</description>
+        <prix>99</prix>
         <date></date>
         <principale></principale>
         <supp1></supp1>
@@ -20,22 +20,32 @@
         <supp6></supp6>
         <supp7></supp7>
         <supp8></supp8>
-        <histo></histo>
+        <histo>0</histo>
         <idprop></idprop>
         <idclient></idclient>
     </immobilier>
-    <client>
-        <identifiant></identifiant>
-        <genre></genre>
-        <nom></nom>
-        <prenom></prenom>
-        <datenaissance></datenaissance>
-        <adresseclient></adresseclient>
-        <villeclient></villeclient>
-        <codepostalclient></codepostalclient>
-        <courriel></courriel>
-        <telephone></telephone>
-        <nbcontrats></nbcontrats>
-        <datecreation></datecreation>
-    </client>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Appartement</bien>
+        <pieces>2</pieces>
+        <superficie>30</superficie>
+        <adresse>89 avenue ici</adresse>
+        <ville>Aschbach</ville>
+        <codepostal>67250</codepostal>
+        <description>bcekzc</description>
+        <prix>10</prix>
+        <date></date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop></idprop>
+        <idclient></idclient>
+    </immobilier>
 </bestresidence>
