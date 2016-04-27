@@ -1,34 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <bestresidence>
-<id>
-<annonce>Vente</annonce>
-<bien>Maison</bien>
-<pieces>7</pieces>
-<superficie>60</superficie>
-<ville>Strasbourg</ville>
-<prix>20000</prix>
-</id>
-<id>
-<annonce>Vente</annonce>
-<bien>Château</bien>
-<pieces>3</pieces>
-<superficie></superficie>
-<ville>Aschbach</ville>
-<prix>10890</prix>
-</id>
-<id>
-<annonce>Location</annonce>
-<bien>Ferme</bien>
-<pieces>4</pieces>
-<superficie>200</superficie>
-<ville>Hohwiller</ville>
-<prix>20400</prix>
-</id>
-<id>
-<annonce>Location</annonce>
-<bien>Appartement</bien>
-<pieces>5</pieces>
-<superficie>300</superficie>
-<ville>Illkirch</ville>
-<prix></prix>
-</id>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Maison</bien>
+        <pieces>7</pieces>
+        <superficie>150</superficie>
+        <adresse>41 avenue FM</adresse>
+        <ville>Strasbourg</ville>
+        <codepostal>67200</codepostal>
+        <description>Belle maison</description>
+        <prix>20000</prix>
+        <date></date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo></histo>
+    </immobilier>
+    <client>
+        <identifiant></identifiant>
+        <nom></nom>
+        <prenom></prenom>
+        <adresseclient></adresseclient>
+        <villeclient></villeclient>
+        <contact></contact>
+        <nbcontrats></nbcontrats>
+        <datecreation></datecreation>
+    </client>
 </bestresidence>

@@ -30,8 +30,11 @@ public:
     void setPhotoPrincipale(QString);
     void setPhotosSupp(QString[]);
     void setAnnule(bool);
-    QString annonces[10000][6];
+    QString annonces[10000][20];
+    QString clients[10000][8];
+    QString aff_annonces_ventes[10000][18];
     int nb_annonces;
+    int nb_clients;
     void addTabToList();
 
 private slots:
@@ -53,7 +56,7 @@ private:
     QString description;
     double prix;
     QString photoPrincipale;
-    QString photosSupp[10];
+    QString photosSupp[8];
     bool annule;
     QTableWidgetItem* wdg_photo;
     QTableWidgetItem* wdg_bien;
