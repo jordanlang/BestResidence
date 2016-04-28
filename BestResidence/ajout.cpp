@@ -1,8 +1,11 @@
 #include <QMessageBox>
+#include <ctime>
+#include <QFileDialog>
 #include "ajout.h"
 #include "ui_ajout.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 
 Ajout::Ajout(QWidget *parent, Qt::WindowFlags f) :
     QDialog(parent, f),
@@ -10,11 +13,24 @@ Ajout::Ajout(QWidget *parent, Qt::WindowFlags f) :
 {
     ui->setupUi(this);
     ((MainWindow*)this->parent())->setAnnule(true);
+    this->nb_photos = 0;
 }
 
 Ajout::~Ajout()
 {
     delete ui;
+}
+
+const std::string currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+    // for more information about date/time format
+    strftime(buf, sizeof(buf), "%d-%m-%Y à %X", &tstruct);
+
+    return buf;
 }
 
 void Ajout::on_b_valider_clicked()
@@ -142,8 +158,14 @@ void Ajout::on_b_valider_clicked()
         parent->setCodePostal(ui->q_codePostal->text());
         parent->setDescription(ui->q_description->toPlainText());
         parent->setPrix(ui->q_prix->value());
-        parent->setPhotoPrincipale(ui->q_photoPrincipale->text());
-        ps[0] = ui->q_photosSupp->text();
+        parent->setPhotoPrincipale(ui->l_photoPrincipal->text());
+        QString date = QString::fromStdString(currentDateTime());
+        parent->setDate(date);
+        int i=0;
+        for(i=0;i<ui->listWidget->count();i++)
+        {
+            ps[i]=(ui->listWidget->item(i)->text());
+        }
         parent->setPhotosSupp(ps);
 
         parent->setAnnule(false);
@@ -155,4 +177,36 @@ void Ajout::on_b_annuler_clicked()
 {
     ((MainWindow*)this->parent())->setAnnule(true);
     this->close();
+}
+
+void Ajout::on_b_parcourirPrincipal_clicked()
+{
+    QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open File"),"/path/to/file/", tr("Images (*.png *.xpm *.jpg)"));
+    ui->q_photoPrincipale->setText(fileNames.join(" "));
+}
+
+void Ajout::on_b_parcourirSupp_clicked()
+{
+    QString fileNames = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/", tr("Images (*.png *.xpm *.jpg)"));
+    ui->q_photosSupp->setText(fileNames);
+}
+
+void Ajout::on_b_ajouterPrincipal_clicked()
+{
+    ui->l_photoPrincipal->setText(ui->q_photoPrincipale->text());
+    ui->q_photoPrincipale->setText("");
+}
+
+void Ajout::on_b_ajouterSupp_clicked()
+{
+    if(this->nb_photos<8)
+    {
+        this->nb_photos++;
+        ui->listWidget->addItem(ui->q_photosSupp->text());
+        ui->q_photosSupp->setText("");
+    }
+    else
+    {
+        QMessageBox::warning(this,"","Impossible d'ajouter plus de 8 photos");
+    }
 }

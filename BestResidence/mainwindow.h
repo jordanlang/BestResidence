@@ -26,10 +26,12 @@ public:
     void setVille(QString);
     void setCodePostal(QString);
     void setDescription(QString);
+    void setDate(QString);
     void setPrix(double);
     void setPhotoPrincipale(QString);
     void setPhotosSupp(QString[]);
     void setAnnule(bool);
+    void setHisto(int);
     QString annonces[1000][22];
     QString clients[1000][12];
     QString aff_annonces_vente[1000][22];
@@ -51,7 +53,10 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-    //void on_tableBiens_clicked(const QModelIndex &index);
+    void on_tableOffreVente_clicked(const QModelIndex &index);
+    void on_tableOffreLocation_clicked(const QModelIndex &index);
+    void on_tableBienVendu_clicked(const QModelIndex &index);
+    void on_tableBienLoue_clicked(const QModelIndex &index);
 
 private:
     void readXmlFile();
@@ -69,7 +74,9 @@ private:
     double prix;
     QString photoPrincipale;
     QString photosSupp[8];
+    QString date;
     bool annule;
+    int histo;
 
     QTableWidgetItem* wdg_photo;
     QTableWidgetItem* wdg_bien;

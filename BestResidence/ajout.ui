@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>605</width>
-    <height>573</height>
+    <width>603</width>
+    <height>598</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -72,7 +72,7 @@
   <widget class="QLabel" name="l_superficieTerrain">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>290</x>
      <y>120</y>
      <width>131</width>
      <height>21</height>
@@ -85,14 +85,17 @@
   <widget class="QSpinBox" name="q_superficieTerrain">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>437</x>
      <y>120</y>
-     <width>48</width>
+     <width>91</width>
      <height>24</height>
     </rect>
    </property>
    <property name="cursor">
     <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="maximum">
+    <number>100000</number>
    </property>
   </widget>
   <widget class="QLabel" name="l_mCarre">
@@ -111,7 +114,7 @@
   <widget class="QLabel" name="l_nbPieces">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>90</x>
      <y>120</y>
      <width>121</width>
      <height>20</height>
@@ -124,11 +127,14 @@
   <widget class="QSpinBox" name="q_nbPieces">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>220</x>
      <y>120</y>
-     <width>48</width>
+     <width>51</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="maximum">
+    <number>1000</number>
    </property>
   </widget>
   <widget class="QLineEdit" name="q_adresse">
@@ -222,7 +228,7 @@
   <widget class="QLabel" name="l_prix">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>360</x>
      <y>380</y>
      <width>41</width>
      <height>21</height>
@@ -235,17 +241,20 @@
   <widget class="QDoubleSpinBox" name="q_prix">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>400</x>
      <y>380</y>
-     <width>67</width>
+     <width>141</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="maximum">
+    <double>1000000000.990000009536743</double>
    </property>
   </widget>
   <widget class="QLabel" name="l_euros">
    <property name="geometry">
     <rect>
-     <x>530</x>
+     <x>540</x>
      <y>380</y>
      <width>21</width>
      <height>21</height>
@@ -350,7 +359,7 @@
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>460</y>
+     <y>480</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -366,7 +375,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>460</y>
+     <y>480</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -379,7 +388,7 @@
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>460</y>
+     <y>480</y>
      <width>31</width>
      <height>21</height>
     </rect>
@@ -395,7 +404,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>460</y>
+     <y>480</y>
      <width>241</width>
      <height>21</height>
     </rect>
@@ -404,8 +413,8 @@
   <widget class="QPushButton" name="b_valider">
    <property name="geometry">
     <rect>
-     <x>432</x>
-     <y>521</y>
+     <x>430</x>
+     <y>550</y>
      <width>151</width>
      <height>41</height>
     </rect>
@@ -417,14 +426,40 @@
   <widget class="QPushButton" name="b_annuler">
    <property name="geometry">
     <rect>
-     <x>282</x>
-     <y>521</y>
+     <x>280</x>
+     <y>550</y>
      <width>151</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Annuler</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="l_photoPrincipal">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>450</y>
+     <width>381</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>510</y>
+     <width>381</width>
+     <height>31</height>
+    </rect>
    </property>
   </widget>
  </widget>

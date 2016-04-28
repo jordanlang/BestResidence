@@ -455,15 +455,16 @@ void MainWindow::on_pushButton_clicked()
         annonces[nb_annonces][6] = this->codePostal;
         annonces[nb_annonces][7] = this->description;
         annonces[nb_annonces][8] = QString::number(this->prix);
-        annonces[nb_annonces][9] = this->photoPrincipale;
-        annonces[nb_annonces][10] = this->photosSupp[0];
-        annonces[nb_annonces][11] = this->photosSupp[1];
-        annonces[nb_annonces][12] = this->photosSupp[2];
-        annonces[nb_annonces][13] = this->photosSupp[3];
-        annonces[nb_annonces][14] = this->photosSupp[4];
-        annonces[nb_annonces][15] = this->photosSupp[5];
-        annonces[nb_annonces][16] = this->photosSupp[6];
-        annonces[nb_annonces][17] = this->photosSupp[7];
+        annonces[nb_annonces][9] = this->date;
+        annonces[nb_annonces][10] = this->photoPrincipale;
+        annonces[nb_annonces][11] = this->photosSupp[0];
+        annonces[nb_annonces][12] = this->photosSupp[1];
+        annonces[nb_annonces][13] = this->photosSupp[2];
+        annonces[nb_annonces][14] = this->photosSupp[3];
+        annonces[nb_annonces][15] = this->photosSupp[4];
+        annonces[nb_annonces][16] = this->photosSupp[5];
+        annonces[nb_annonces][17] = this->photosSupp[6];
+        annonces[nb_annonces][18] = this->photosSupp[7];
         annonces[nb_annonces][19] = "0";
 
         nb_annonces += 1;
@@ -517,6 +518,11 @@ void MainWindow::setDescription(QString d)
     this->description = d;
 }
 
+void MainWindow::setDate(QString d)
+{
+    this->date = d;
+}
+
 void MainWindow::setPrix(double p)
 {
     this->prix = p;
@@ -538,10 +544,34 @@ void MainWindow::setAnnule(bool b)
 {
     this->annule = b;
 }
-/*
-void MainWindow::on_tableBiens_clicked(const QModelIndex &index)
+
+void MainWindow::setHisto(int b)
 {
-    QMessageBox::warning(this,"","blabla");
-    //Annonce voir_annonce(this);
+    this->histo = b;
 }
-*/
+
+
+void MainWindow::on_tableOffreVente_clicked(const QModelIndex &index)
+{
+    Annonce voir_annonce(this,index.row(),"Vendu");
+    voir_annonce.exec();
+}
+
+void MainWindow::on_tableOffreLocation_clicked(const QModelIndex &index)
+{
+    Annonce voir_annonce(this,index.row(),"Loué");
+    voir_annonce.exec();
+}
+
+void MainWindow::on_tableBienVendu_clicked(const QModelIndex &index)
+{
+    Annonce voir_annonce(this,index.row(),"Remettre en vente");
+    voir_annonce.exec();
+}
+
+void MainWindow::on_tableBienLoue_clicked(const QModelIndex &index)
+{
+    Annonce voir_annonce(this,index.row(),"Remettre en location");
+    voir_annonce.exec();
+}
+
