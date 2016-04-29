@@ -7,8 +7,8 @@
 #include "ui_mainwindow.h"
 #include "ajout.h"
 #include "ui_ajout.h"
-#include "annonce.h"
-#include "ui_annonce.h"
+#include "annoncewindow.h"
+#include "ui_annoncewindow.h"
 #include <string>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -17,17 +17,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     readXmlFile();
-    initAnnonces();
+    //initAnnonces();
     addTabAnnoncesVente();
-    addTabAnnoncesLocation();
+    /*addTabAnnoncesLocation();
     addTabHistoVente();
     addTabHistoLocation();
-    addTabClients();
+    addTabClients();*/
 }
 
 MainWindow::~MainWindow()
 {
-    writeXmlFile();
+    //writeXmlFile();
     delete ui;
 }
 
@@ -36,6 +36,35 @@ void MainWindow::readXmlFile()
     QXmlStreamReader reader; // Objet servant à la lecture du fichier Xml
     QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
     QFile fileXml(fileXmlName);
+
+    QString xml_typeAnnonce;
+    QString xml_typeBien;
+    QString xml_nbPieces;
+    QString xml_superficie;
+    QString xml_adresse;
+    QString xml_ville;
+    QString xml_codePostal;
+    QString xml_description;
+    QString xml_prix;
+    QString xml_date;
+    QString xml_photoPrincipale;
+    QList<QString> xml_photosSupp;
+    QString xml_histo;
+    QString xml_idprop;
+    QString xml_idclient;
+
+    QString xml_identifiant;
+    QString xml_genre;
+    QString xml_nom;
+    QString xml_prenom;
+    QString xml_dateNaissance;
+    QString xml_adresseClient;
+    QString xml_villeClient;
+    QString xml_codePostalClient;
+    QString xml_courriel;
+    QString xml_telephone;
+    QString xml_nbContrats;
+    QString xml_dateCreation;
 
     // Ouverture du fichier XML en lecture seule et en mode texte (Sort de la fonction si le fichier ne peut etre ouvert).
     if (!fileXml.open(QFile::ReadOnly | QFile::Text))
@@ -47,125 +76,150 @@ void MainWindow::readXmlFile()
     // charge les informations du fichier xml dans l'application
     QString element_immo = "immobilier";
     QString element_client = "client";
-    int id_immo = 0;
-    int id_client = 0;
     reader.readNext();
     while (!reader.atEnd())
     {
         if(reader.isStartElement()) {
             if(reader.name() == element_immo) {
                 if(element_immo == "immobilier") {
-                    nb_annonces += 1;
+                    xml_typeAnnonce = "";
+                    xml_typeBien = "";
+                    xml_nbPieces = "";
+                    xml_superficie = "";
+                    xml_adresse = "";
+                    xml_ville = "";
+                    xml_codePostal = "";
+                    xml_description = "";
+                    xml_prix = "";
+                    xml_date = "";
+                    xml_photoPrincipale = "";
+                    xml_photosSupp.clear();
+                    xml_histo = "";
+                    xml_idprop = "";
+                    xml_idclient = "";
                     element_immo = "annonce";
                 } else if(element_immo == "annonce") {
-                    annonces[id_immo][0] = reader.readElementText();
+                    xml_typeAnnonce = reader.readElementText();
                     element_immo = "bien";
                 } else if(element_immo == "bien") {
-                    annonces[id_immo][1] = reader.readElementText();
+                    xml_typeBien = reader.readElementText();
                     element_immo = "pieces";
                 } else if(element_immo == "pieces") {
-                    annonces[id_immo][2] = reader.readElementText();
+                    xml_nbPieces = reader.readElementText();
                     element_immo = "superficie";
                 } else if(element_immo == "superficie") {
-                    annonces[id_immo][3] = reader.readElementText();
+                    xml_superficie = reader.readElementText();
                     element_immo = "adresse";
                 } else if(element_immo == "adresse") {
-                    annonces[id_immo][4] = reader.readElementText();
+                    xml_adresse = reader.readElementText();
                     element_immo = "ville";
                 } else if(element_immo == "ville") {
-                    annonces[id_immo][5] = reader.readElementText();
+                    xml_ville = reader.readElementText();
                     element_immo = "codepostal";
                 } else if(element_immo == "codepostal") {
-                    annonces[id_immo][6] = reader.readElementText();
+                    xml_codePostal = reader.readElementText();
                     element_immo = "description";
                 } else if(element_immo == "description") {
-                    annonces[id_immo][7] = reader.readElementText();
+                    xml_description = reader.readElementText();
                     element_immo = "prix";
                 } else if(element_immo == "prix") {
-                    annonces[id_immo][8] = reader.readElementText();
+                    xml_prix = reader.readElementText();
                     element_immo = "date";
                 } else if(element_immo == "date") {
-                    annonces[id_immo][9] = reader.readElementText();
+                    xml_date = reader.readElementText();
                     element_immo = "principale";
                 } else if(element_immo == "principale") {
-                    annonces[id_immo][10] = reader.readElementText();
+                    xml_photoPrincipale = reader.readElementText();
                     element_immo = "supp1";
                 } else if(element_immo == "supp1") {
-                    annonces[id_immo][11] = reader.readElementText();
+                    xml_photosSupp.append(reader.readElementText());
                     element_immo = "supp2";
                 } else if(element_immo == "supp2") {
-                    annonces[id_immo][12] = reader.readElementText();
+                    xml_photosSupp.append(reader.readElementText());
                     element_immo = "supp3";
                 } else if(element_immo == "supp3") {
-                    annonces[id_immo][13] = reader.readElementText();
+                    xml_photosSupp.append(reader.readElementText());
                     element_immo = "supp4";
                 } else if(element_immo == "supp4") {
-                    annonces[id_immo][14] = reader.readElementText();
+                    xml_photosSupp.append(reader.readElementText());
                     element_immo = "supp5";
                 } else if(element_immo == "supp5") {
-                    annonces[id_immo][15] = reader.readElementText();
+                    xml_photosSupp.append(reader.readElementText());
                     element_immo = "supp6";
                 } else if(element_immo == "supp6") {
-                    annonces[id_immo][16] = reader.readElementText();
+                    xml_photosSupp.append(reader.readElementText());
                     element_immo = "supp7";
                 } else if(element_immo == "supp7") {
-                    annonces[id_immo][17] = reader.readElementText();
+                    xml_photosSupp.append(reader.readElementText());
                     element_immo = "supp8";
                 } else if(element_immo == "supp8") {
-                    annonces[id_immo][18] = reader.readElementText();
+                    xml_photosSupp.append(reader.readElementText());
                     element_immo = "histo";
                 } else if(element_immo == "histo") {
-                    annonces[id_immo][19] = reader.readElementText();
+                    xml_histo = reader.readElementText();
                     element_immo = "idprop";
                 } else if(element_immo == "idprop") {
-                    annonces[id_immo][20] = reader.readElementText();
+                    xml_idprop = reader.readElementText();
                     element_immo = "idclient";
                 } else if(element_immo == "idclient") {
-                    annonces[id_immo][21] = reader.readElementText();
-                    id_immo += 1;
+                    xml_idclient = reader.readElementText();
                     element_immo = "immobilier";
+                    Annonce* a = new Annonce(xml_typeAnnonce, xml_typeBien, xml_nbPieces.toInt(), xml_superficie.toDouble(), xml_adresse, xml_ville, xml_codePostal, xml_description, xml_prix.toDouble(), xml_date, xml_photoPrincipale, xml_photosSupp, xml_histo.toInt(), xml_idprop.toInt(), xml_idclient.toInt());
+                    annonces.append(a);
                 }
             } else if(reader.name() == element_client) {
                 if(element_client == "client") {
-                    nb_clients += 1;
+                    xml_identifiant = "";
+                    xml_genre = "";
+                    xml_nom = "";
+                    xml_prenom = "";
+                    xml_dateNaissance = "";
+                    xml_adresseClient = "";
+                    xml_villeClient = "";
+                    xml_codePostalClient = "";
+                    xml_courriel = "";
+                    xml_telephone = "";
+                    xml_nbContrats = "";
+                    xml_dateCreation = "";
                     element_client = "identifiant";
                 } else if(element_client == "identifiant") {
-                    clients[id_client][0] = reader.readElementText();
+                    xml_identifiant = reader.readElementText();
                     element_client = "genre";
                 } else if(element_client == "genre") {
-                    clients[id_client][1] = reader.readElementText();
+                    xml_genre = reader.readElementText();
                     element_client = "nom";
                 } else if(element_client == "nom") {
-                    clients[id_client][2] = reader.readElementText();
+                    xml_nom = reader.readElementText();
                     element_client = "prenom";
                 } else if(element_client == "prenom") {
-                    clients[id_client][3] = reader.readElementText();
+                    xml_prenom = reader.readElementText();
                     element_client = "datenaissance";
                 } else if(element_client == "datenaissance") {
-                    clients[id_client][4] = reader.readElementText();
+                    xml_dateNaissance = reader.readElementText();
                     element_client = "adresseclient";
                 } else if(element_client == "adresseclient") {
-                    clients[id_client][5] = reader.readElementText();
+                    xml_adresseClient = reader.readElementText();
                     element_client = "villeclient";
                 } else if(element_client == "villeclient") {
-                    clients[id_client][6] = reader.readElementText();
+                    xml_villeClient = reader.readElementText();
                     element_client = "codepostalclient";
                 } else if(element_client == "codepostalclient") {
-                    clients[id_client][7] = reader.readElementText();
+                    xml_codePostalClient = reader.readElementText();
                     element_client = "courriel";
                 } else if(element_client == "courriel") {
-                    clients[id_client][8] = reader.readElementText();
+                    xml_courriel = reader.readElementText();
                     element_client = "telephone";
                 } else if(element_client == "telephone") {
-                    clients[id_client][9] = reader.readElementText();
+                    xml_telephone = reader.readElementText();
                     element_client = "nbcontrats";
                 } else if(element_client == "nbcontrats") {
-                    clients[id_client][10] = reader.readElementText();
+                    xml_nbContrats = reader.readElementText();
                     element_client = "datecreation";
                 } else if(element_client == "datecreation") {
-                    clients[id_client][11] = reader.readElementText();
-                    id_client += 1;
+                    xml_dateCreation = reader.readElementText();
                     element_client = "client";
+                    Client* c = new Client(xml_identifiant, xml_genre, xml_nom, xml_prenom, xml_dateNaissance, xml_adresseClient, xml_villeClient, xml_codePostalClient, xml_courriel, xml_telephone, xml_nbContrats.toInt(), xml_dateCreation);
+                    clients.append(c);
                 }
             }
         }
@@ -175,6 +229,21 @@ void MainWindow::readXmlFile()
     fileXml.close();
 }
 
+QList<Annonce*>* MainWindow::get_aff_annonces_ventes()
+{
+    QList<Annonce*>* aff_annonces = new QList<Annonce*>();
+
+    for(int i=0; i<annonces.length(); i++)
+    {
+        if(annonces.value(i)->getTypeAnnonce() == "Vente" && annonces.value(i)->getHisto() == 0)
+        {
+            aff_annonces->append(annonces.value(i));
+        }
+    }
+    return aff_annonces;
+}
+
+/*
 void MainWindow::initAnnonces()
 {
     nb_aff_annonces_vente = 0;
@@ -208,11 +277,13 @@ void MainWindow::initAnnonces()
     }
 }
 
+*/
 void MainWindow::addTabAnnoncesVente()
 {
     ui->tableOffreVente->clearContents();
+    QList<Annonce*>* aff_annonces = get_aff_annonces_ventes();
 
-    for(int i=0; i<nb_aff_annonces_vente; i++)
+    for(int i=0; i<aff_annonces->length(); i++)
     {
         wdg_photo = new QTableWidgetItem();
         wdg_bien = new QTableWidgetItem();
@@ -222,14 +293,14 @@ void MainWindow::addTabAnnoncesVente()
         wdg_prix = new QTableWidgetItem();
         wdg_date = new QTableWidgetItem();
 
-        QIcon icon(aff_annonces_vente[i][10]);
+        QIcon icon(aff_annonces->value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
-        wdg_bien->setText(aff_annonces_vente[i][1]);
-        wdg_pieces->setText(aff_annonces_vente[i][2]);
-        wdg_superficie->setText(aff_annonces_vente[i][3]);
-        wdg_ville->setText(aff_annonces_vente[i][5]);
-        wdg_prix->setText(aff_annonces_vente[i][8]);
-        wdg_date->setText(aff_annonces_vente[i][9]);
+        wdg_bien->setText(aff_annonces->value(i)->getTypeBien());
+        wdg_pieces->setText(QString::number(aff_annonces->value(i)->getNbPieces()));
+        wdg_superficie->setText(QString::number(aff_annonces->value(i)->getSuperficie()));
+        wdg_ville->setText(aff_annonces->value(i)->getVille());
+        wdg_prix->setText(QString::number(aff_annonces->value(i)->getPrix()));
+        wdg_date->setText(aff_annonces->value(i)->getDate());
 
         ui->tableOffreVente->insertRow(i);
         ui->tableOffreVente->setItem(i, 0, wdg_photo);
@@ -241,7 +312,7 @@ void MainWindow::addTabAnnoncesVente()
         ui->tableOffreVente->setItem(i, 6, wdg_date);
     }
 }
-
+/*
 void MainWindow::addTabAnnoncesLocation()
 {
     ui->tableOffreLocation->clearContents();
@@ -439,14 +510,14 @@ void MainWindow::writeXmlFile()
 
     fileXml.close();
 }
-
+*/
 void MainWindow::on_pushButton_clicked()
 {
     Ajout ajout_bien(this);
     ajout_bien.exec();
 
     if(!annule) {
-        annonces[nb_annonces][0] = this->typeAnnonce;
+        /*annonces[nb_annonces][0] = this->typeAnnonce;
         annonces[nb_annonces][1] = this->typeBien;
         annonces[nb_annonces][2] = QString::number(this->nbPieces);
         annonces[nb_annonces][3] = QString::number(this->superficie);
@@ -465,113 +536,40 @@ void MainWindow::on_pushButton_clicked()
         annonces[nb_annonces][16] = this->photosSupp[5];
         annonces[nb_annonces][17] = this->photosSupp[6];
         annonces[nb_annonces][18] = this->photosSupp[7];
-        annonces[nb_annonces][19] = "0";
+        annonces[nb_annonces][19] = "0";*/
 
-        nb_annonces += 1;
+        /*nb_annonces += 1;
         initAnnonces();
         addTabAnnoncesVente();
-        addTabAnnoncesLocation();
+        addTabAnnoncesLocation();*/
     }
 }
 
-
-
-// ----------------- SETTER ------------------
-
-void MainWindow::setTypeAnnonce(QString a)
+void MainWindow::on_tableOffreVente_clicked(const QModelIndex &index)
 {
-    this->typeAnnonce = a;
+    AnnonceWindow voir_annonce(this,index.row(),"Vendu");
+    voir_annonce.exec();
 }
 
-void MainWindow::setTypeBien(QString b)
+void MainWindow::on_tableOffreLocation_clicked(const QModelIndex &index)
 {
-    this->typeBien = b;
+    AnnonceWindow voir_annonce(this,index.row(),"Loué");
+    voir_annonce.exec();
 }
 
-void MainWindow::setNbPieces(int p)
+void MainWindow::on_tableBienVendu_clicked(const QModelIndex &index)
 {
-    this->nbPieces = p;
+    AnnonceWindow voir_annonce(this,index.row(),"Remettre en vente");
+    voir_annonce.exec();
 }
 
-void MainWindow::setSuperficie(double s)
+void MainWindow::on_tableBienLoue_clicked(const QModelIndex &index)
 {
-    this->superficie = s;
-}
-
-void MainWindow::setAdresse(QString a)
-{
-    this->adresse = a;
-}
-
-void MainWindow::setVille(QString v)
-{
-    this->ville = v;
-}
-
-void MainWindow::setCodePostal(QString cp)
-{
-    this->codePostal = cp;
-}
-
-void MainWindow::setDescription(QString d)
-{
-    this->description = d;
-}
-
-void MainWindow::setDate(QString d)
-{
-    this->date = d;
-}
-
-void MainWindow::setPrix(double p)
-{
-    this->prix = p;
-}
-
-void MainWindow::setPhotoPrincipale(QString pp)
-{
-    this->photoPrincipale = pp;
-}
-
-void MainWindow::setPhotosSupp(QString ps[])
-{
-    for(int i=0; i<8; i++) {
-        this->photosSupp[i] = ps[i];
-    }
+    AnnonceWindow voir_annonce(this,index.row(),"Remettre en location");
+    voir_annonce.exec();
 }
 
 void MainWindow::setAnnule(bool b)
 {
     this->annule = b;
 }
-
-void MainWindow::setHisto(int b)
-{
-    this->histo = b;
-}
-
-
-void MainWindow::on_tableOffreVente_clicked(const QModelIndex &index)
-{
-    Annonce voir_annonce(this,index.row(),"Vendu");
-    voir_annonce.exec();
-}
-
-void MainWindow::on_tableOffreLocation_clicked(const QModelIndex &index)
-{
-    Annonce voir_annonce(this,index.row(),"Loué");
-    voir_annonce.exec();
-}
-
-void MainWindow::on_tableBienVendu_clicked(const QModelIndex &index)
-{
-    Annonce voir_annonce(this,index.row(),"Remettre en vente");
-    voir_annonce.exec();
-}
-
-void MainWindow::on_tableBienLoue_clicked(const QModelIndex &index)
-{
-    Annonce voir_annonce(this,index.row(),"Remettre en location");
-    voir_annonce.exec();
-}
-

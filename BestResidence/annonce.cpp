@@ -1,176 +1,182 @@
-#include <QMessageBox>
 #include "annonce.h"
-#include "ui_annonce.h"
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
-Annonce::Annonce(QWidget *parent,int line, QString type, Qt::WindowFlags f ) :
-    QDialog(parent, f),
-    ui(new Ui::DialogAnnonce)
+Annonce::Annonce()
 {
-    ui->setupUi(this);
-    ui->b_typeAnnonce->setText(type);
-    QTableWidgetItem* wdg_adresse = new QTableWidgetItem();
-    QTableWidgetItem* wdg_pieces = new QTableWidgetItem();
-    QTableWidgetItem* wdg_superficie = new QTableWidgetItem();
-    QTableWidgetItem* wdg_ville = new QTableWidgetItem();
-    QTableWidgetItem* wdg_prix = new QTableWidgetItem();
-    QPixmap *pixmap_img;
-    QPixmap *pixmap_img2;
-    QString desc = "Description :";
-    ui->table->clearContents();
-    this->line=line;
+}
 
-    this->numPhoto=0;
-    p = ((MainWindow*)this->parent());
-    this->type=type;
-    if(type=="Vendu")
-    {
-        wdg_adresse->setText(p->aff_annonces_vente[line][4]);
-        wdg_pieces->setText(p->aff_annonces_vente[line][2]);
-        wdg_superficie->setText(p->aff_annonces_vente[line][3]);
-        wdg_ville->setText(p->aff_annonces_vente[line][5]);
-        wdg_prix->setText(p->aff_annonces_vente[line][8]);
-        desc += p->aff_annonces_vente[line][7];
-        ui->date->setText("Offre disponible depuis le " + p->aff_annonces_vente[line][9]);
-        pixmap_img = new QPixmap(p->aff_annonces_vente[line][10]);
-        pixmap_img2 = new QPixmap(p->aff_annonces_vente[line][11]);
-    }
-    else if(type=="Loué")
-    {
-        wdg_adresse->setText(p->aff_annonces_location[line][4]);
-        wdg_pieces->setText(p->aff_annonces_location[line][2]);
-        wdg_superficie->setText(p->aff_annonces_location[line][3]);
-        wdg_ville->setText(p->aff_annonces_location[line][5]);
-        wdg_prix->setText(p->aff_annonces_location[line][8]);
-        desc += p->aff_annonces_location[line][7];
-        ui->date->setText("Offre disponible depuis le " + p->aff_annonces_location[line][9]);
-        pixmap_img = new QPixmap(p->aff_annonces_location[line][10]);
-        pixmap_img2 = new QPixmap(p->aff_annonces_location[line][11]);
-    }
-    else if(type=="Remettre en vente")
-    {
-        wdg_adresse->setText(p->aff_histo_vente[line][4]);
-        wdg_pieces->setText(p->aff_histo_vente[line][2]);
-        wdg_superficie->setText(p->aff_histo_vente[line][3]);
-        wdg_ville->setText(p->aff_histo_vente[line][5]);
-        wdg_prix->setText(p->aff_histo_vente[line][8]);
-        desc += p->aff_annonces_vente[line][7];
-        ui->date->setText("Vendu le " + p->aff_histo_vente[line][9]);
-        pixmap_img = new QPixmap(p->aff_histo_vente[line][10]);
-        pixmap_img2 = new QPixmap(p->aff_histo_vente[line][11]);
-    }
-
-    else if(type=="Remettre en location")
-    {
-        wdg_adresse->setText(p->aff_histo_location[line][4]);
-        wdg_pieces->setText(p->aff_histo_location[line][2]);
-        wdg_superficie->setText(p->aff_histo_location[line][3]);
-        wdg_ville->setText(p->aff_histo_location[line][5]);
-        wdg_prix->setText(p->aff_histo_location[line][8]);
-        desc += p->aff_annonces_location[line][7];
-        ui->date->setText("Loué depuis le " + p->aff_histo_location[line][9]);
-        pixmap_img = new QPixmap(p->aff_histo_location[line][10]);
-        pixmap_img2 = new QPixmap(p->aff_histo_location[line][11]);
-    }
-    ui->table->insertColumn(0);
-    ui->table->setItem(0, 0, wdg_prix);
-    ui->table->setItem(1, 0, wdg_pieces);
-    ui->table->setItem(2, 0, wdg_superficie);
-    ui->table->setItem(3, 0, wdg_ville);
-    ui->table->setItem(4, 0, wdg_adresse);
-    ui->description->setText(desc);
-    ui->description->setReadOnly(true);
-    int w = ui->l_photo->width();
-    int h = ui->l_photo->height();
-
-    // set a scaled pixmap to a w x h window keeping its aspect ratio
-    ui->l_photo->setPixmap((*pixmap_img).scaled(w,h,Qt::KeepAspectRatio));
-
-    w = ui->photoSupp->width();
-    h= ui->photoSupp->height();
-
-    ui->photoSupp->setPixmap((*pixmap_img2).scaled(w,h,Qt::KeepAspectRatio));
-
+Annonce::Annonce(QString annonce, QString bien, int pieces, double superficie, QString adresse, QString ville, QString codepostal, QString description, double prix, QString date, QString pp, QList<QString> ps, int histo, int idprop, int idclient)
+{
+    this->setTypeAnnonce(annonce);
+    this->setTypeBien(bien);
+    this->setNbPieces(pieces);
+    this->setSuperficie(superficie);
+    this->setAdresse(adresse);
+    this->setVille(ville);
+    this->setCodePostal(codepostal);
+    this->setDescription(description);
+    this->setDate(date);
+    this->setPrix(prix);
+    this->setPhotoPrincipale(pp);
+    this->setPhotosSupp(ps);
+    this->setHisto(histo);
+    this->setIdProp(idprop);
+    this->setIdClient(idclient);
 }
 
 Annonce::~Annonce()
 {
-    delete ui;
 }
 
-void Annonce::on_b_retour_clicked()
+void Annonce::setTypeAnnonce(QString a)
 {
-    this->close();
+    this->typeAnnonce = a;
 }
 
-void Annonce::on_b_typeAnnonce_clicked()
+void Annonce::setTypeBien(QString b)
 {
-    p->setHisto(1);
-    this->close();
+    this->typeBien = b;
 }
 
-void Annonce::on_b_next_clicked()
+void Annonce::setNbPieces(int p)
 {
-    QPixmap *pixmap_img2;
-    this->numPhoto=(this->numPhoto+1)%8;
-    int i = this->numPhoto;
-    int line = this->line;
-    if(type=="Vendu")
-    {
-        pixmap_img2 = new QPixmap(p->aff_annonces_vente[line][11+i]);
-    }
-    else if(type=="Loué")
-    {
-        pixmap_img2 = new QPixmap(p->aff_annonces_location[line][11+i]);
-    }
-    else if(type=="Remettre en vente")
-    {
-        pixmap_img2 = new QPixmap(p->aff_histo_vente[line][11+i]);
-    }
-
-    else if(type=="Remettre en location")
-    {
-
-        pixmap_img2 = new QPixmap(p->aff_histo_location[line][11+i]);
-    }
-
-    int w = ui->photoSupp->width();
-    int h= ui->photoSupp->height();
-
-    ui->photoSupp->setPixmap((*pixmap_img2).scaled(w,h,Qt::KeepAspectRatio));
-
+    this->nbPieces = p;
 }
 
-void Annonce::on_b_previous_clicked()
+void Annonce::setSuperficie(double s)
 {
-    QPixmap *pixmap_img2;
-    if(this->numPhoto-1<0)
-        this->numPhoto=7;
-    else
-        this->numPhoto--;
-    int i = this->numPhoto;
-    if(type=="Vendu")
-    {
-        pixmap_img2 = new QPixmap(p->aff_annonces_vente[line][11+i]);
-    }
-    else if(type=="Loué")
-    {
-        pixmap_img2 = new QPixmap(p->aff_annonces_location[line][11+i]);
-    }
-    else if(type=="Remettre en vente")
-    {
-        pixmap_img2 = new QPixmap(p->aff_histo_vente[line][11+i]);
-    }
-
-    else if(type=="Remettre en location")
-    {
-
-        pixmap_img2 = new QPixmap(p->aff_histo_location[line][11+i]);
-    }
-
-    int w = ui->photoSupp->width();
-    int h= ui->photoSupp->height();
-
-    ui->photoSupp->setPixmap((*pixmap_img2).scaled(w,h,Qt::KeepAspectRatio));
+    this->superficie = s;
 }
+
+void Annonce::setAdresse(QString a)
+{
+    this->adresse = a;
+}
+
+void Annonce::setVille(QString v)
+{
+    this->ville = v;
+}
+
+void Annonce::setCodePostal(QString cp)
+{
+    this->codePostal = cp;
+}
+
+void Annonce::setDescription(QString d)
+{
+    this->description = d;
+}
+
+void Annonce::setDate(QString d)
+{
+    this->date = d;
+}
+
+void Annonce::setPrix(double p)
+{
+    this->prix = p;
+}
+
+void Annonce::setPhotoPrincipale(QString pp)
+{
+    this->photoPrincipale = pp;
+}
+
+void Annonce::setPhotosSupp(QList<QString> ps)
+{
+    for(int i=0; i<ps.length(); i++) {
+        this->photosSupp.append(ps.value(i));
+    }
+}
+
+void Annonce::setHisto(int b)
+{
+    this->histo = b;
+}
+
+void Annonce::setIdProp(int id)
+{
+    this->idprop = id;
+}
+
+void Annonce::setIdClient(int id)
+{
+    this->idclient = id;
+}
+
+QString Annonce::getTypeAnnonce()
+{
+    return this->typeAnnonce;
+}
+
+QString Annonce::getTypeBien()
+{
+    return this->typeBien;
+}
+
+int Annonce::getNbPieces()
+{
+    return this->nbPieces;
+}
+
+double Annonce::getSuperficie()
+{
+    return this->superficie;
+}
+
+QString Annonce::getAdresse()
+{
+    return this->adresse;
+}
+
+QString Annonce::getVille()
+{
+    return this->ville;
+}
+
+QString Annonce::getCodePostal()
+{
+    return this->codePostal;
+}
+
+QString Annonce::getDescription()
+{
+    return this->description;
+}
+
+QString Annonce::getDate()
+{
+    return this->date;
+}
+
+double Annonce::getPrix()
+{
+    return this->prix;
+}
+
+QString Annonce::getPhotoPrincipale()
+{
+    return this->photoPrincipale;
+}
+
+QList<QString> Annonce::getPhotosSupp()
+{
+    return this->photosSupp;
+}
+
+int Annonce::getHisto()
+{
+    return this->histo;
+}
+
+int Annonce::getIdProp()
+{
+    return this->idprop;
+}
+
+int Annonce::getIdClient()
+{
+    return this->idclient;
+}
+

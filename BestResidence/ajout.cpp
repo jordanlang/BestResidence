@@ -147,9 +147,16 @@ void Ajout::on_b_valider_clicked()
     }
     else
     {
-        QString ps[10];
+        QList<QString> ps;
+        QString date = QString::fromStdString(currentDateTime());
+        for(int i=0;i<ui->listWidget->count();i++)
+        {
+            ps.append(ui->listWidget->item(i)->text());
+        }
 
-        parent->setTypeAnnonce(ui->q_typeAnnonce->currentText());
+        Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), date, ui->l_photoPrincipal->text(), ps, 0, 0, 0);
+        parent->annonces.append(a);
+        /*parent->setTypeAnnonce(ui->q_typeAnnonce->currentText());
         parent->setTypeBien(ui->q_typeBien->currentText());
         parent->setNbPieces(ui->q_nbPieces->value());
         parent->setSuperficie(ui->q_superficieTerrain->value());
@@ -159,14 +166,8 @@ void Ajout::on_b_valider_clicked()
         parent->setDescription(ui->q_description->toPlainText());
         parent->setPrix(ui->q_prix->value());
         parent->setPhotoPrincipale(ui->l_photoPrincipal->text());
-        QString date = QString::fromStdString(currentDateTime());
         parent->setDate(date);
-        int i=0;
-        for(i=0;i<ui->listWidget->count();i++)
-        {
-            ps[i]=(ui->listWidget->item(i)->text());
-        }
-        parent->setPhotosSupp(ps);
+        parent->setPhotosSupp(ps);*/
 
         parent->setAnnule(false);
         this->close();

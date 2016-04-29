@@ -16,16 +16,20 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     ajout.cpp \
-    annonce.cpp
+    annoncewindow.cpp \
+    annonce.cpp \
+    client.cpp
 
 HEADERS  += mainwindow.h \
     ajout.h \
-    annonce.h
+    annoncewindow.h \
+    annonce.h \
+    client.h
 
 FORMS    += mainwindow.ui \
     ajout.ui \
-    annonce.ui \
-    ajoutclient.ui
+    ajoutclient.ui \
+    annoncewindow.ui
 
 DISTFILES += \
     annonces.xml

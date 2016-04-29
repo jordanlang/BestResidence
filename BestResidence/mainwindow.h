@@ -1,11 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "annonce.h"
 #include <QMainWindow>
 #include <QTableWidget>
 #include <QDomDocument>
 #include <QtXml>
+#include <QList>
 #include <iostream>
+#include "client.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -18,22 +22,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void setTypeAnnonce(QString);
-    void setTypeBien(QString);
-    void setNbPieces(int);
-    void setSuperficie(double);
-    void setAdresse(QString);
-    void setVille(QString);
-    void setCodePostal(QString);
-    void setDescription(QString);
-    void setDate(QString);
-    void setPrix(double);
-    void setPhotoPrincipale(QString);
-    void setPhotosSupp(QString[]);
-    void setAnnule(bool);
-    void setHisto(int);
-    QString annonces[1000][22];
-    QString clients[1000][12];
+    Client c;
+    Annonce a;
+    QList<Annonce*> annonces;
+    QList<Client*> clients;
     QString aff_annonces_vente[1000][22];
     QString aff_annonces_location[1000][22];
     QString aff_histo_vente[1000][22];
@@ -50,6 +42,9 @@ public:
     void addTabHistoLocation();
     void addTabClients();
     void initAnnonces();
+    void setAnnule(bool);
+
+    QList<Annonce*>* get_aff_annonces_ventes();
 
 private slots:
     void on_pushButton_clicked();
@@ -63,20 +58,7 @@ private:
     void writeXmlFile();
     Ui::MainWindow *ui;
     QDomDocument *dom;
-    QString typeAnnonce;
-    QString typeBien;
-    int nbPieces;
-    double superficie;
-    QString adresse;
-    QString ville;
-    QString codePostal;
-    QString description;
-    double prix;
-    QString photoPrincipale;
-    QString photosSupp[8];
-    QString date;
     bool annule;
-    int histo;
 
     QTableWidgetItem* wdg_photo;
     QTableWidgetItem* wdg_bien;
