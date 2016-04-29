@@ -1,99 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bestresidence>
     <immobilier>
-        <annonce>Vente</annonce>
+        <annonce>Location</annonce>
         <bien>Maison</bien>
-        <pieces>10</pieces>
-        <superficie>90</superficie>
-        <adresse>67 rue coucou</adresse>
-        <ville>Strasbourg</ville>
-        <codepostal>67000</codepostal>
-        <description>C'est beau !</description>
-        <prix>99</prix>
-        <date></date>
-        <principale></principale>
-        <supp1></supp1>
-        <supp2></supp2>
-        <supp3></supp3>
-        <supp4></supp4>
-        <supp5></supp5>
-        <supp6></supp6>
-        <supp7></supp7>
-        <supp8></supp8>
-        <histo>0</histo>
-        <idprop></idprop>
-        <idclient></idclient>
-    </immobilier>
-    <immobilier>
-        <annonce>Location</annonce>
-        <bien>Appartement</bien>
         <pieces>2</pieces>
-        <superficie>30</superficie>
-        <adresse>89 avenue ici</adresse>
-        <ville>Aschbach</ville>
-        <codepostal>67250</codepostal>
-        <description>bcekzc</description>
-        <prix>10</prix>
-        <date></date>
-        <principale></principale>
-        <supp1></supp1>
-        <supp2></supp2>
+        <superficie>2</superficie>
+        <adresse>QS</adresse>
+        <ville>SD</ville>
+        <codepostal>SD</codepostal>
+        <description>QSD</description>
+        <prix>2</prix>
+        <date>30-04-2016 à 01:17:40</date>
+        <principale>/Users/romainhry/Documents/Photos/Badminton/_DSC8774.JPG</principale>
+        <supp1>/Users/romainhry/Documents/Photos/Badminton/_DSC8883.JPG</supp1>
+        <supp2>/Users/romainhry/Documents/Photos/Badminton/_DSC8906.JPG</supp2>
         <supp3></supp3>
         <supp4></supp4>
         <supp5></supp5>
         <supp6></supp6>
         <supp7></supp7>
         <supp8></supp8>
-        <histo>0</histo>
-        <idprop></idprop>
-        <idclient></idclient>
-    </immobilier>
-    <immobilier>
-        <annonce>Location</annonce>
-        <bien>Bureau</bien>
-        <pieces>2</pieces>
-        <superficie>50</superficie>
-        <adresse>biezx</adresse>
-        <ville>neizubk</ville>
-        <codepostal>89899</codepostal>
-        <description>nciuebvciqe</description>
-        <prix>99</prix>
-        <date>29-04-2016 à 07:56:59</date>
-        <principale></principale>
-        <supp1></supp1>
-        <supp2></supp2>
-        <supp3></supp3>
-        <supp4></supp4>
-        <supp5></supp5>
-        <supp6></supp6>
-        <supp7></supp7>
-        <supp8></supp8>
-        <histo>0</histo>
-        <idprop></idprop>
-        <idclient></idclient>
-    </immobilier>
-    <immobilier>
-        <annonce>Location</annonce>
-        <bien>Commerce</bien>
-        <pieces>4</pieces>
-        <superficie>10</superficie>
-        <adresse>vuckzjhb</adresse>
-        <ville>bejzfyvfhb</ville>
-        <codepostal>56000</codepostal>
-        <description>biezk;zbc</description>
-        <prix>9999</prix>
-        <date>29-04-2016 à 08:00:00</date>
-        <principale>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</principale>
-        <supp1>/Users/jordan/Dropbox/Cours/L3 - S6/Réseaux locaux et interconnexions/TP/TP3_RAPPORT/images_rapport/ex1_route1.png</supp1>
-        <supp2>/Users/jordan/Dropbox/Cours/L3 - S6/Réseaux locaux et interconnexions/TP/TP3_RAPPORT/images_rapport/ex1_ws4.png</supp2>
-        <supp3>/Users/jordan/Dropbox/Cours/L3 - S6/Réseaux locaux et interconnexions/TP/TP3_RAPPORT/images_rapport/ex1_ospf_interface.png</supp3>
-        <supp4></supp4>
-        <supp5></supp5>
-        <supp6></supp6>
-        <supp7></supp7>
-        <supp8></supp8>
-        <histo>0</histo>
-        <idprop></idprop>
-        <idclient></idclient>
+        <histo>1</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
     </immobilier>
 </bestresidence>

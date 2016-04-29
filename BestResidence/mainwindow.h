@@ -26,10 +26,7 @@ public:
     Annonce a;
     QList<Annonce*> annonces;
     QList<Client*> clients;
-    QString aff_annonces_vente[1000][22];
-    QString aff_annonces_location[1000][22];
-    QString aff_histo_vente[1000][22];
-    QString aff_histo_location[1000][22];
+
     int nb_annonces = 0;
     int nb_clients = 0;
     int nb_aff_annonces_vente = 0;
@@ -44,7 +41,14 @@ public:
     void initAnnonces();
     void setAnnule(bool);
 
-    QList<Annonce*>* get_aff_annonces_ventes();
+    QList<Annonce*> get_aff_annonces_vente();
+    void set_aff_annonces_vente();
+    QList<Annonce*> get_aff_histo_vente();
+    void set_aff_histo_vente();
+    QList<Annonce*> get_aff_annonces_location();
+    void set_aff_annonces_location();
+    QList<Annonce*> get_aff_histo_location();
+    void set_aff_histo_location();
 
 private slots:
     void on_pushButton_clicked();
@@ -59,6 +63,11 @@ private:
     Ui::MainWindow *ui;
     QDomDocument *dom;
     bool annule;
+
+    QList<Annonce*> aff_annonces_vente;
+    QList<Annonce*> aff_annonces_location;
+    QList<Annonce*> aff_histo_vente;
+    QList<Annonce*> aff_histo_location;
 
     QTableWidgetItem* wdg_photo;
     QTableWidgetItem* wdg_bien;

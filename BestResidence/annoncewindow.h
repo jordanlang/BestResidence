@@ -5,26 +5,33 @@
 #include "ui_annoncewindow.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "annonce.h"
 
 class AnnonceWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AnnonceWindow(QWidget *parent = Q_NULLPTR,int line=0, QString type = "Vente", Qt::WindowFlags f = Qt::WindowFlags());
+    explicit AnnonceWindow(QWidget *parent = Q_NULLPTR,Annonce *monAnnonce = new Annonce(), Qt::WindowFlags f = Qt::WindowFlags());
     ~AnnonceWindow();
+    bool getRefresh();
 
 private slots:
     void on_b_retour_clicked();
     void on_b_typeAnnonce_clicked();
     void on_b_previous_clicked();
     void on_b_next_clicked();
+    void on_b_supprimer_clicked();
+
 
 private:
     Ui::DialogAnnonce *ui;
     MainWindow * p;
     QString type;
     int numPhoto;
-    int line;
+    int histo;
+    QList<QString> photos;
+    Annonce *annonce;
+    bool refresh;
 };
 #endif // ANNONCEWINDOW_H
