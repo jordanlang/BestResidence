@@ -22,8 +22,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    Client c;
-    Annonce a;
+
     QList<Annonce*> annonces;
     QList<Client*> clients;
 
@@ -56,6 +55,7 @@ private slots:
     void on_tableOffreLocation_clicked(const QModelIndex &index);
     void on_tableBienVendu_clicked(const QModelIndex &index);
     void on_tableBienLoue_clicked(const QModelIndex &index);
+    void on_ajout_client_clicked();
 
 private:
     void readXmlFile();
@@ -69,18 +69,8 @@ private:
     QList<Annonce*> aff_histo_vente;
     QList<Annonce*> aff_histo_location;
 
-    QTableWidgetItem* wdg_photo;
-    QTableWidgetItem* wdg_bien;
-    QTableWidgetItem* wdg_pieces;
-    QTableWidgetItem* wdg_superficie;
-    QTableWidgetItem* wdg_ville;
-    QTableWidgetItem* wdg_prix;
-    QTableWidgetItem* wdg_date;
-    QTableWidgetItem* wdg_id_client;
-    QTableWidgetItem* wdg_nom;
-    QTableWidgetItem* wdg_prenom;
-    QTableWidgetItem* wdg_courriel;
-    QTableWidgetItem* wdg_telephone;
+
+
 };
 
 #endif // MAINWINDOW_H

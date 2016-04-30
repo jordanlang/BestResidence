@@ -18,13 +18,15 @@ SOURCES += main.cpp\
     ajout.cpp \
     annoncewindow.cpp \
     annonce.cpp \
-    client.cpp
+    client.cpp \
+    ajoutclient.cpp
 
 HEADERS  += mainwindow.h \
     ajout.h \
     annoncewindow.h \
     annonce.h \
-    client.h
+    client.h \
+    ajoutclient.h
 
 FORMS    += mainwindow.ui \
     ajout.ui \

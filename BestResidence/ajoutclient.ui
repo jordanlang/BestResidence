@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>ajoutClient</class>
+ <widget class="QDialog" name="ajoutClient">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -46,7 +46,7 @@
     <string>Genre</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="q_typeAnnonce">
+  <widget class="QComboBox" name="genre">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -100,7 +100,7 @@
     <string>Annuler</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="q_ville_2">
+  <widget class="QLineEdit" name="q_courriel">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -113,7 +113,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="q_ville_3">
+  <widget class="QLineEdit" name="q_nom">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -126,7 +126,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="q_codePostal_2">
+  <widget class="QLineEdit" name="q_prenom">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -142,7 +142,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QDateEdit" name="dateEdit">
+  <widget class="QDateEdit" name="date">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -165,7 +165,7 @@
     <string>Date de naissance</string>
    </property>
   </widget>
-  <widget class="QLabel" name="l_adresse_3">
+  <widget class="QLabel" name="l_nom">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -178,7 +178,7 @@
     <string>Nom</string>
    </property>
   </widget>
-  <widget class="QLabel" name="l_adresse_4">
+  <widget class="QLabel" name="l_prenom">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -258,7 +258,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="l_ville_2">
+   <widget class="QLabel" name="l_codePostal">
     <property name="geometry">
      <rect>
       <x>340</x>
@@ -284,7 +284,7 @@
    <property name="title">
     <string>Contacts</string>
    </property>
-   <widget class="QLabel" name="l_description">
+   <widget class="QLabel" name="l_courriel">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -297,7 +297,7 @@
      <string>Courriel</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="q_ville_4">
+   <widget class="QLineEdit" name="q_telephone">
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -307,7 +307,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="l_description_2">
+   <widget class="QLabel" name="l_telephone">
     <property name="geometry">
      <rect>
       <x>340</x>
@@ -321,22 +321,22 @@
     </property>
    </widget>
   </widget>
+  <zorder>groupBox</zorder>
   <zorder>groupBox_3</zorder>
   <zorder>groupBox_2</zorder>
   <zorder>q_adresse</zorder>
   <zorder>q_ville</zorder>
   <zorder>l_typeAnnonce</zorder>
-  <zorder>q_typeAnnonce</zorder>
+  <zorder>genre</zorder>
   <zorder>b_valider</zorder>
   <zorder>b_annuler</zorder>
-  <zorder>q_ville_2</zorder>
-  <zorder>q_ville_3</zorder>
-  <zorder>q_codePostal_2</zorder>
-  <zorder>dateEdit</zorder>
+  <zorder>q_courriel</zorder>
+  <zorder>q_nom</zorder>
+  <zorder>q_prenom</zorder>
+  <zorder>date</zorder>
   <zorder>l_adresse_2</zorder>
-  <zorder>l_adresse_3</zorder>
-  <zorder>l_adresse_4</zorder>
-  <zorder>groupBox</zorder>
+  <zorder>l_nom</zorder>
+  <zorder>l_prenom</zorder>
  </widget>
  <resources/>
  <connections/>

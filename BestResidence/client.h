@@ -43,10 +43,14 @@ public:
     int getNbContrats();
     QString getDateCreation();
 
+    static int id;
+
+
 private slots:
 
 
 private:
+
     QString identifiant;
     QString genre;
     QString nom;

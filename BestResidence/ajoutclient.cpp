@@ -1,27 +1,23 @@
-#include <QMessageBox>
-#include <ctime>
-#include <QFileDialog>
-#include "ajout.h"
-#include "ui_ajout.h"
+#include "ajoutclient.h"
+#include "ui_ajoutclient.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
+#include <ctime>
 
-
-Ajout::Ajout(QWidget *parent, Qt::WindowFlags f) :
+AjoutClient::AjoutClient(QWidget *parent, Qt::WindowFlags f) :
     QDialog(parent, f),
-    ui(new Ui::Dialog)
+    ui(new Ui::ajoutClient)
 {
     ui->setupUi(this);
-    ((MainWindow*)this->parent())->setAnnule(true);
-    this->nb_photos = 0;
 }
 
-Ajout::~Ajout()
+AjoutClient::~AjoutClient()
 {
     delete ui;
 }
 
-const std::string currentDateTime() {
+const std::string currentDateTime2() {
     time_t     now = time(0);
     struct tm  tstruct;
     char       buf[80];
@@ -33,46 +29,48 @@ const std::string currentDateTime() {
     return buf;
 }
 
-void Ajout::on_b_valider_clicked()
+void AjoutClient::on_b_valider_clicked()
 {
     MainWindow* parent = qobject_cast<MainWindow*>(this->parent());
     if (parent == 0) { return; }
 
-    if((ui->q_nbPieces->value() == 0)
-            || (ui->q_superficieTerrain->value() == 0)
+    if(
+            ( ui->q_nom->text()== "")
             || (ui->q_adresse->text() == "")
             || (ui->q_ville->text() == "")
             || (ui->q_codePostal->text() == "")
-            || (ui->q_description->toPlainText() == "")
-            || (ui->q_prix->value() == 0))
+            || (ui->q_courriel->text() == "")
+            || (ui->q_telephone->text() == "")
+            || (ui->q_prenom->text() == "")
+                )
     {
         QMessageBox::information(this, "Validation impossible", "Certains champs n'ont pas été remplis correctement");
-        if(ui->q_nbPieces->value() == 0) {
-            QPalette palette = ui->l_nbPieces->palette();
+        if(ui->q_nom->text() == "") {
+            QPalette palette = ui->l_nom->palette();
             QBrush brush(QColor(255, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->l_nbPieces->setPalette(palette);
+            ui->l_nom->setPalette(palette);
         } else {
-            QPalette palette = ui->l_nbPieces->palette();
+            QPalette palette = ui->l_nom->palette();
             QBrush brush(QColor(0, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->l_nbPieces->setPalette(palette);
+            ui->l_nom->setPalette(palette);
         }
 
-        if(ui->q_superficieTerrain->value() == 0) {
-            QPalette palette = ui->l_superficieTerrain->palette();
+        if(ui->q_prenom->text() == "") {
+            QPalette palette = ui->l_prenom->palette();
             QBrush brush(QColor(255, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->l_superficieTerrain->setPalette(palette);
+            ui->l_prenom->setPalette(palette);
         } else {
-            QPalette palette = ui->l_superficieTerrain->palette();
+            QPalette palette = ui->l_prenom->palette();
             QBrush brush(QColor(0, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->l_superficieTerrain->setPalette(palette);
+            ui->l_prenom->setPalette(palette);
         }
 
         if(ui->q_adresse->text() == "") {
@@ -108,93 +106,55 @@ void Ajout::on_b_valider_clicked()
             QBrush brush(QColor(255, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->q_codePostal->setPalette(palette);
+            ui->l_codePostal->setPalette(palette);
         } else {
             QPalette palette = ui->q_codePostal->palette();
             QBrush brush(QColor(0, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->q_codePostal->setPalette(palette);
+            ui->l_codePostal->setPalette(palette);
         }
 
-        if(ui->q_description->toPlainText() == "") {
-            QPalette palette = ui->l_description->palette();
+        if(ui->q_telephone->text() == "") {
+            QPalette palette = ui->l_telephone->palette();
             QBrush brush(QColor(255, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->l_description->setPalette(palette);
+            ui->l_telephone->setPalette(palette);
         } else {
-            QPalette palette = ui->l_description->palette();
+            QPalette palette = ui->l_telephone->palette();
             QBrush brush(QColor(0, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->l_description->setPalette(palette);
+            ui->l_telephone->setPalette(palette);
         }
 
-        if(ui->q_prix->value() == 0) {
-            QPalette palette = ui->l_prix->palette();
+        if(ui->q_courriel->text() == "") {
+            QPalette palette = ui->l_courriel->palette();
             QBrush brush(QColor(255, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->l_prix->setPalette(palette);
+            ui->l_courriel->setPalette(palette);
         } else {
-            QPalette palette = ui->l_prix->palette();
+            QPalette palette = ui->l_courriel->palette();
             QBrush brush(QColor(0, 0, 0, 255));
             brush.setStyle(Qt::SolidPattern);
             palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-            ui->l_prix->setPalette(palette);
+            ui->l_courriel->setPalette(palette);
         }
     }
     else
     {
-        QList<QString> ps;
-        QString date = QString::fromStdString(currentDateTime());
-        for(int i=0;i<ui->listWidget->count();i++)
-        {
-            ps.append(ui->listWidget->item(i)->text());
-        }
-
-        Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), date, ui->l_photoPrincipal->text(), ps, 0, 0, 0);
-        parent->annonces.append(a);
+        QString date = QString::fromStdString(currentDateTime2());
+        Client* c = new Client(QString::number(Client::id++), ui->genre->currentText(), ui->q_nom->text(), ui->q_prenom->text(),ui->date->date().toString("dd/MM/yyyy"), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_courriel->text(), ui->q_telephone->text(),0, date);
+        parent->clients.append(c);
         parent->setAnnule(false);
         this->close();
     }
 }
 
-void Ajout::on_b_annuler_clicked()
+void AjoutClient::on_b_annuler_clicked()
 {
     ((MainWindow*)this->parent())->setAnnule(true);
     this->close();
-}
-
-void Ajout::on_b_parcourirPrincipal_clicked()
-{
-    QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open File"),"/path/to/file/", tr("Images (*.png *.xpm *.jpg)"));
-    ui->q_photoPrincipale->setText(fileNames.join(" "));
-}
-
-void Ajout::on_b_parcourirSupp_clicked()
-{
-    QString fileNames = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/", tr("Images (*.png *.xpm *.jpg)"));
-    ui->q_photosSupp->setText(fileNames);
-}
-
-void Ajout::on_b_ajouterPrincipal_clicked()
-{
-    ui->l_photoPrincipal->setText(ui->q_photoPrincipale->text());
-    ui->q_photoPrincipale->setText("");
-}
-
-void Ajout::on_b_ajouterSupp_clicked()
-{
-    if(this->nb_photos<8)
-    {
-        this->nb_photos++;
-        ui->listWidget->addItem(ui->q_photosSupp->text());
-        ui->q_photosSupp->setText("");
-    }
-    else
-    {
-        QMessageBox::warning(this,"","Impossible d'ajouter plus de 8 photos");
-    }
 }

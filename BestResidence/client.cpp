@@ -1,6 +1,8 @@
 #include "client.h"
 #include "mainwindow.h"
 
+int Client::id =0;
+
 Client::Client()
 {
 }
@@ -29,6 +31,7 @@ void Client::setId(QString id)
 {
     this->identifiant = id;
 }
+
 
 void Client::setGenre(QString g)
 {

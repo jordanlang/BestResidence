@@ -9,6 +9,8 @@
 #include "ui_ajout.h"
 #include "annoncewindow.h"
 #include "ui_annoncewindow.h"
+#include "ajoutclient.h"
+#include "ui_ajoutclient.h"
 #include <string>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -22,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     addTabAnnoncesLocation();
     addTabHistoVente();
     addTabHistoLocation();
+    addTabClients();
     //addTabClients();
 }
 
@@ -235,6 +238,8 @@ void MainWindow::readXmlFile()
                 } else if(element_client == "datecreation") {
                     xml_dateCreation = reader.readElementText();
                     element_client = "client";
+                    if(xml_identifiant.toInt()>=Client::id)
+                        Client::id=xml_identifiant.toInt()+1;
                     Client* c = new Client(xml_identifiant, xml_genre, xml_nom, xml_prenom, xml_dateNaissance, xml_adresseClient, xml_villeClient, xml_codePostalClient, xml_courriel, xml_telephone, xml_nbContrats.toInt(), xml_dateCreation);
                     clients.append(c);
                 }
@@ -324,44 +329,6 @@ QList<Annonce*> MainWindow::get_aff_histo_location()
 }
 
 
-
-
-
-/*
-void MainWindow::initAnnonces()
-{
-    nb_aff_annonces_vente = 0;
-    nb_aff_annonces_location = 0;
-    nb_aff_histo_vente = 0;
-    nb_aff_histo_location = 0;
-
-    for(int i=0; i<nb_annonces; i++)
-    {
-        if(annonces[i][0] == "Vente" && annonces[i][19] == "0") {
-            for(int j=0; j<22; j++) {
-                aff_annonces_vente[nb_aff_annonces_vente][j] = annonces[i][j];
-            }
-            nb_aff_annonces_vente += 1;
-        } else if(annonces[i][0] == "Location" && annonces[i][19] == "0") {
-            for(int j=0; j<22; j++) {
-                aff_annonces_location[nb_aff_annonces_location][j] = annonces[i][j];
-            }
-            nb_aff_annonces_location += 1;
-        } else if(annonces[i][0] == "Vente" && annonces[i][19] == "1") {
-            for(int j=0; j<22; j++) {
-                aff_histo_vente[nb_aff_histo_vente][j] = annonces[i][j];
-            }
-            nb_aff_histo_vente += 1;
-        } else {
-            for(int j=0; j<22; j++) {
-                aff_histo_location[nb_aff_histo_location][j] = annonces[i][j];
-            }
-            nb_aff_histo_location += 1;
-        }
-    }
-}
-
-*/
 void MainWindow::addTabAnnoncesVente()
 {
     ui->tableOffreVente->clearContents();
@@ -370,13 +337,13 @@ void MainWindow::addTabAnnoncesVente()
 
     for(int i=0; i<aff_annonces.length(); i++)
     {
-        wdg_photo = new QTableWidgetItem();
-        wdg_bien = new QTableWidgetItem();
-        wdg_pieces = new QTableWidgetItem();
-        wdg_superficie = new QTableWidgetItem();
-        wdg_ville = new QTableWidgetItem();
-        wdg_prix = new QTableWidgetItem();
-        wdg_date = new QTableWidgetItem();
+        QTableWidgetItem* wdg_photo = new QTableWidgetItem();
+        QTableWidgetItem* wdg_bien= new QTableWidgetItem();
+        QTableWidgetItem* wdg_pieces = new QTableWidgetItem();
+        QTableWidgetItem* wdg_superficie = new QTableWidgetItem();
+        QTableWidgetItem* wdg_ville = new QTableWidgetItem();
+        QTableWidgetItem* wdg_prix = new QTableWidgetItem();
+        QTableWidgetItem* wdg_date = new QTableWidgetItem();
 
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
@@ -406,13 +373,13 @@ void MainWindow::addTabAnnoncesLocation()
 
     for(int i=0; i<aff_annonces.length(); i++)
     {
-        wdg_photo = new QTableWidgetItem();
-        wdg_bien = new QTableWidgetItem();
-        wdg_pieces = new QTableWidgetItem();
-        wdg_superficie = new QTableWidgetItem();
-        wdg_ville = new QTableWidgetItem();
-        wdg_prix = new QTableWidgetItem();
-        wdg_date = new QTableWidgetItem();
+        QTableWidgetItem* wdg_photo = new QTableWidgetItem();
+        QTableWidgetItem* wdg_bien= new QTableWidgetItem();
+        QTableWidgetItem* wdg_pieces = new QTableWidgetItem();
+        QTableWidgetItem* wdg_superficie = new QTableWidgetItem();
+        QTableWidgetItem* wdg_ville = new QTableWidgetItem();
+        QTableWidgetItem* wdg_prix = new QTableWidgetItem();
+        QTableWidgetItem* wdg_date = new QTableWidgetItem();
 
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
@@ -442,13 +409,14 @@ void MainWindow::addTabHistoVente()
 
     for(int i=0; i<aff_annonces.length(); i++)
     {
-        wdg_photo = new QTableWidgetItem();
-        wdg_bien = new QTableWidgetItem();
-        wdg_pieces = new QTableWidgetItem();
-        wdg_superficie = new QTableWidgetItem();
-        wdg_ville = new QTableWidgetItem();
-        wdg_prix = new QTableWidgetItem();
-        wdg_date = new QTableWidgetItem();
+
+        QTableWidgetItem* wdg_photo = new QTableWidgetItem();
+        QTableWidgetItem* wdg_bien= new QTableWidgetItem();
+        QTableWidgetItem* wdg_pieces = new QTableWidgetItem();
+        QTableWidgetItem* wdg_superficie = new QTableWidgetItem();
+        QTableWidgetItem* wdg_ville = new QTableWidgetItem();
+        QTableWidgetItem* wdg_prix = new QTableWidgetItem();
+        QTableWidgetItem* wdg_date = new QTableWidgetItem();
 
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
@@ -479,13 +447,13 @@ void MainWindow::addTabHistoLocation()
 
     for(int i=0; i<aff_annonces.length(); i++)
     {
-        wdg_photo = new QTableWidgetItem();
-        wdg_bien = new QTableWidgetItem();
-        wdg_pieces = new QTableWidgetItem();
-        wdg_superficie = new QTableWidgetItem();
-        wdg_ville = new QTableWidgetItem();
-        wdg_prix = new QTableWidgetItem();
-        wdg_date = new QTableWidgetItem();
+        QTableWidgetItem* wdg_photo = new QTableWidgetItem();
+        QTableWidgetItem* wdg_bien= new QTableWidgetItem();
+        QTableWidgetItem* wdg_pieces = new QTableWidgetItem();
+        QTableWidgetItem* wdg_superficie = new QTableWidgetItem();
+        QTableWidgetItem* wdg_ville = new QTableWidgetItem();
+        QTableWidgetItem* wdg_prix = new QTableWidgetItem();
+        QTableWidgetItem* wdg_date = new QTableWidgetItem();
 
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
@@ -509,34 +477,34 @@ void MainWindow::addTabHistoLocation()
 
 void MainWindow::addTabClients()
 {
-    /*
     ui->tableClient->clearContents();
 
-    for(int i=0; i<nb_clients; i++)
+    for(int i=0; i<this->clients.length(); i++)
     {
-        wdg_id_client = new QTableWidgetItem();
-        wdg_nom = new QTableWidgetItem();
-        wdg_prenom = new QTableWidgetItem();
-        wdg_ville = new QTableWidgetItem();
-        wdg_courriel = new QTableWidgetItem();
-        wdg_telephone = new QTableWidgetItem();
+        Client* clientAffiche = this->clients.value(i);
 
-        wdg_id_client->setText(clients[i][0]);
-        wdg_nom->setText(clients[i][2]);
-        wdg_prenom->setText(clients[i][3]);
-        wdg_ville->setText(clients[i][6]);
-        wdg_courriel->setText(clients[i][8]);
-        wdg_telephone->setText(clients[i][9]);
+        QTableWidgetItem* wdg_id_client = new QTableWidgetItem();
+        QTableWidgetItem* wdg_nom = new QTableWidgetItem();
+        QTableWidgetItem* wdg_prenom = new QTableWidgetItem();
+        QTableWidgetItem* wdg_courriel = new QTableWidgetItem();
+        QTableWidgetItem* wdg_telephone = new QTableWidgetItem();
+        QTableWidgetItem* wdg_ville = new QTableWidgetItem();
 
-        ui->tableBienLoue->insertRow(i);
-        ui->tableBienLoue->setItem(i, 0, wdg_id_client);
-        ui->tableBienLoue->setItem(i, 1, wdg_nom);
-        ui->tableBienLoue->setItem(i, 2, wdg_prenom);
-        ui->tableBienLoue->setItem(i, 4, wdg_ville);
-        ui->tableBienLoue->setItem(i, 5, wdg_courriel);
-        ui->tableBienLoue->setItem(i, 6, wdg_telephone);
+        wdg_id_client->setText(clientAffiche->getId());
+        wdg_nom->setText(clientAffiche->getNom());
+        wdg_prenom->setText(clientAffiche->getPrenom());
+        wdg_ville->setText(clientAffiche->getVilleClient());
+        wdg_courriel->setText(clientAffiche->getCourriel());
+        wdg_telephone->setText(clientAffiche->getTelephone());
+
+        ui->tableClient->insertRow(i);
+        ui->tableClient->setItem(i, 0, wdg_id_client);
+        ui->tableClient->setItem(i, 1, wdg_nom);
+        ui->tableClient->setItem(i, 2, wdg_prenom);
+        ui->tableClient->setItem(i, 3, wdg_ville);
+        ui->tableClient->setItem(i, 4, wdg_courriel);
+        ui->tableClient->setItem(i, 5, wdg_telephone);
     }
-    */
 }
 
 void MainWindow::writeXmlFile()
@@ -582,23 +550,24 @@ void MainWindow::writeXmlFile()
         writer.writeEndElement();
     }
 
-    for(int i=0; i<nb_clients; i++)
-    {/*
+    for(int i=0; i<this->clients.length(); i++)
+    {
+        Client *c = this->clients.value(i);
         writer.writeStartElement("client");
-        writer.writeTextElement("identifiant", clients[i][0]);
-        writer.writeTextElement("genre", clients[i][1]);
-        writer.writeTextElement("nom", clients[i][2]);
-        writer.writeTextElement("prenom", clients[i][3]);
-        writer.writeTextElement("datenaissance", clients[i][4]);
-        writer.writeTextElement("adresseclient", clients[i][5]);
-        writer.writeTextElement("villeclient", clients[i][6]);
-        writer.writeTextElement("codepostalclient", clients[i][7]);
-        writer.writeTextElement("courriel", clients[i][8]);
-        writer.writeTextElement("telephone", clients[i][9]);
-        writer.writeTextElement("nbcontrats", clients[i][10]);
-        writer.writeTextElement("datecreation", clients[i][11]);
+        writer.writeTextElement("identifiant", c->getId());
+        writer.writeTextElement("genre", c->getGenre());
+        writer.writeTextElement("nom", c->getNom());
+        writer.writeTextElement("prenom", c->getPrenom());
+        writer.writeTextElement("datenaissance", c->getDateNaissance());
+        writer.writeTextElement("adresseclient", c->getAdresseClient());
+        writer.writeTextElement("villeclient", c->getVilleClient());
+        writer.writeTextElement("codepostalclient", c->getCodePostalClient());
+        writer.writeTextElement("courriel", c->getCourriel());
+        writer.writeTextElement("telephone", c->getTelephone());
+        writer.writeTextElement("nbcontrats", QString::number(c->getNbContrats()));
+        writer.writeTextElement("datecreation", c->getDateCreation());
         writer.writeEndElement();
-        */
+
     }
 
     writer.writeEndElement();
@@ -614,29 +583,6 @@ void MainWindow::on_pushButton_clicked()
     ajout_bien.exec();
 
     if(!annule) {
-        /*annonces[nb_annonces][0] = this->typeAnnonce;
-        annonces[nb_annonces][1] = this->typeBien;
-        annonces[nb_annonces][2] = QString::number(this->nbPieces);
-        annonces[nb_annonces][3] = QString::number(this->superficie);
-        annonces[nb_annonces][4] = this->adresse;
-        annonces[nb_annonces][5] = this->ville;
-        annonces[nb_annonces][6] = this->codePostal;
-        annonces[nb_annonces][7] = this->description;
-        annonces[nb_annonces][8] = QString::number(this->prix);
-        annonces[nb_annonces][9] = this->date;
-        annonces[nb_annonces][10] = this->photoPrincipale;
-        annonces[nb_annonces][11] = this->photosSupp[0];
-        annonces[nb_annonces][12] = this->photosSupp[1];
-        annonces[nb_annonces][13] = this->photosSupp[2];
-        annonces[nb_annonces][14] = this->photosSupp[3];
-        annonces[nb_annonces][15] = this->photosSupp[4];
-        annonces[nb_annonces][16] = this->photosSupp[5];
-        annonces[nb_annonces][17] = this->photosSupp[6];
-        annonces[nb_annonces][18] = this->photosSupp[7];
-        annonces[nb_annonces][19] = "0";*/
-
-        /*nb_annonces += 1;
-        initAnnonces();*/
         addTabAnnoncesVente();
         addTabAnnoncesLocation();
         addTabHistoVente();
@@ -691,4 +637,13 @@ void MainWindow::on_tableBienLoue_clicked(const QModelIndex &index)
 void MainWindow::setAnnule(bool b)
 {
     this->annule = b;
+}
+
+void MainWindow::on_ajout_client_clicked()
+{
+    AjoutClient ajoutClient(this);
+    ajoutClient.exec();
+    if(!annule) {
+        addTabClients();
+    }
 }

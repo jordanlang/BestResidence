@@ -20,8 +20,106 @@
         <supp6></supp6>
         <supp7></supp7>
         <supp8></supp8>
-        <histo>1</histo>
+        <histo>0</histo>
         <idprop>0</idprop>
         <idclient>0</idclient>
     </immobilier>
+    <client>
+        <identifiant>0</identifiant>
+        <genre>Mr.</genre>
+        <nom>Henry</nom>
+        <prenom>Romain</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>qds</adresseclient>
+        <villeclient>sddd</villeclient>
+        <codepostalclient>sss</codepostalclient>
+        <courriel>qsd</courriel>
+        <telephone>qsdqsd</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>01-05-2016 à 00:29:16</datecreation>
+    </client>
+    <client>
+        <identifiant>0</identifiant>
+        <genre>Mr.</genre>
+        <nom>dsf</nom>
+        <prenom>sdf</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>sdf</adresseclient>
+        <villeclient>sdf</villeclient>
+        <codepostalclient>sdf</codepostalclient>
+        <courriel>sdf</courriel>
+        <telephone>sdf</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>01-05-2016 à 00:30:22</datecreation>
+    </client>
+    <client>
+        <identifiant>0</identifiant>
+        <genre>Mr.</genre>
+        <nom>qsd</nom>
+        <prenom>qsd</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>qsd</adresseclient>
+        <villeclient>qsd</villeclient>
+        <codepostalclient>qq</codepostalclient>
+        <courriel>qq</courriel>
+        <telephone>qq</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>01-05-2016 à 00:32:47</datecreation>
+    </client>
+    <client>
+        <identifiant>0</identifiant>
+        <genre>Mr.</genre>
+        <nom>sqd</nom>
+        <prenom>qsd</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>sqdf</adresseclient>
+        <villeclient>qsd</villeclient>
+        <codepostalclient>qsd</codepostalclient>
+        <courriel>qsd</courriel>
+        <telephone>qsd</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>01-05-2016 à 00:34:32</datecreation>
+    </client>
+    <client>
+        <identifiant>0</identifiant>
+        <genre>Mr.</genre>
+        <nom>sdqd</nom>
+        <prenom>qsd</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>qsd</adresseclient>
+        <villeclient>qqq</villeclient>
+        <codepostalclient>qqq</codepostalclient>
+        <courriel>sds</courriel>
+        <telephone>sddd</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>01-05-2016 à 00:36:42</datecreation>
+    </client>
+    <client>
+        <identifiant>1</identifiant>
+        <genre>Mr.</genre>
+        <nom>aaa</nom>
+        <prenom>aaa</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>qsd</adresseclient>
+        <villeclient>qq</villeclient>
+        <codepostalclient>qqs</codepostalclient>
+        <courriel>ss</courriel>
+        <telephone>dd</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>01-05-2016 à 00:36:55</datecreation>
+    </client>
+    <client>
+        <identifiant>2</identifiant>
+        <genre>Mr.</genre>
+        <nom>qsd</nom>
+        <prenom>qsq</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>qq</adresseclient>
+        <villeclient>qq</villeclient>
+        <codepostalclient>q</codepostalclient>
+        <courriel>q</courriel>
+        <telephone>q</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>01-05-2016 à 00:40:04</datecreation>
+    </client>
 </bestresidence>
