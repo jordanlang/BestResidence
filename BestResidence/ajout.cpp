@@ -21,14 +21,14 @@ Ajout::~Ajout()
     delete ui;
 }
 
-const std::string currentDateTime() {
+const std::string currentDate() {
     time_t     now = time(0);
     struct tm  tstruct;
     char       buf[80];
     tstruct = *localtime(&now);
     // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
     // for more information about date/time format
-    strftime(buf, sizeof(buf), "%d-%m-%Y à %X", &tstruct);
+    strftime(buf, sizeof(buf), "%d-%m-%Y", &tstruct);
 
     return buf;
 }
@@ -148,13 +148,13 @@ void Ajout::on_b_valider_clicked()
     else
     {
         QList<QString> ps;
-        QString date = QString::fromStdString(currentDateTime());
+        QString date = QString::fromStdString(currentDate());
         for(int i=0;i<ui->listWidget->count();i++)
         {
             ps.append(ui->listWidget->item(i)->text());
         }
 
-        Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), date, ui->l_photoPrincipal->text(), ps, 0, 0, 0);
+        Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), ui->l_photoPrincipal->text(), ps, 0, 0, 0);
         parent->annonces.append(a);
         parent->setAnnule(false);
         this->close();

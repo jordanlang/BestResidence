@@ -14,7 +14,7 @@ class Client : public QObject
 
 public:
     explicit Client();
-    explicit Client(QString, QString, QString, QString, QString, QString, QString, QString, QString, QString, int, QString);
+    explicit Client(QString, QString, QString, QString, QString, QString, QString, QString, QString, QString, int, QDate);
     ~Client();
 
     void setId(QString);
@@ -28,7 +28,7 @@ public:
     void setCourriel(QString);
     void setTelephone(QString);
     void setNbContrats(int);
-    void setDateCreation(QString);
+    void setDateCreation(QDate);
 
     QString getId();
     QString getGenre();
@@ -41,7 +41,7 @@ public:
     QString getCourriel();
     QString getTelephone();
     int getNbContrats();
-    QString getDateCreation();
+    QDate getDateCreation();
 
     static int id;
 
@@ -62,7 +62,7 @@ private:
     QString courriel;
     QString telephone;
     int nbContrats;
-    QString dateCreation;
+    QDate dateCreation;
 };
 
 #endif // CLIENT_H

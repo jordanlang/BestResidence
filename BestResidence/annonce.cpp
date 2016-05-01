@@ -5,7 +5,7 @@ Annonce::Annonce()
 {
 }
 
-Annonce::Annonce(QString annonce, QString bien, int pieces, double superficie, QString adresse, QString ville, QString codepostal, QString description, double prix, QString date, QString pp, QList<QString> ps, int histo, int idprop, int idclient)
+Annonce::Annonce(QString annonce, QString bien, int pieces, double superficie, QString adresse, QString ville, QString codepostal, QString description, double prix, QDate date, QString pp, QList<QString> ps, int histo, int idprop, int idclient)
 {
     this->setTypeAnnonce(annonce);
     this->setTypeBien(bien);
@@ -68,7 +68,7 @@ void Annonce::setDescription(QString d)
     this->description = d;
 }
 
-void Annonce::setDate(QString d)
+void Annonce::setDate(QDate d)
 {
     this->date = d;
 }
@@ -145,7 +145,7 @@ QString Annonce::getDescription()
     return this->description;
 }
 
-QString Annonce::getDate()
+QDate Annonce::getDate()
 {
     return this->date;
 }

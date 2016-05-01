@@ -36,7 +36,7 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     wdg_prix->setText(QString::number(monAnnonce->getPrix()) + " €");
     desc += monAnnonce->getDescription();
 
-    QString date = monAnnonce->getDate();
+    QString date = monAnnonce->getDate().toString("dd/MM/yyyy");
 
     pixmap_img = new QPixmap(monAnnonce->getPhotoPrincipale());
     pixmap_img2 = new QPixmap(monAnnonce->getPhotosSupp().value(0));

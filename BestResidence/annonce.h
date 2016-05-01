@@ -15,7 +15,7 @@ class Annonce : public QObject
 
 public:
     explicit Annonce();
-    explicit Annonce(QString, QString, int, double, QString, QString, QString, QString, double, QString, QString, QList<QString>, int, int, int);
+    explicit Annonce(QString, QString, int, double, QString, QString, QString, QString, double, QDate, QString, QList<QString>, int, int, int);
     ~Annonce();
 
     void setTypeAnnonce(QString);
@@ -26,7 +26,7 @@ public:
     void setVille(QString);
     void setCodePostal(QString);
     void setDescription(QString);
-    void setDate(QString);
+    void setDate(QDate);
     void setPrix(double);
     void setPhotoPrincipale(QString);
     void setPhotosSupp(QList<QString>);
@@ -42,7 +42,7 @@ public:
     QString getVille();
     QString getCodePostal();
     QString getDescription();
-    QString getDate();
+    QDate getDate();
     double getPrix();
     QString getPhotoPrincipale();
     QList<QString> getPhotosSupp();
@@ -64,7 +64,7 @@ private:
     QString codePostal;
     QString description;
     double prix;
-    QString date;
+    QDate date;
     QString photoPrincipale;
     QList<QString> photosSupp;
     int histo;

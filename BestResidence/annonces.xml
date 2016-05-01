@@ -10,10 +10,130 @@
         <codepostal>SD</codepostal>
         <description>QSD</description>
         <prix>2</prix>
-        <date>30-04-2016 à 01:17:40</date>
+        <date></date>
         <principale>/Users/romainhry/Documents/Photos/Badminton/_DSC8774.JPG</principale>
         <supp1>/Users/romainhry/Documents/Photos/Badminton/_DSC8883.JPG</supp1>
         <supp2>/Users/romainhry/Documents/Photos/Badminton/_DSC8906.JPG</supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Appartement</bien>
+        <pieces>2</pieces>
+        <superficie>3</superficie>
+        <adresse>vrqerva</adresse>
+        <ville>Aschbach</ville>
+        <codepostal>vcrez</codepostal>
+        <description>crecz</description>
+        <prix>3</prix>
+        <date>01/01/1990</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Château</bien>
+        <pieces>3</pieces>
+        <superficie>2</superficie>
+        <adresse>rcezc</adresse>
+        <ville>czeq</ville>
+        <codepostal>cz</codepostal>
+        <description>cze</description>
+        <prix>2</prix>
+        <date>03/03/2005</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Ferme</bien>
+        <pieces>2</pieces>
+        <superficie>3</superficie>
+        <adresse>d</adresse>
+        <ville>d</ville>
+        <codepostal>d</codepostal>
+        <description>d</description>
+        <prix>1</prix>
+        <date></date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Commerce</bien>
+        <pieces>2</pieces>
+        <superficie>2</superficie>
+        <adresse>n</adresse>
+        <ville>f</ville>
+        <codepostal>f</codepostal>
+        <description>f</description>
+        <prix>2</prix>
+        <date>31/12/2015</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Bureau</bien>
+        <pieces>1</pieces>
+        <superficie>1</superficie>
+        <adresse>d</adresse>
+        <ville>d</ville>
+        <codepostal>d</codepostal>
+        <description>d</description>
+        <prix>2</prix>
+        <date>01/05/2016</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
         <supp3></supp3>
         <supp4></supp4>
         <supp5></supp5>
@@ -36,7 +156,7 @@
         <courriel>qsd</courriel>
         <telephone>qsdqsd</telephone>
         <nbcontrats>0</nbcontrats>
-        <datecreation>01-05-2016 à 00:29:16</datecreation>
+        <datecreation></datecreation>
     </client>
     <client>
         <identifiant>0</identifiant>
@@ -50,7 +170,7 @@
         <courriel>sdf</courriel>
         <telephone>sdf</telephone>
         <nbcontrats>0</nbcontrats>
-        <datecreation>01-05-2016 à 00:30:22</datecreation>
+        <datecreation></datecreation>
     </client>
     <client>
         <identifiant>0</identifiant>
@@ -64,7 +184,7 @@
         <courriel>qq</courriel>
         <telephone>qq</telephone>
         <nbcontrats>0</nbcontrats>
-        <datecreation>01-05-2016 à 00:32:47</datecreation>
+        <datecreation></datecreation>
     </client>
     <client>
         <identifiant>0</identifiant>
@@ -78,7 +198,7 @@
         <courriel>qsd</courriel>
         <telephone>qsd</telephone>
         <nbcontrats>0</nbcontrats>
-        <datecreation>01-05-2016 à 00:34:32</datecreation>
+        <datecreation></datecreation>
     </client>
     <client>
         <identifiant>0</identifiant>
@@ -92,7 +212,7 @@
         <courriel>sds</courriel>
         <telephone>sddd</telephone>
         <nbcontrats>0</nbcontrats>
-        <datecreation>01-05-2016 à 00:36:42</datecreation>
+        <datecreation></datecreation>
     </client>
     <client>
         <identifiant>1</identifiant>
@@ -106,7 +226,7 @@
         <courriel>ss</courriel>
         <telephone>dd</telephone>
         <nbcontrats>0</nbcontrats>
-        <datecreation>01-05-2016 à 00:36:55</datecreation>
+        <datecreation></datecreation>
     </client>
     <client>
         <identifiant>2</identifiant>
@@ -120,6 +240,20 @@
         <courriel>q</courriel>
         <telephone>q</telephone>
         <nbcontrats>0</nbcontrats>
-        <datecreation>01-05-2016 à 00:40:04</datecreation>
+        <datecreation></datecreation>
+    </client>
+    <client>
+        <identifiant>3</identifiant>
+        <genre>Mlle.</genre>
+        <nom>niyvu</nom>
+        <prenom>viuvku</prenom>
+        <datenaissance>04/08/1986</datenaissance>
+        <adresseclient>veqv</adresseclient>
+        <villeclient>vqfevrq</villeclient>
+        <codepostalclient>vqvsvc</codepostalclient>
+        <courriel>vqev</courriel>
+        <telephone>vfqdvqs</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation></datecreation>
     </client>
 </bestresidence>

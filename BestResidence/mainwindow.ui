@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -127,7 +127,7 @@
       <property name="title">
        <string>Recherche</string>
       </property>
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="ov_lbl_prix">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -140,7 +140,7 @@
         <string>Prix entre</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="ov_lbl_pieces">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -153,7 +153,7 @@
         <string>Pièces entre</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="ov_lbl_type">
        <property name="geometry">
         <rect>
          <x>530</x>
@@ -166,7 +166,7 @@
         <string>Type</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QCheckBox" name="ov_cbx_maison">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -179,7 +179,7 @@
         <string>Maison</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_2">
+      <widget class="QCheckBox" name="ov_cbx_appartement">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -192,7 +192,7 @@
         <string>Appartement</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_3">
+      <widget class="QCheckBox" name="ov_cbx_bureau">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -205,7 +205,7 @@
         <string>Bureau</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_4">
+      <widget class="QCheckBox" name="ov_cbx_ferme">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -218,7 +218,7 @@
         <string>Ferme</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_5">
+      <widget class="QCheckBox" name="ov_cbx_commerce">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -231,7 +231,7 @@
         <string>Commerce</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_6">
+      <widget class="QCheckBox" name="ov_cbx_chateau">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -244,7 +244,7 @@
         <string>Château</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="ov_txt_ville">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -257,25 +257,7 @@
         <string>  Ville ou code postal</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>160</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Pièces min</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Pièces min</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="ov_lbl_et2">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -288,25 +270,7 @@
         <string>et</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_2">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>160</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Pièces max</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Pièces max</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="ov_lbl_et1">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -319,43 +283,7 @@
         <string>et</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_3">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>120</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Prix max</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Prix max</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="comboBox_4">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>120</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Prix min</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Prix min</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QRadioButton" name="radioButton">
+      <widget class="QRadioButton" name="ov_rb_tri_croissant">
        <property name="geometry">
         <rect>
          <x>120</x>
@@ -368,7 +296,7 @@
         <string>Tri par date croissante</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QRadioButton" name="ov_rb_tri_decroissant">
        <property name="geometry">
         <rect>
          <x>310</x>
@@ -381,7 +309,7 @@
         <string>Tri par date décroissante</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_3">
+      <widget class="QCheckBox" name="ov_cbx_photo">
        <property name="geometry">
         <rect>
          <x>200</x>
@@ -394,7 +322,7 @@
         <string>Uniquement avec photo</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="ov_lbl_date">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -407,7 +335,7 @@
         <string>Date</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="ov_btn_rechercher">
        <property name="geometry">
         <rect>
          <x>530</x>
@@ -418,6 +346,73 @@
        </property>
        <property name="text">
         <string>RECHERCHER</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="ov_txt_prix_min">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>120</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Prix min</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="ov_txt_prix_max">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>120</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Prix max</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="ov_txt_pieces_max">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>160</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Pièces max</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="ov_txt_pieces_min">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>160</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Pièces min</string>
        </property>
       </widget>
      </widget>
@@ -496,7 +491,7 @@
       <property name="title">
        <string>Recherche</string>
       </property>
-      <widget class="QLabel" name="label_71">
+      <widget class="QLabel" name="ol_lbl_prix">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -509,7 +504,7 @@
         <string>Prix entre</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_72">
+      <widget class="QLabel" name="ol_lbl_pieces">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -522,7 +517,7 @@
         <string>Pièces entre</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_73">
+      <widget class="QLabel" name="ol_lbl_type">
        <property name="geometry">
         <rect>
          <x>530</x>
@@ -535,7 +530,7 @@
         <string>Type</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_55">
+      <widget class="QCheckBox" name="ol_cbx_maison">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -548,7 +543,7 @@
         <string>Maison</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_56">
+      <widget class="QCheckBox" name="ol_cbx_appartement">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -561,7 +556,7 @@
         <string>Appartement</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_57">
+      <widget class="QCheckBox" name="ol_cbx_bureau">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -574,7 +569,7 @@
         <string>Bureau</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_58">
+      <widget class="QCheckBox" name="ol_cbx_ferme">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -587,7 +582,7 @@
         <string>Ferme</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_59">
+      <widget class="QCheckBox" name="ol_cbx_commerce">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -600,7 +595,7 @@
         <string>Commerce</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_60">
+      <widget class="QCheckBox" name="ol_cbx_chateau">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -613,7 +608,7 @@
         <string>Château</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_16">
+      <widget class="QLineEdit" name="ol_txt_ville">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -626,25 +621,7 @@
         <string>  Ville ou code postal</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_39">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>160</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Pièces min</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Pièces min</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_74">
+      <widget class="QLabel" name="ol_lbl_et2">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -657,25 +634,7 @@
         <string>et</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_40">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>160</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Pièces max</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Pièces max</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_75">
+      <widget class="QLabel" name="ol_lbl_et1">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -688,43 +647,7 @@
         <string>et</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_41">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>120</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Prix max</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Prix max</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="comboBox_42">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>120</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Prix min</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Prix min</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QRadioButton" name="radioButton_26">
+      <widget class="QRadioButton" name="ol_rb_tri_croissant">
        <property name="geometry">
         <rect>
          <x>120</x>
@@ -737,7 +660,7 @@
         <string>Tri par date croissante</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_27">
+      <widget class="QRadioButton" name="ol_rb_tri_decroissant">
        <property name="geometry">
         <rect>
          <x>310</x>
@@ -750,7 +673,7 @@
         <string>Tri par date décroissante</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_28">
+      <widget class="QCheckBox" name="ol_cbx_photo">
        <property name="geometry">
         <rect>
          <x>200</x>
@@ -763,7 +686,7 @@
         <string>Uniquement avec photo</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_76">
+      <widget class="QLabel" name="ol_lbl_date">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -776,7 +699,7 @@
         <string>Date</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_16">
+      <widget class="QPushButton" name="ol_btn_rechercher">
        <property name="geometry">
         <rect>
          <x>530</x>
@@ -787,6 +710,70 @@
        </property>
        <property name="text">
         <string>RECHERCHER</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="ol_txt_prix_min">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>120</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Prix min</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="ol_txt_prix_max">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>120</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Prix max</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="ol_txt_pieces_max">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>160</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Pièces max</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="ol_txt_pieces_min">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>160</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Pièces min</string>
        </property>
       </widget>
      </widget>
@@ -969,7 +956,7 @@
       <property name="title">
        <string>GroupBox</string>
       </property>
-      <widget class="QCheckBox" name="checkBox_34">
+      <widget class="QCheckBox" name="bv_cbx_chateau">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -982,7 +969,7 @@
         <string>Château</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_43">
+      <widget class="QLabel" name="bv_lbl_et1">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -995,7 +982,7 @@
         <string>et</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_49">
+      <widget class="QLabel" name="bv_lbl_au">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -1008,7 +995,7 @@
         <string>au</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_33">
+      <widget class="QCheckBox" name="bv_cbx_ferme">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -1021,43 +1008,7 @@
         <string>Ferme</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_21">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>170</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Pièces min</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Pièces min</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="comboBox_22">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>170</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Pièces max</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Pièces max</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_6">
+      <widget class="QLineEdit" name="bv_txt_ville">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1070,7 +1021,7 @@
         <string>  Ville ou code postal</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_46">
+      <widget class="QLabel" name="bv_lbl_prix">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1083,7 +1034,7 @@
         <string>Prix entre</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEdit_2">
+      <widget class="QDateEdit" name="bv_date_max">
        <property name="geometry">
         <rect>
          <x>310</x>
@@ -1093,7 +1044,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_32">
+      <widget class="QCheckBox" name="bv_cbx_bureau">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -1106,7 +1057,7 @@
         <string>Bureau</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_42">
+      <widget class="QLabel" name="bv_lbl_pieces">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1119,7 +1070,7 @@
         <string>Pièces entre</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_19">
+      <widget class="QRadioButton" name="bv_rb_tri_decroissant">
        <property name="geometry">
         <rect>
          <x>250</x>
@@ -1132,7 +1083,7 @@
         <string>Tri par date décroissante</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEdit">
+      <widget class="QDateEdit" name="bv_date_min">
        <property name="geometry">
         <rect>
          <x>120</x>
@@ -1142,7 +1093,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="bv_btn_rechercher">
        <property name="geometry">
         <rect>
          <x>530</x>
@@ -1155,7 +1106,7 @@
         <string>RECHERCHER</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_31">
+      <widget class="QCheckBox" name="bv_cbx_maison">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -1168,7 +1119,7 @@
         <string>Maison</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_47">
+      <widget class="QLabel" name="bv_lbl_date">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1181,7 +1132,7 @@
         <string>Date de vente</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_36">
+      <widget class="QCheckBox" name="bv_cbx_appartement">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -1194,25 +1145,7 @@
         <string>Appartement</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_23">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>130</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Prix min</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Prix min</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_7">
+      <widget class="QLineEdit" name="bv_txt_id_client">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -1228,7 +1161,7 @@
         <string>  Identifiant client</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_44">
+      <widget class="QLabel" name="bv_lbl_type">
        <property name="geometry">
         <rect>
          <x>530</x>
@@ -1241,25 +1174,7 @@
         <string>Type</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_24">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>130</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Prix max</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Prix max</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QRadioButton" name="radioButton_18">
+      <widget class="QRadioButton" name="bv_rb_tri_croissant">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -1272,7 +1187,7 @@
         <string>Tri par date croissante</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_35">
+      <widget class="QCheckBox" name="bv_cbx_commerce">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -1285,7 +1200,7 @@
         <string>Commerce</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_45">
+      <widget class="QLabel" name="bv_lbl_et2">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -1296,6 +1211,70 @@
        </property>
        <property name="text">
         <string>et</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bv_txt_prix_min">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>130</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Prix min</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bv_txt_prix_max">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>130</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Prix max</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bv_txt_pieces_min">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>170</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Pièces min</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bv_txt_pieces_max">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>170</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Pièces max</string>
        </property>
       </widget>
      </widget>
@@ -1397,7 +1376,7 @@
       <property name="title">
        <string>GroupBox</string>
       </property>
-      <widget class="QCheckBox" name="checkBox_49">
+      <widget class="QCheckBox" name="bl_cbx_chateau">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -1410,7 +1389,7 @@
         <string>Château</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_64">
+      <widget class="QLabel" name="bl_lbl_et1">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -1423,7 +1402,7 @@
         <string>et</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_65">
+      <widget class="QLabel" name="bl_lbl_au">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -1436,7 +1415,7 @@
         <string>au</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_50">
+      <widget class="QCheckBox" name="bl_cbx_ferme">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -1449,43 +1428,7 @@
         <string>Ferme</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_35">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>170</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Pièces min</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Pièces min</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QComboBox" name="comboBox_36">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>170</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Pièces max</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Pièces max</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_14">
+      <widget class="QLineEdit" name="bl_txt_ville">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1498,7 +1441,7 @@
         <string>  Ville ou code postal</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_66">
+      <widget class="QLabel" name="bl_lbl_prix">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1511,7 +1454,7 @@
         <string>Prix entre</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEdit_5">
+      <widget class="QDateEdit" name="bl_date_max">
        <property name="geometry">
         <rect>
          <x>310</x>
@@ -1521,7 +1464,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_51">
+      <widget class="QCheckBox" name="bl_cbx_bureau">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -1534,7 +1477,7 @@
         <string>Bureau</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_67">
+      <widget class="QLabel" name="bl_lbl_pieces">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1547,7 +1490,7 @@
         <string>Pièces entre</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_22">
+      <widget class="QRadioButton" name="bl_rb_tri_decroissant">
        <property name="geometry">
         <rect>
          <x>250</x>
@@ -1560,7 +1503,7 @@
         <string>Tri par date décroissante</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEdit_6">
+      <widget class="QDateEdit" name="bl_date_min">
        <property name="geometry">
         <rect>
          <x>120</x>
@@ -1570,7 +1513,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_14">
+      <widget class="QPushButton" name="bl_btn_rechercher">
        <property name="geometry">
         <rect>
          <x>530</x>
@@ -1583,7 +1526,7 @@
         <string>RECHERCHER</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_52">
+      <widget class="QCheckBox" name="bl_cbx_maison">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -1596,7 +1539,7 @@
         <string>Maison</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_68">
+      <widget class="QLabel" name="bl_lbl_date">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1609,7 +1552,7 @@
         <string>Date de vente</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_53">
+      <widget class="QCheckBox" name="bl_cbx_appartement">
        <property name="geometry">
         <rect>
          <x>590</x>
@@ -1622,25 +1565,7 @@
         <string>Appartement</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_37">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>130</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Prix min</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Prix min</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_15">
+      <widget class="QLineEdit" name="bl_txt_id_client">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -1656,7 +1581,7 @@
         <string>  Identifiant client</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_69">
+      <widget class="QLabel" name="bl_lbl_type">
        <property name="geometry">
         <rect>
          <x>530</x>
@@ -1669,25 +1594,7 @@
         <string>Type</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_38">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>130</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Prix max</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Prix max</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QRadioButton" name="radioButton_23">
+      <widget class="QRadioButton" name="bl_rb_tri_croissant">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -1700,7 +1607,7 @@
         <string>Tri par date croissante</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_54">
+      <widget class="QCheckBox" name="bl_cbx_commerce">
        <property name="geometry">
         <rect>
          <x>720</x>
@@ -1713,7 +1620,7 @@
         <string>Commerce</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_70">
+      <widget class="QLabel" name="bl_lbl_et2">
        <property name="geometry">
         <rect>
          <x>260</x>
@@ -1724,6 +1631,70 @@
        </property>
        <property name="text">
         <string>et</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bl_txt_prix_min">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>130</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Prix min</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bl_txt_prix_max">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>130</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Prix max</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bl_txt_pieces_min">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>170</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Pièces min</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bl_txt_pieces_max">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>170</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Pièces max</string>
        </property>
       </widget>
      </widget>
@@ -1838,7 +1809,7 @@
       <property name="title">
        <string>Recherche</string>
       </property>
-      <widget class="QLineEdit" name="lineEdit_8">
+      <widget class="QLineEdit" name="cl_txt_ville">
        <property name="geometry">
         <rect>
          <x>380</x>
@@ -1851,7 +1822,7 @@
         <string>  Ville ou code postal</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_16">
+      <widget class="QRadioButton" name="cl_rb_tri_croissant">
        <property name="geometry">
         <rect>
          <x>120</x>
@@ -1864,7 +1835,7 @@
         <string>Tri par date croissante</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_17">
+      <widget class="QRadioButton" name="cl_rb_tri_decroissant">
        <property name="geometry">
         <rect>
          <x>300</x>
@@ -1877,7 +1848,7 @@
         <string>Tri par date décroissante</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_54">
+      <widget class="QLabel" name="cl_lbl_date">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1890,7 +1861,7 @@
         <string>Date</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_10">
+      <widget class="QPushButton" name="cl_btn_rechercher">
        <property name="geometry">
         <rect>
          <x>530</x>
@@ -1903,7 +1874,7 @@
         <string>RECHERCHER</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_9">
+      <widget class="QLineEdit" name="cl_txt_id_client">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1919,7 +1890,7 @@
         <string>  Identifiant client</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_10">
+      <widget class="QLineEdit" name="cl_txt_nom">
        <property name="geometry">
         <rect>
          <x>200</x>
@@ -1935,7 +1906,7 @@
         <string>  Nom</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_48">
+      <widget class="QLabel" name="cl_lbl_et">
        <property name="geometry">
         <rect>
          <x>280</x>
@@ -1948,7 +1919,7 @@
         <string>et</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_50">
+      <widget class="QLabel" name="cl_lbl_nb_contrats">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1961,42 +1932,53 @@
         <string>Nombre de contrats</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_25">
+      <widget class="QLineEdit" name="cl_txt_nb_min">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>120</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Nombre min</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="cl_txt_nb_max">
        <property name="geometry">
         <rect>
          <x>310</x>
          <y>120</y>
-         <width>111</width>
+         <width>101</width>
          <height>21</height>
         </rect>
        </property>
-       <property name="currentText">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
         <string>Nombre max</string>
        </property>
-       <item>
-        <property name="text">
-         <string>Nombre max</string>
-        </property>
-       </item>
       </widget>
-      <widget class="QComboBox" name="comboBox_26">
-       <property name="geometry">
-        <rect>
-         <x>150</x>
-         <y>120</y>
-         <width>111</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="currentText">
-        <string>Nombre min</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Nombre min</string>
-        </property>
-       </item>
-      </widget>
+      <zorder>cl_txt_ville</zorder>
+      <zorder>cl_rb_tri_croissant</zorder>
+      <zorder>cl_rb_tri_decroissant</zorder>
+      <zorder>cl_lbl_date</zorder>
+      <zorder>cl_btn_rechercher</zorder>
+      <zorder>cl_txt_id_client</zorder>
+      <zorder>cl_txt_nom</zorder>
+      <zorder>cl_lbl_et</zorder>
+      <zorder>cl_lbl_nb_contrats</zorder>
+      <zorder>cl_txt_nb_min</zorder>
+      <zorder>lineEdit_18</zorder>
+      <zorder>lineEdit_19</zorder>
+      <zorder>cl_txt_nb_max</zorder>
+      <zorder>cl_txt_nb_min</zorder>
+      <zorder>cl_txt_nb_max</zorder>
      </widget>
      <widget class="QPushButton" name="ajout_client">
       <property name="geometry">

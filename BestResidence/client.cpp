@@ -7,7 +7,7 @@ Client::Client()
 {
 }
 
-Client::Client(QString id, QString genre, QString nom, QString prenom, QString dateNaissance, QString adresse, QString ville, QString codePostal, QString courriel, QString telephone, int nbContrats, QString dateCreation)
+Client::Client(QString id, QString genre, QString nom, QString prenom, QString dateNaissance, QString adresse, QString ville, QString codePostal, QString courriel, QString telephone, int nbContrats, QDate dateCreation)
 {
     this->setId(id);
     this->setGenre(genre);
@@ -83,7 +83,7 @@ void Client::setNbContrats(int nc)
     this->nbContrats = nc;
 }
 
-void Client::setDateCreation(QString dc)
+void Client::setDateCreation(QDate dc)
 {
     this->dateCreation = dc;
 }
@@ -143,7 +143,7 @@ int Client::getNbContrats()
     return this->nbContrats;
 }
 
-QString Client::getDateCreation()
+QDate Client::getDateCreation()
 {
     return this->dateCreation;
 }

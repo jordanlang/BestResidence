@@ -19,13 +19,16 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     readXmlFile();
-    //initAnnonces();
+    set_aff_annonces_vente();
     addTabAnnoncesVente();
+    set_aff_annonces_location();
     addTabAnnoncesLocation();
+    set_aff_histo_vente();
     addTabHistoVente();
+    set_aff_histo_location();
     addTabHistoLocation();
+    set_aff_clients();
     addTabClients();
-    //addTabClients();
 }
 
 MainWindow::~MainWindow()
@@ -37,8 +40,8 @@ MainWindow::~MainWindow()
 void MainWindow::readXmlFile()
 {
     QXmlStreamReader reader; // Objet servant à la lecture du fichier Xml
-    //QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
-    QString fileXmlName = "/Users/romainhry/Dropbox/L3/S6/IHM/BestResidence/BestResidence/annonces.xml";
+    QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
+    //QString fileXmlName = "/Users/romainhry/Dropbox/L3/S6/IHM/BestResidence/BestResidence/annonces.xml";
     QFile fileXml(fileXmlName);
 
     QString xml_typeAnnonce;
@@ -184,7 +187,7 @@ void MainWindow::readXmlFile()
                 } else if(element_immo == "idclient") {
                     xml_idclient = reader.readElementText();
                     element_immo = "immobilier";
-                    Annonce* a = new Annonce(xml_typeAnnonce, xml_typeBien, xml_nbPieces.toInt(), xml_superficie.toDouble(), xml_adresse, xml_ville, xml_codePostal, xml_description, xml_prix.toDouble(), xml_date, xml_photoPrincipale, xml_photosSupp, xml_histo.toInt(), xml_idprop.toInt(), xml_idclient.toInt());
+                    Annonce* a = new Annonce(xml_typeAnnonce, xml_typeBien, xml_nbPieces.toInt(), xml_superficie.toDouble(), xml_adresse, xml_ville, xml_codePostal, xml_description, xml_prix.toDouble(), QDate::fromString(xml_date, "dd/MM/yyyy"), xml_photoPrincipale, xml_photosSupp, xml_histo.toInt(), xml_idprop.toInt(), xml_idclient.toInt());
                     annonces.append(a);
                 }
             } else if(reader.name() == element_client) {
@@ -240,7 +243,7 @@ void MainWindow::readXmlFile()
                     element_client = "client";
                     if(xml_identifiant.toInt()>=Client::id)
                         Client::id=xml_identifiant.toInt()+1;
-                    Client* c = new Client(xml_identifiant, xml_genre, xml_nom, xml_prenom, xml_dateNaissance, xml_adresseClient, xml_villeClient, xml_codePostalClient, xml_courriel, xml_telephone, xml_nbContrats.toInt(), xml_dateCreation);
+                    Client* c = new Client(xml_identifiant, xml_genre, xml_nom, xml_prenom, xml_dateNaissance, xml_adresseClient, xml_villeClient, xml_codePostalClient, xml_courriel, xml_telephone, xml_nbContrats.toInt(), QDate::fromString(xml_dateCreation, "dd/MM/yyyy"));
                     clients.append(c);
                 }
             }
@@ -328,11 +331,24 @@ QList<Annonce*> MainWindow::get_aff_histo_location()
     return this->aff_histo_location;
 }
 
+void MainWindow::set_aff_clients()
+{
+    this->aff_clients.clear();
+    for(int i=0; i<clients.length(); i++)
+    {
+        this->aff_clients.append(clients.value(i));
+    }
+}
+
+QList<Client*> MainWindow::get_aff_clients()
+{
+    return this->aff_clients;
+}
+
 
 void MainWindow::addTabAnnoncesVente()
 {
     ui->tableOffreVente->clearContents();
-    set_aff_annonces_vente();
     QList<Annonce*> aff_annonces = this->aff_annonces_vente;
 
     for(int i=0; i<aff_annonces.length(); i++)
@@ -352,7 +368,7 @@ void MainWindow::addTabAnnoncesVente()
         wdg_superficie->setText(QString::number(aff_annonces.value(i)->getSuperficie()));
         wdg_ville->setText(aff_annonces.value(i)->getVille());
         wdg_prix->setText(QString::number(aff_annonces.value(i)->getPrix()));
-        wdg_date->setText(aff_annonces.value(i)->getDate());
+        wdg_date->setText(aff_annonces.value(i)->getDate().toString("dd/MM/yyyy"));
 
         ui->tableOffreVente->insertRow(i);
         ui->tableOffreVente->setItem(i, 0, wdg_photo);
@@ -368,7 +384,6 @@ void MainWindow::addTabAnnoncesVente()
 void MainWindow::addTabAnnoncesLocation()
 {
     ui->tableOffreLocation->clearContents();
-    set_aff_annonces_location();
     QList<Annonce*> aff_annonces = this->aff_annonces_location;
 
     for(int i=0; i<aff_annonces.length(); i++)
@@ -388,7 +403,7 @@ void MainWindow::addTabAnnoncesLocation()
         wdg_superficie->setText(QString::number(aff_annonces.value(i)->getSuperficie()));
         wdg_ville->setText(aff_annonces.value(i)->getVille());
         wdg_prix->setText(QString::number(aff_annonces.value(i)->getPrix()));
-        wdg_date->setText(aff_annonces.value(i)->getDate());
+        wdg_date->setText(aff_annonces.value(i)->getDate().toString("dd/MM/yyyy"));
 
         ui->tableOffreLocation->insertRow(i);
         ui->tableOffreLocation->setItem(i, 0, wdg_photo);
@@ -404,7 +419,6 @@ void MainWindow::addTabAnnoncesLocation()
 void MainWindow::addTabHistoVente()
 {
     ui->tableBienVendu->clearContents();
-    set_aff_histo_vente();
     QList<Annonce*> aff_annonces = this->aff_histo_vente;
 
     for(int i=0; i<aff_annonces.length(); i++)
@@ -425,7 +439,7 @@ void MainWindow::addTabHistoVente()
         wdg_superficie->setText(QString::number(aff_annonces.value(i)->getSuperficie()));
         wdg_ville->setText(aff_annonces.value(i)->getVille());
         wdg_prix->setText(QString::number(aff_annonces.value(i)->getPrix()));
-        wdg_date->setText(aff_annonces.value(i)->getDate());
+        wdg_date->setText(aff_annonces.value(i)->getDate().toString("dd/MM/yyyy"));
 
         ui->tableBienVendu->insertRow(i);
         ui->tableBienVendu->setItem(i, 0, wdg_photo);
@@ -441,8 +455,6 @@ void MainWindow::addTabHistoVente()
 void MainWindow::addTabHistoLocation()
 {
     ui->tableBienLoue->clearContents();
-
-    set_aff_histo_location();
     QList<Annonce*> aff_annonces = this->aff_histo_location;
 
     for(int i=0; i<aff_annonces.length(); i++)
@@ -462,7 +474,7 @@ void MainWindow::addTabHistoLocation()
         wdg_superficie->setText(QString::number(aff_annonces.value(i)->getSuperficie()));
         wdg_ville->setText(aff_annonces.value(i)->getVille());
         wdg_prix->setText(QString::number(aff_annonces.value(i)->getPrix()));
-        wdg_date->setText(aff_annonces.value(i)->getDate());
+        wdg_date->setText(aff_annonces.value(i)->getDate().toString("dd/MM/yyyy"));
 
         ui->tableBienLoue->insertRow(i);
         ui->tableBienLoue->setItem(i, 0, wdg_photo);
@@ -478,11 +490,10 @@ void MainWindow::addTabHistoLocation()
 void MainWindow::addTabClients()
 {
     ui->tableClient->clearContents();
+    QList<Client*> aff_c = this->aff_clients;
 
-    for(int i=0; i<this->clients.length(); i++)
+    for(int i=0; i<aff_c.length(); i++)
     {
-        Client* clientAffiche = this->clients.value(i);
-
         QTableWidgetItem* wdg_id_client = new QTableWidgetItem();
         QTableWidgetItem* wdg_nom = new QTableWidgetItem();
         QTableWidgetItem* wdg_prenom = new QTableWidgetItem();
@@ -490,12 +501,12 @@ void MainWindow::addTabClients()
         QTableWidgetItem* wdg_telephone = new QTableWidgetItem();
         QTableWidgetItem* wdg_ville = new QTableWidgetItem();
 
-        wdg_id_client->setText(clientAffiche->getId());
-        wdg_nom->setText(clientAffiche->getNom());
-        wdg_prenom->setText(clientAffiche->getPrenom());
-        wdg_ville->setText(clientAffiche->getVilleClient());
-        wdg_courriel->setText(clientAffiche->getCourriel());
-        wdg_telephone->setText(clientAffiche->getTelephone());
+        wdg_id_client->setText(aff_c.value(i)->getId());
+        wdg_nom->setText(aff_c.value(i)->getNom());
+        wdg_prenom->setText(aff_c.value(i)->getPrenom());
+        wdg_ville->setText(aff_c.value(i)->getVilleClient());
+        wdg_courriel->setText(aff_c.value(i)->getCourriel());
+        wdg_telephone->setText(aff_c.value(i)->getTelephone());
 
         ui->tableClient->insertRow(i);
         ui->tableClient->setItem(i, 0, wdg_id_client);
@@ -509,8 +520,8 @@ void MainWindow::addTabClients()
 
 void MainWindow::writeXmlFile()
 {
-    //QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
-    QString fileXmlName = "/Users/romainhry/Dropbox/L3/S6/IHM/BestResidence/BestResidence/annonces.xml";
+    QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
+    //QString fileXmlName = "/Users/romainhry/Dropbox/L3/S6/IHM/BestResidence/BestResidence/annonces.xml";
     QFile fileXml(fileXmlName);
 
     // Ouverture du fichier en écriture et en texte. (sort de la fonction si le fichier ne s'ouvre pas)
@@ -535,7 +546,7 @@ void MainWindow::writeXmlFile()
         writer.writeTextElement("codepostal", a->getCodePostal());
         writer.writeTextElement("description", a->getDescription());
         writer.writeTextElement("prix", QString::number(a->getPrix()));
-        writer.writeTextElement("date", a->getDate());
+        writer.writeTextElement("date", a->getDate().toString("dd/MM/yyyy"));
         writer.writeTextElement("principale", a->getPhotoPrincipale());
         for(int i =0;i<8;i++)
         {
@@ -565,7 +576,7 @@ void MainWindow::writeXmlFile()
         writer.writeTextElement("courriel", c->getCourriel());
         writer.writeTextElement("telephone", c->getTelephone());
         writer.writeTextElement("nbcontrats", QString::number(c->getNbContrats()));
-        writer.writeTextElement("datecreation", c->getDateCreation());
+        writer.writeTextElement("datecreation", c->getDateCreation().toString("dd/MM/yyyy"));
         writer.writeEndElement();
 
     }
@@ -583,9 +594,13 @@ void MainWindow::on_pushButton_clicked()
     ajout_bien.exec();
 
     if(!annule) {
+        set_aff_annonces_vente();
         addTabAnnoncesVente();
+        set_aff_annonces_location();
         addTabAnnoncesLocation();
+        set_aff_histo_vente();
         addTabHistoVente();
+        set_aff_histo_location();
         addTabHistoLocation();
     }
 }
@@ -596,7 +611,9 @@ void MainWindow::on_tableOffreVente_clicked(const QModelIndex &index)
     voir_annonce.exec();
     if (voir_annonce.getRefresh())
     {
+        set_aff_annonces_vente();
         addTabAnnoncesVente();
+        set_aff_histo_vente();
         addTabHistoVente();
     }
 }
@@ -607,7 +624,9 @@ void MainWindow::on_tableOffreLocation_clicked(const QModelIndex &index)
     voir_annonce.exec();
     if (voir_annonce.getRefresh())
     {
+        set_aff_annonces_location();
         addTabAnnoncesLocation();
+        set_aff_histo_location();
         addTabHistoLocation();
     }
 }
@@ -618,7 +637,9 @@ void MainWindow::on_tableBienVendu_clicked(const QModelIndex &index)
     voir_annonce.exec();
     if (voir_annonce.getRefresh())
     {
+        set_aff_annonces_vente();
         addTabAnnoncesVente();
+        set_aff_histo_vente();
         addTabHistoVente();
     }
 }
@@ -629,7 +650,9 @@ void MainWindow::on_tableBienLoue_clicked(const QModelIndex &index)
     voir_annonce.exec();
     if (voir_annonce.getRefresh())
     {
+        set_aff_annonces_location();
         addTabAnnoncesLocation();
+        set_aff_histo_location();
         addTabHistoLocation();
     }
 }
@@ -644,6 +667,414 @@ void MainWindow::on_ajout_client_clicked()
     AjoutClient ajoutClient(this);
     ajoutClient.exec();
     if(!annule) {
+        set_aff_clients();
         addTabClients();
     }
+}
+
+void MainWindow::on_ov_btn_rechercher_clicked()
+{
+    set_aff_annonces_vente();
+    if(ui->ov_txt_ville->text() != "")
+    {
+        QString s = ui->ov_txt_ville->text();
+        QChar c = s.at(0);
+        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+            this->aff_annonces_vente = this->immo_recherche_codepostal(this->aff_annonces_vente, ui->ov_txt_ville->text());
+        else
+            this->aff_annonces_vente = this->immo_recherche_ville(this->aff_annonces_vente, ui->ov_txt_ville->text());
+    }
+    if(ui->ov_cbx_photo->isChecked())
+        this->aff_annonces_vente = this->immo_recherche_avec_photo(this->aff_annonces_vente);
+    if(ui->ov_rb_tri_croissant->isChecked())
+        this->aff_annonces_vente = this->immo_tri_date_croissante(this->aff_annonces_vente);
+    else
+        this->aff_annonces_vente = this->immo_tri_date_decroissante(this->aff_annonces_vente);
+    if(ui->ov_txt_prix_min->text() != "" && ui->ov_txt_prix_max->text() != "")
+        this->aff_annonces_vente = this->immo_recherche_prix(this->aff_annonces_vente, ui->ov_txt_prix_min->text().toDouble(), ui->ov_txt_prix_max->text().toDouble());
+    if(ui->ov_txt_pieces_min->text() != "" && ui->ov_txt_pieces_max->text() != "")
+        this->aff_annonces_vente = this->immo_recherche_pieces(this->aff_annonces_vente, ui->ov_txt_pieces_min->text().toInt(), ui->ov_txt_pieces_max->text().toInt());
+    this->aff_annonces_vente = this->immo_recherche_type(this->aff_annonces_vente, ui->ov_cbx_maison->isChecked(), ui->ov_cbx_appartement->isChecked(), ui->ov_cbx_bureau->isChecked(), ui->ov_cbx_chateau->isChecked(), ui->ov_cbx_ferme->isChecked(), ui->ov_cbx_commerce->isChecked());
+    addTabAnnoncesVente();
+}
+
+void MainWindow::on_ol_btn_rechercher_clicked()
+{
+    set_aff_annonces_location();
+    if(ui->ol_txt_ville->text() != "")
+    {
+        QString s = ui->ol_txt_ville->text();
+        QChar c = s.at(0);
+        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+            this->aff_annonces_location = this->immo_recherche_codepostal(this->aff_annonces_location, ui->ol_txt_ville->text());
+        else
+            this->aff_annonces_location = this->immo_recherche_ville(this->aff_annonces_location, ui->ol_txt_ville->text());
+    }
+    if(ui->ol_cbx_photo->isChecked())
+        this->aff_annonces_location = this->immo_recherche_avec_photo(this->aff_annonces_location);
+    if(ui->ol_rb_tri_croissant->isChecked())
+        this->aff_annonces_location = this->immo_tri_date_croissante(this->aff_annonces_location);
+    else
+        this->aff_annonces_location = this->immo_tri_date_decroissante(this->aff_annonces_location);
+    if(ui->ol_txt_prix_min->text() != "" && ui->ol_txt_prix_max->text() != "")
+        this->aff_annonces_location = this->immo_recherche_prix(this->aff_annonces_location, ui->ol_txt_prix_min->text().toDouble(), ui->ol_txt_prix_max->text().toDouble());
+    if(ui->ol_txt_pieces_min->text() != "" && ui->ol_txt_pieces_max->text() != "")
+        this->aff_annonces_location = this->immo_recherche_pieces(this->aff_annonces_location, ui->ol_txt_pieces_min->text().toInt(), ui->ol_txt_pieces_max->text().toInt());
+    this->aff_annonces_location = this->immo_recherche_type(this->aff_annonces_location, ui->ol_cbx_maison->isChecked(), ui->ol_cbx_appartement->isChecked(), ui->ol_cbx_bureau->isChecked(), ui->ol_cbx_chateau->isChecked(), ui->ol_cbx_ferme->isChecked(), ui->ol_cbx_commerce->isChecked());
+    addTabAnnoncesLocation();
+}
+
+void MainWindow::on_bv_btn_rechercher_clicked()
+{
+    set_aff_histo_vente();
+    if(ui->bv_txt_ville->text() != "")
+    {
+        QString s = ui->bv_txt_ville->text();
+        QChar c = s.at(0);
+        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+            this->aff_histo_vente = this->immo_recherche_codepostal(this->aff_histo_vente, ui->bv_txt_ville->text());
+        else
+            this->aff_histo_vente = this->immo_recherche_ville(this->aff_histo_vente, ui->bv_txt_ville->text());
+    }
+    if(ui->bv_txt_id_client->text() != "")
+        this->aff_histo_vente = this->immo_recherche_id_client(this->aff_histo_vente, ui->bv_txt_id_client->text().toInt());
+    if(ui->bv_date_min->date() != QDate::fromString("01/01/2000", "dd/MM/yyyy") && ui->bv_date_max->date() != QDate::fromString("01/01/2000", "dd/MM/yyyy"))
+        this->aff_histo_vente = this->immo_recherche_date(this->aff_histo_vente, ui->bv_date_min->date(), ui->bv_date_max->date());
+    if(ui->bv_rb_tri_croissant->isChecked())
+        this->aff_histo_vente = this->immo_tri_date_croissante(this->aff_histo_vente);
+    else
+        this->aff_histo_vente = this->immo_tri_date_decroissante(this->aff_histo_vente);
+    if(ui->bv_txt_prix_min->text() != "" && ui->bv_txt_prix_max->text() != "")
+        this->aff_histo_vente = this->immo_recherche_prix(this->aff_histo_vente, ui->bv_txt_prix_min->text().toDouble(), ui->bv_txt_prix_max->text().toDouble());
+    if(ui->bv_txt_pieces_min->text() != "" && ui->bv_txt_pieces_max->text() != "")
+        this->aff_histo_vente = this->immo_recherche_pieces(this->aff_histo_vente, ui->bv_txt_pieces_min->text().toInt(), ui->bv_txt_pieces_max->text().toInt());
+    this->aff_histo_vente = this->immo_recherche_type(this->aff_histo_vente, ui->bv_cbx_maison->isChecked(), ui->bv_cbx_appartement->isChecked(), ui->bv_cbx_bureau->isChecked(), ui->bv_cbx_chateau->isChecked(), ui->bv_cbx_ferme->isChecked(), ui->bv_cbx_commerce->isChecked());
+    addTabHistoVente();
+}
+
+void MainWindow::on_bl_btn_rechercher_clicked()
+{
+    set_aff_histo_location();
+    if(ui->bl_txt_ville->text() != "")
+    {
+        QString s = ui->bl_txt_ville->text();
+        QChar c = s.at(0);
+        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+            this->aff_histo_location = this->immo_recherche_codepostal(this->aff_histo_location, ui->bl_txt_ville->text());
+        else
+            this->aff_histo_location = this->immo_recherche_ville(this->aff_histo_location, ui->bl_txt_ville->text());
+    }
+    if(ui->bl_txt_id_client->text() != "")
+        this->aff_histo_location = this->immo_recherche_id_client(this->aff_histo_location, ui->bl_txt_id_client->text().toInt());
+    if(ui->bl_date_min->date() != QDate::fromString("01/01/2000", "dd/MM/yyyy") && ui->bl_date_max->date() != QDate::fromString("01/01/2000", "dd/MM/yyyy"))
+        this->aff_histo_location = this->immo_recherche_date(this->aff_histo_location, ui->bl_date_min->date(), ui->bl_date_max->date());
+    if(ui->bl_rb_tri_croissant->isChecked())
+        this->aff_histo_location = this->immo_tri_date_croissante(this->aff_histo_location);
+    else
+        this->aff_histo_location = this->immo_tri_date_decroissante(this->aff_histo_location);
+    if(ui->bl_txt_prix_min->text() != "" && ui->bl_txt_prix_max->text() != "")
+        this->aff_histo_location = this->immo_recherche_prix(this->aff_histo_location, ui->bl_txt_prix_min->text().toDouble(), ui->bl_txt_prix_max->text().toDouble());
+    if(ui->bl_txt_pieces_min->text() != "" && ui->bl_txt_pieces_max->text() != "")
+        this->aff_histo_location = this->immo_recherche_pieces(this->aff_histo_location, ui->bl_txt_pieces_min->text().toInt(), ui->bl_txt_pieces_max->text().toInt());
+    this->aff_histo_location = this->immo_recherche_type(this->aff_histo_location, ui->bl_cbx_maison->isChecked(), ui->bl_cbx_appartement->isChecked(), ui->bl_cbx_bureau->isChecked(), ui->bl_cbx_chateau->isChecked(), ui->bl_cbx_ferme->isChecked(), ui->bl_cbx_commerce->isChecked());
+    addTabHistoLocation();
+}
+
+void MainWindow::on_cl_btn_rechercher_clicked()
+{
+    set_aff_clients();
+    if(ui->cl_txt_id_client->text() != "")
+        this->aff_clients = this->client_recherche_id_client(this->aff_clients, ui->cl_txt_id_client->text());
+    if(ui->cl_txt_nom->text() != "")
+        this->aff_clients = this->client_recherche_nom(this->aff_clients, ui->cl_txt_nom->text());
+    if(ui->cl_txt_ville->text() != "")
+    {
+        QString s = ui->cl_txt_ville->text();
+        QChar c = s.at(0);
+        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+            this->aff_clients = this->client_recherche_codepostal(this->aff_clients, ui->cl_txt_ville->text());
+        else
+            this->aff_clients = this->client_recherche_ville(this->aff_clients, ui->cl_txt_ville->text());
+    }
+    if(ui->cl_rb_tri_croissant->isChecked())
+        this->aff_clients = this->client_tri_date_croissante(this->aff_clients);
+    else
+        this->aff_clients = this->client_tri_date_decroissante(this->aff_clients);
+    if(ui->cl_txt_nb_min->text() != "" && ui->cl_txt_nb_max->text() != "")
+        this->aff_clients = this->client_recherche_nb_contrats(this->aff_clients, ui->cl_txt_nb_min->text().toInt(), ui->cl_txt_nb_max->text().toInt());
+    addTabClients();
+}
+
+// ********************* FONCTIONS DE RECHERCHE ET DE TRI ************************
+
+QList<Annonce*> MainWindow::immo_recherche_ville(QList<Annonce*> ann, QString ville)
+{
+    QList<Annonce*> r_annonces;
+    for(int i=0; i<ann.length(); i++) {
+        if(ann.value(i)->getVille() == ville) {
+            r_annonces.append(ann.value(i));
+        }
+    }
+    return r_annonces;
+}
+
+QList<Annonce*> MainWindow::immo_recherche_codepostal(QList<Annonce*> ann, QString codepostal)
+{
+    QList<Annonce*> r_annonces;
+    for(int i=0; i<ann.length(); i++) {
+        if(ann.value(i)->getCodePostal() == codepostal) {
+            r_annonces.append(ann.value(i));
+        }
+    }
+    return r_annonces;
+}
+
+QList<Annonce*> MainWindow::immo_recherche_prix(QList<Annonce*> ann, double min, double max)
+{
+    QList<Annonce*> r_annonces;
+    for(int i=0; i<ann.length(); i++) {
+        if((ann.value(i)->getPrix() >= min) && (ann.value(i)->getPrix() <= max)) {
+            r_annonces.append(ann.value(i));
+        }
+    }
+    return r_annonces;
+}
+
+QList<Annonce*> MainWindow::immo_recherche_pieces(QList<Annonce*> ann, int min, int max)
+{
+    QList<Annonce*> r_annonces;
+    for(int i=0; i<ann.length(); i++) {
+        if((ann.value(i)->getNbPieces() >= min) && (ann.value(i)->getNbPieces() <= max)) {
+            r_annonces.append(ann.value(i));
+        }
+    }
+    return r_annonces;
+}
+
+QList<Annonce*> MainWindow::immo_recherche_type(QList<Annonce*> ann, bool maison, bool appart, bool bureau, bool chateau, bool ferme, bool commerce)
+{
+    QList<Annonce*> r_annonces;
+    if(maison) {
+        for(int i=0; i<ann.length(); i++) {
+            if(ann.value(i)->getTypeBien() == "Maison") {
+                r_annonces.append(ann.value(i));
+            }
+        }
+    }
+    if(appart) {
+        for(int i=0; i<ann.length(); i++) {
+            if(ann.value(i)->getTypeBien() == "Appartement") {
+                r_annonces.append(ann.value(i));
+            }
+        }
+    }
+    if(bureau) {
+        for(int i=0; i<ann.length(); i++) {
+            if(ann.value(i)->getTypeBien() == "Bureau") {
+                r_annonces.append(ann.value(i));
+            }
+        }
+    }
+    if(chateau) {
+        for(int i=0; i<ann.length(); i++) {
+            if(ann.value(i)->getTypeBien() == "Château") {
+                r_annonces.append(ann.value(i));
+            }
+        }
+    }
+    if(ferme) {
+        for(int i=0; i<ann.length(); i++) {
+            if(ann.value(i)->getTypeBien() == "Ferme") {
+                r_annonces.append(ann.value(i));
+            }
+        }
+    }
+    if(commerce) {
+        for(int i=0; i<ann.length(); i++) {
+            if(ann.value(i)->getTypeBien() == "Commerce") {
+                r_annonces.append(ann.value(i));
+            }
+        }
+    }
+    return r_annonces;
+}
+
+QList<Annonce*> MainWindow::immo_recherche_avec_photo(QList<Annonce*> ann)
+{
+    QList<Annonce*> r_annonces;
+    for(int i=0; i<ann.length(); i++) {
+        if(ann.value(i)->getPhotoPrincipale() != "") {
+            r_annonces.append(ann.value(i));
+        }
+    }
+    return r_annonces;
+}
+
+QList<Annonce*> MainWindow::immo_recherche_date(QList<Annonce*> ann, QDate min, QDate max)
+{
+    QList<Annonce*> r_annonces;
+    for(int i=0; i<ann.length(); i++) {
+        if((ann.value(i)->getDate() >= min) && (ann.value(i)->getDate() <= max)) {
+            r_annonces.append(ann.value(i));
+        }
+    }
+    return r_annonces;
+}
+
+QList<Annonce*> MainWindow::immo_recherche_id_client(QList<Annonce*> ann, int id)
+{
+    QList<Annonce*> r_annonces;
+    for(int i=0; i<ann.length(); i++) {
+        if(ann.value(i)->getIdClient() == id) {
+            r_annonces.append(ann.value(i));
+        }
+    }
+    return r_annonces;
+}
+
+QList<Annonce*> MainWindow::immo_tri_date_croissante(QList<Annonce*> ann)
+{
+    QList<Annonce*> annonces_tmp = ann;
+    QList<Annonce*> tri_annonces;
+    int remove;
+    for(int i=0; i<ann.length(); i++)
+    {
+        Annonce* pp = annonces_tmp.value(0);
+        remove = 0;
+        for(int j=1; j<annonces_tmp.length(); j++)
+        {
+            if(annonces_tmp.value(j)->getDate() < pp->getDate())
+            {
+                pp = annonces_tmp.value(j);
+                remove = j;
+            }
+        }
+        tri_annonces.append(pp);
+        annonces_tmp.removeAt(remove);
+    }
+    return tri_annonces;
+}
+
+QList<Annonce*> MainWindow::immo_tri_date_decroissante(QList<Annonce*> ann)
+{
+    QList<Annonce*> annonces_tmp = ann;
+    QList<Annonce*> tri_annonces;
+    int remove;
+    for(int i=0; i<ann.length(); i++)
+    {
+        Annonce* pg = annonces_tmp.value(0);
+        remove = 0;
+        for(int j=1; j<annonces_tmp.length(); j++)
+        {
+            if(annonces_tmp.value(j)->getDate() > pg->getDate())
+            {
+                pg = annonces_tmp.value(j);
+                remove = j;
+            }
+        }
+        tri_annonces.append(pg);
+        annonces_tmp.removeAt(remove);
+    }
+    return tri_annonces;
+}
+
+QList<Client*> MainWindow::client_recherche_id_client(QList<Client*> cl, QString id)
+{
+    QList<Client*> r_clients;
+    for(int i=0; i<cl.length(); i++) {
+        if(cl.value(i)->getId() == id) {
+            r_clients.append(cl.value(i));
+        }
+    }
+    return r_clients;
+}
+
+QList<Client*> MainWindow::client_recherche_nom(QList<Client*> cl, QString nom)
+{
+    QList<Client*> r_clients;
+    for(int i=0; i<cl.length(); i++) {
+        if(cl.value(i)->getNom() == nom) {
+            r_clients.append(cl.value(i));
+        }
+    }
+    return r_clients;
+}
+
+QList<Client*> MainWindow::client_recherche_ville(QList<Client*> cl, QString ville)
+{
+    QList<Client*> r_clients;
+    for(int i=0; i<cl.length(); i++) {
+        if(cl.value(i)->getVilleClient() == ville) {
+            r_clients.append(cl.value(i));
+        }
+    }
+    return r_clients;
+}
+
+QList<Client*> MainWindow::client_recherche_codepostal(QList<Client*> cl, QString codepostal)
+{
+    QList<Client*> r_clients;
+    for(int i=0; i<cl.length(); i++) {
+        if(cl.value(i)->getCodePostalClient() == codepostal) {
+            r_clients.append(cl.value(i));
+        }
+    }
+    return r_clients;
+}
+
+QList<Client*> MainWindow::client_recherche_nb_contrats(QList<Client*> cl, int min, int max)
+{
+    QList<Client*> r_clients;
+    for(int i=0; i<cl.length(); i++) {
+        if((cl.value(i)->getNbContrats() >= min) && (cl.value(i)->getNbContrats() <= max)) {
+            r_clients.append(cl.value(i));
+        }
+    }
+    return r_clients;
+}
+
+QList<Client*> MainWindow::client_tri_date_croissante(QList<Client*> cl)
+{
+    QList<Client*> clients_tmp = cl;
+    QList<Client*> tri_clients;
+    int remove;
+    for(int i=0; i<cl.length(); i++)
+    {
+        Client* pp = clients_tmp.value(0);
+        remove = 0;
+        for(int j=1; j<clients_tmp.length(); j++)
+        {
+            if(clients_tmp.value(j)->getDateCreation() < pp->getDateCreation())
+            {
+                pp = clients_tmp.value(j);
+                remove = j;
+            }
+        }
+        tri_clients.append(pp);
+        clients_tmp.removeAt(remove);
+    }
+    return tri_clients;
+}
+
+QList<Client*> MainWindow::client_tri_date_decroissante(QList<Client*> cl)
+{
+    QList<Client*> clients_tmp = cl;
+    QList<Client*> tri_clients;
+    int remove;
+    for(int i=0; i<cl.length(); i++)
+    {
+        Client* pg = clients_tmp.value(0);
+        remove = 0;
+        for(int j=1; j<clients_tmp.length(); j++)
+        {
+            if(clients_tmp.value(j)->getDateCreation() < pg->getDateCreation())
+            {
+                pg = clients_tmp.value(j);
+                remove = j;
+            }
+        }
+        tri_clients.append(pg);
+        clients_tmp.removeAt(remove);
+    }
+    return tri_clients;
 }
