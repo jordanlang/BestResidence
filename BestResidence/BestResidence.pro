@@ -19,19 +19,25 @@ SOURCES += main.cpp\
     annoncewindow.cpp \
     annonce.cpp \
     client.cpp \
-    ajoutclient.cpp
+    ajoutclient.cpp \
+    stats_immo.cpp \
+    stats_clients.cpp
 
 HEADERS  += mainwindow.h \
     ajout.h \
     annoncewindow.h \
     annonce.h \
     client.h \
-    ajoutclient.h
+    ajoutclient.h \
+    stats_immo.h \
+    stats_clients.h
 
 FORMS    += mainwindow.ui \
     ajout.ui \
     ajoutclient.ui \
-    annoncewindow.ui
+    annoncewindow.ui \
+    stats_immo.ui \
+    stats_clients.ui
 
 DISTFILES += \
     annonces.xml

@@ -26,12 +26,12 @@ public:
     QList<Annonce*> annonces;
     QList<Client*> clients;
 
-    int nb_annonces = 0;
+    /*int nb_annonces = 0;
     int nb_clients = 0;
     int nb_aff_annonces_vente = 0;
     int nb_aff_annonces_location = 0;
     int nb_aff_histo_vente = 0;
-    int nb_aff_histo_location = 0;
+    int nb_aff_histo_location = 0;*/
     void addTabAnnoncesVente();
     void addTabAnnoncesLocation();
     void addTabHistoVente();
@@ -69,6 +69,15 @@ public:
     QList<Client*> client_tri_date_croissante(QList<Client*> cl);
     QList<Client*> client_tri_date_decroissante(QList<Client*> cl);
 
+    void recherche_offre_vente();
+    void recherche_offre_location();
+    void recherche_bien_vendu();
+    void recherche_bien_loue();
+    void recherche_client();
+
+    void affiche_stats_immo(QList<Annonce*> ann);
+    void affiche_stats_client(QList<Client*> cl);
+
 private slots:
     void on_pushButton_clicked();
     void on_tableOffreVente_clicked(const QModelIndex &index);
@@ -81,6 +90,11 @@ private slots:
     void on_bv_btn_rechercher_clicked();
     void on_bl_btn_rechercher_clicked();
     void on_cl_btn_rechercher_clicked();
+    void on_ov_btn_stats_clicked();
+    void on_ol_btn_stats_clicked();
+    void on_bv_btn_stats_clicked();
+    void on_bl_btn_stats_clicked();
+    void on_cl_btn_stats_clicked();
 
 private:
     void readXmlFile();

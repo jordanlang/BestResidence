@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTabWidget" name="pushButton_2">
+   <widget class="QTabWidget" name="onglets">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -316,9 +316,9 @@
       <widget class="QPushButton" name="ov_btn_rechercher">
        <property name="geometry">
         <rect>
-         <x>530</x>
+         <x>630</x>
          <y>120</y>
-         <width>281</width>
+         <width>181</width>
          <height>61</height>
         </rect>
        </property>
@@ -391,6 +391,19 @@
        </property>
        <property name="placeholderText">
         <string>Pièces min</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ov_btn_stats">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>120</y>
+         <width>151</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>STATISTIQUES</string>
        </property>
       </widget>
      </widget>
@@ -622,9 +635,9 @@
       <widget class="QPushButton" name="ol_btn_rechercher">
        <property name="geometry">
         <rect>
-         <x>530</x>
+         <x>630</x>
          <y>120</y>
-         <width>281</width>
+         <width>181</width>
          <height>61</height>
         </rect>
        </property>
@@ -694,6 +707,19 @@
        </property>
        <property name="placeholderText">
         <string>Pièces min</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ol_btn_stats">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>120</y>
+         <width>151</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>STATISTIQUES</string>
        </property>
       </widget>
      </widget>
@@ -998,9 +1024,9 @@
       <widget class="QPushButton" name="bv_btn_rechercher">
        <property name="geometry">
         <rect>
-         <x>530</x>
+         <x>630</x>
          <y>120</y>
-         <width>281</width>
+         <width>181</width>
          <height>61</height>
         </rect>
        </property>
@@ -1177,6 +1203,19 @@
        </property>
        <property name="placeholderText">
         <string>Pièces max</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bv_btn_stats">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>120</y>
+         <width>151</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>STATISTIQUES</string>
        </property>
       </widget>
      </widget>
@@ -1400,9 +1439,9 @@
       <widget class="QPushButton" name="bl_btn_rechercher">
        <property name="geometry">
         <rect>
-         <x>530</x>
+         <x>630</x>
          <y>120</y>
-         <width>281</width>
+         <width>181</width>
          <height>61</height>
         </rect>
        </property>
@@ -1581,6 +1620,19 @@
         <string>Pièces max</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="bl_btn_stats">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>120</y>
+         <width>151</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>STATISTIQUES</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_5">
@@ -1673,7 +1725,7 @@
       <widget class="QRadioButton" name="cl_rb_tri_croissant">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>90</x>
          <y>80</y>
          <width>171</width>
          <height>20</height>
@@ -1686,7 +1738,7 @@
       <widget class="QRadioButton" name="cl_rb_tri_decroissant">
        <property name="geometry">
         <rect>
-         <x>300</x>
+         <x>270</x>
          <y>80</y>
          <width>181</width>
          <height>20</height>
@@ -1712,9 +1764,9 @@
       <widget class="QPushButton" name="cl_btn_rechercher">
        <property name="geometry">
         <rect>
-         <x>530</x>
+         <x>640</x>
          <y>90</y>
-         <width>281</width>
+         <width>171</width>
          <height>61</height>
         </rect>
        </property>
@@ -1810,6 +1862,19 @@
        </property>
        <property name="placeholderText">
         <string>Nombre max</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="cl_btn_stats">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>90</y>
+         <width>151</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>STATISTIQUES</string>
        </property>
       </widget>
      </widget>

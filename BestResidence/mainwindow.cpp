@@ -11,6 +11,10 @@
 #include "ui_annoncewindow.h"
 #include "ajoutclient.h"
 #include "ui_ajoutclient.h"
+#include "stats_immo.h"
+#include "ui_stats_immo.h"
+#include "stats_clients.h"
+#include "ui_stats_clients.h"
 #include <string>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -708,6 +712,63 @@ void MainWindow::on_ajout_client_clicked()
 
 void MainWindow::on_ov_btn_rechercher_clicked()
 {
+    recherche_offre_vente();
+}
+
+void MainWindow::on_ol_btn_rechercher_clicked()
+{
+    recherche_offre_location();
+}
+
+void MainWindow::on_bv_btn_rechercher_clicked()
+{
+    recherche_bien_vendu();
+}
+
+void MainWindow::on_bl_btn_rechercher_clicked()
+{
+    recherche_bien_loue();
+}
+
+void MainWindow::on_cl_btn_rechercher_clicked()
+{
+    recherche_client();
+}
+
+void MainWindow::on_ov_btn_stats_clicked()
+{
+    recherche_offre_vente();
+    affiche_stats_immo(this->aff_annonces_vente);
+}
+
+void MainWindow::on_ol_btn_stats_clicked()
+{
+    recherche_offre_location();
+    affiche_stats_immo(this->aff_annonces_location);
+}
+
+void MainWindow::on_bv_btn_stats_clicked()
+{
+    recherche_bien_vendu();
+    affiche_stats_immo(this->aff_histo_vente);
+}
+
+void MainWindow::on_bl_btn_stats_clicked()
+{
+    recherche_bien_loue();
+    affiche_stats_immo(this->aff_histo_location);
+}
+
+void MainWindow::on_cl_btn_stats_clicked()
+{
+    recherche_client();
+    affiche_stats_client(this->aff_clients);
+}
+
+// ********************* FONCTIONS DE RECHERCHE ET DE TRI ************************
+
+void MainWindow::recherche_offre_vente()
+{
     set_aff_annonces_vente();
     if(ui->ov_txt_ville->text() != "")
     {
@@ -732,7 +793,7 @@ void MainWindow::on_ov_btn_rechercher_clicked()
     addTabAnnoncesVente();
 }
 
-void MainWindow::on_ol_btn_rechercher_clicked()
+void MainWindow::recherche_offre_location()
 {
     set_aff_annonces_location();
     if(ui->ol_txt_ville->text() != "")
@@ -758,7 +819,7 @@ void MainWindow::on_ol_btn_rechercher_clicked()
     addTabAnnoncesLocation();
 }
 
-void MainWindow::on_bv_btn_rechercher_clicked()
+void MainWindow::recherche_bien_vendu()
 {
     set_aff_histo_vente();
     if(ui->bv_txt_ville->text() != "")
@@ -786,7 +847,7 @@ void MainWindow::on_bv_btn_rechercher_clicked()
     addTabHistoVente();
 }
 
-void MainWindow::on_bl_btn_rechercher_clicked()
+void MainWindow::recherche_bien_loue()
 {
     set_aff_histo_location();
     if(ui->bl_txt_ville->text() != "")
@@ -814,7 +875,7 @@ void MainWindow::on_bl_btn_rechercher_clicked()
     addTabHistoLocation();
 }
 
-void MainWindow::on_cl_btn_rechercher_clicked()
+void MainWindow::recherche_client()
 {
     set_aff_clients();
     if(ui->cl_txt_id_client->text() != "")
@@ -838,8 +899,6 @@ void MainWindow::on_cl_btn_rechercher_clicked()
         this->aff_clients = this->client_recherche_nb_contrats(this->aff_clients, ui->cl_txt_nb_min->text().toInt(), ui->cl_txt_nb_max->text().toInt());
     addTabClients();
 }
-
-// ********************* FONCTIONS DE RECHERCHE ET DE TRI ************************
 
 QList<Annonce*> MainWindow::immo_recherche_ville(QList<Annonce*> ann, QString ville)
 {
@@ -1125,4 +1184,110 @@ QList<Client*> MainWindow::client_tri_date_decroissante(QList<Client*> cl)
         clients_tmp.removeAt(remove);
     }
     return tri_clients;
+}
+
+
+// *********************** FONCTIONS STATISTIQUES **********************
+
+void MainWindow::affiche_stats_immo(QList<Annonce*> ann)
+{
+    int nb_annonces_dispo = 0;
+    int nb_annonces_histo = 0;
+    int nb_clients = clients.length();
+    int nb_annonces_rech = ann.length();
+    int prix_moyen = 0;
+    int pieces_moyenne = 0;
+    double pourcentage = 0;
+    int annonces_photo = 0;
+    QDate date_ancienne;
+    QDate date_recente;
+    QString annonce_ancienne = "";
+    QString annonce_recente = "";
+
+    for(int i=0; i<annonces.length(); i++)
+    {
+        if(annonces.value(i)->getHisto() == 0) {
+            nb_annonces_dispo += 1;
+        } else {
+            nb_annonces_histo += 1;
+        }
+    }
+
+    for(int i=0; i<nb_annonces_rech; i++)
+    {
+        prix_moyen += ann.value(i)->getPrix();
+        pieces_moyenne += ann.value(i)->getNbPieces();
+        if(ann.value(i)->getPhotoPrincipale() != "") {
+            pourcentage += 1.0;
+        }
+        if(i==0) {
+            date_ancienne = ann.value(i)->getDate();
+            date_recente = ann.value(i)->getDate();
+        } else {
+            if(date_ancienne > ann.value(i)->getDate()) {
+                date_ancienne = ann.value(i)->getDate();
+            }
+            if(date_recente < ann.value(i)->getDate()) {
+                date_recente = ann.value(i)->getDate();
+            }
+        }
+    }
+
+    if(nb_annonces_rech != 0) {
+        prix_moyen = prix_moyen/nb_annonces_rech;
+        pieces_moyenne = pieces_moyenne/nb_annonces_rech;
+        annonces_photo = (pourcentage/nb_annonces_rech)*100;
+    }
+    annonce_ancienne = date_ancienne.toString("dd/MM/yyyy");
+    annonce_recente = date_recente.toString("dd/MM/yyyy");
+
+    StatsImmo aff_stats_immo(this, QString::number(nb_annonces_dispo), QString::number(nb_annonces_histo), QString::number(nb_clients), QString::number(nb_annonces_rech), QString::number(prix_moyen), QString::number(pieces_moyenne), QString::number(annonces_photo), annonce_ancienne, annonce_recente);
+    aff_stats_immo.exec();
+}
+
+void MainWindow::affiche_stats_client(QList<Client*> cl)
+{
+    int nb_annonces_dispo = 0;
+    int nb_annonces_histo = 0;
+    int nb_clients = clients.length();
+    int nb_clients_rech = cl.length();
+    int nb_contrats = 0;
+    QDate date_ancienne;
+    QDate date_recente;
+    QString client_ancien = "";
+    QString client_recent = "";
+
+    for(int i=0; i<annonces.length(); i++)
+    {
+        if(annonces.value(i)->getHisto() == 0) {
+            nb_annonces_dispo += 1;
+        } else {
+            nb_annonces_histo += 1;
+        }
+    }
+
+    for(int i=0; i<nb_clients_rech; i++)
+    {
+        nb_contrats += cl.value(i)->getNbContrats();
+        if(i==0) {
+            date_ancienne = cl.value(i)->getDateCreation();
+            date_recente = cl.value(i)->getDateCreation();
+        } else {
+            if(date_ancienne > cl.value(i)->getDateCreation()) {
+                date_ancienne = cl.value(i)->getDateCreation();
+            }
+            if(date_recente < cl.value(i)->getDateCreation()) {
+                date_recente = cl.value(i)->getDateCreation();
+            }
+        }
+    }
+
+    if(nb_clients_rech != 0) {
+        nb_contrats = nb_contrats/nb_clients_rech;
+    }
+    client_ancien = date_ancienne.toString("dd/MM/yyyy");
+    client_recent = date_recente.toString("dd/MM/yyyy");
+
+    StatsClients aff_stats_client(this, QString::number(nb_annonces_dispo), QString::number(nb_annonces_histo), QString::number(nb_clients), QString::number(nb_clients_rech), QString::number(nb_contrats), client_ancien, client_recent);
+    aff_stats_client.exec();
 }
