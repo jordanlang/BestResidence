@@ -144,6 +144,54 @@
         <idprop>0</idprop>
         <idclient>0</idclient>
     </immobilier>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Maison</bien>
+        <pieces>1</pieces>
+        <superficie>1</superficie>
+        <adresse>dd</adresse>
+        <ville>d</ville>
+        <codepostal>d</codepostal>
+        <description>d</description>
+        <prix>2</prix>
+        <date>02/05/2016</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Château</bien>
+        <pieces>2</pieces>
+        <superficie>2</superficie>
+        <adresse>d</adresse>
+        <ville>d</ville>
+        <codepostal>67000</codepostal>
+        <description>brouy</description>
+        <prix>4</prix>
+        <date>02/05/2016</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
     <client>
         <identifiant>0</identifiant>
         <genre>Mr.</genre>

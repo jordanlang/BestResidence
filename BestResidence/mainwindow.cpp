@@ -20,14 +20,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     readXmlFile();
     set_aff_annonces_vente();
+    this->aff_annonces_vente = immo_tri_date_decroissante(this->aff_annonces_vente);
     addTabAnnoncesVente();
     set_aff_annonces_location();
+    this->aff_annonces_location = immo_tri_date_decroissante(this->aff_annonces_location);
     addTabAnnoncesLocation();
     set_aff_histo_vente();
+    this->aff_histo_vente = immo_tri_date_decroissante(this->aff_histo_vente);
     addTabHistoVente();
     set_aff_histo_location();
+    this->aff_histo_location = immo_tri_date_decroissante(this->aff_histo_location);
     addTabHistoLocation();
     set_aff_clients();
+    this->aff_clients = client_tri_date_decroissante(this->aff_clients);
     addTabClients();
 }
 
@@ -348,7 +353,11 @@ QList<Client*> MainWindow::get_aff_clients()
 
 void MainWindow::addTabAnnoncesVente()
 {
-    ui->tableOffreVente->clearContents();
+    int nb = ui->tableOffreVente->rowCount();
+    for(int k=0; k<nb; k++)
+    {
+        ui->tableOffreVente->removeRow(0);
+    }
     QList<Annonce*> aff_annonces = this->aff_annonces_vente;
 
     for(int i=0; i<aff_annonces.length(); i++)
@@ -383,7 +392,11 @@ void MainWindow::addTabAnnoncesVente()
 
 void MainWindow::addTabAnnoncesLocation()
 {
-    ui->tableOffreLocation->clearContents();
+    int nb = ui->tableOffreLocation->rowCount();
+    for(int k=0; k<nb; k++)
+    {
+        ui->tableOffreLocation->removeRow(0);
+    }
     QList<Annonce*> aff_annonces = this->aff_annonces_location;
 
     for(int i=0; i<aff_annonces.length(); i++)
@@ -418,7 +431,11 @@ void MainWindow::addTabAnnoncesLocation()
 
 void MainWindow::addTabHistoVente()
 {
-    ui->tableBienVendu->clearContents();
+    int nb = ui->tableBienVendu->rowCount();
+    for(int k=0; k<nb; k++)
+    {
+        ui->tableBienVendu->removeRow(0);
+    }
     QList<Annonce*> aff_annonces = this->aff_histo_vente;
 
     for(int i=0; i<aff_annonces.length(); i++)
@@ -454,7 +471,11 @@ void MainWindow::addTabHistoVente()
 
 void MainWindow::addTabHistoLocation()
 {
-    ui->tableBienLoue->clearContents();
+    int nb = ui->tableBienLoue->rowCount();
+    for(int k=0; k<nb; k++)
+    {
+        ui->tableBienLoue->removeRow(0);
+    }
     QList<Annonce*> aff_annonces = this->aff_histo_location;
 
     for(int i=0; i<aff_annonces.length(); i++)
@@ -679,7 +700,7 @@ void MainWindow::on_ov_btn_rechercher_clicked()
     {
         QString s = ui->ov_txt_ville->text();
         QChar c = s.at(0);
-        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+        if(c >= '0' && c <= '9')
             this->aff_annonces_vente = this->immo_recherche_codepostal(this->aff_annonces_vente, ui->ov_txt_ville->text());
         else
             this->aff_annonces_vente = this->immo_recherche_ville(this->aff_annonces_vente, ui->ov_txt_ville->text());
@@ -705,7 +726,7 @@ void MainWindow::on_ol_btn_rechercher_clicked()
     {
         QString s = ui->ol_txt_ville->text();
         QChar c = s.at(0);
-        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+        if(c >= '0' && c <= '9')
             this->aff_annonces_location = this->immo_recherche_codepostal(this->aff_annonces_location, ui->ol_txt_ville->text());
         else
             this->aff_annonces_location = this->immo_recherche_ville(this->aff_annonces_location, ui->ol_txt_ville->text());
@@ -731,7 +752,7 @@ void MainWindow::on_bv_btn_rechercher_clicked()
     {
         QString s = ui->bv_txt_ville->text();
         QChar c = s.at(0);
-        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+        if(c >= '0' && c <= '9')
             this->aff_histo_vente = this->immo_recherche_codepostal(this->aff_histo_vente, ui->bv_txt_ville->text());
         else
             this->aff_histo_vente = this->immo_recherche_ville(this->aff_histo_vente, ui->bv_txt_ville->text());
@@ -759,7 +780,7 @@ void MainWindow::on_bl_btn_rechercher_clicked()
     {
         QString s = ui->bl_txt_ville->text();
         QChar c = s.at(0);
-        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+        if(c >= '0' && c <= '9')
             this->aff_histo_location = this->immo_recherche_codepostal(this->aff_histo_location, ui->bl_txt_ville->text());
         else
             this->aff_histo_location = this->immo_recherche_ville(this->aff_histo_location, ui->bl_txt_ville->text());
@@ -791,7 +812,7 @@ void MainWindow::on_cl_btn_rechercher_clicked()
     {
         QString s = ui->cl_txt_ville->text();
         QChar c = s.at(0);
-        if(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')
+        if(c >= '0' && c <= '9')
             this->aff_clients = this->client_recherche_codepostal(this->aff_clients, ui->cl_txt_ville->text());
         else
             this->aff_clients = this->client_recherche_ville(this->aff_clients, ui->cl_txt_ville->text());
@@ -854,7 +875,9 @@ QList<Annonce*> MainWindow::immo_recherche_pieces(QList<Annonce*> ann, int min, 
 QList<Annonce*> MainWindow::immo_recherche_type(QList<Annonce*> ann, bool maison, bool appart, bool bureau, bool chateau, bool ferme, bool commerce)
 {
     QList<Annonce*> r_annonces;
+    int nb_choix = 0;
     if(maison) {
+        nb_choix += 1;
         for(int i=0; i<ann.length(); i++) {
             if(ann.value(i)->getTypeBien() == "Maison") {
                 r_annonces.append(ann.value(i));
@@ -862,6 +885,7 @@ QList<Annonce*> MainWindow::immo_recherche_type(QList<Annonce*> ann, bool maison
         }
     }
     if(appart) {
+        nb_choix += 1;
         for(int i=0; i<ann.length(); i++) {
             if(ann.value(i)->getTypeBien() == "Appartement") {
                 r_annonces.append(ann.value(i));
@@ -869,6 +893,7 @@ QList<Annonce*> MainWindow::immo_recherche_type(QList<Annonce*> ann, bool maison
         }
     }
     if(bureau) {
+        nb_choix += 1;
         for(int i=0; i<ann.length(); i++) {
             if(ann.value(i)->getTypeBien() == "Bureau") {
                 r_annonces.append(ann.value(i));
@@ -876,6 +901,7 @@ QList<Annonce*> MainWindow::immo_recherche_type(QList<Annonce*> ann, bool maison
         }
     }
     if(chateau) {
+        nb_choix += 1;
         for(int i=0; i<ann.length(); i++) {
             if(ann.value(i)->getTypeBien() == "Château") {
                 r_annonces.append(ann.value(i));
@@ -883,6 +909,7 @@ QList<Annonce*> MainWindow::immo_recherche_type(QList<Annonce*> ann, bool maison
         }
     }
     if(ferme) {
+        nb_choix += 1;
         for(int i=0; i<ann.length(); i++) {
             if(ann.value(i)->getTypeBien() == "Ferme") {
                 r_annonces.append(ann.value(i));
@@ -890,12 +917,20 @@ QList<Annonce*> MainWindow::immo_recherche_type(QList<Annonce*> ann, bool maison
         }
     }
     if(commerce) {
+        nb_choix += 1;
         for(int i=0; i<ann.length(); i++) {
             if(ann.value(i)->getTypeBien() == "Commerce") {
                 r_annonces.append(ann.value(i));
             }
         }
     }
+
+    if(nb_choix == 0) {
+        for(int i=0; i<ann.length(); i++) {
+            r_annonces.append(ann.value(i));
+        }
+    }
+
     return r_annonces;
 }
 
