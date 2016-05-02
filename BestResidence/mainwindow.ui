@@ -1964,21 +1964,6 @@
         <string>Nombre max</string>
        </property>
       </widget>
-      <zorder>cl_txt_ville</zorder>
-      <zorder>cl_rb_tri_croissant</zorder>
-      <zorder>cl_rb_tri_decroissant</zorder>
-      <zorder>cl_lbl_date</zorder>
-      <zorder>cl_btn_rechercher</zorder>
-      <zorder>cl_txt_id_client</zorder>
-      <zorder>cl_txt_nom</zorder>
-      <zorder>cl_lbl_et</zorder>
-      <zorder>cl_lbl_nb_contrats</zorder>
-      <zorder>cl_txt_nb_min</zorder>
-      <zorder>lineEdit_18</zorder>
-      <zorder>lineEdit_19</zorder>
-      <zorder>cl_txt_nb_max</zorder>
-      <zorder>cl_txt_nb_min</zorder>
-      <zorder>cl_txt_nb_max</zorder>
      </widget>
      <widget class="QPushButton" name="ajout_client">
       <property name="geometry">
