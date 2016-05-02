@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bestresidence>
     <immobilier>
-        <annonce>Location</annonce>
-        <bien>Maison</bien>
-        <pieces>2</pieces>
-        <superficie>2</superficie>
-        <adresse>QS</adresse>
-        <ville>SD</ville>
-        <codepostal>SD</codepostal>
-        <description>QSD</description>
-        <prix>2</prix>
-        <date></date>
-        <principale>/Users/romainhry/Documents/Photos/Badminton/_DSC8774.JPG</principale>
-        <supp1>/Users/romainhry/Documents/Photos/Badminton/_DSC8883.JPG</supp1>
-        <supp2>/Users/romainhry/Documents/Photos/Badminton/_DSC8906.JPG</supp2>
-        <supp3></supp3>
-        <supp4></supp4>
-        <supp5></supp5>
-        <supp6></supp6>
-        <supp7></supp7>
-        <supp8></supp8>
-        <histo>0</histo>
-        <idprop>0</idprop>
-        <idclient>0</idclient>
-    </immobilier>
-    <immobilier>
         <annonce>Vente</annonce>
         <bien>Appartement</bien>
         <pieces>2</pieces>
@@ -83,30 +59,6 @@
         <description>d</description>
         <prix>1</prix>
         <date></date>
-        <principale></principale>
-        <supp1></supp1>
-        <supp2></supp2>
-        <supp3></supp3>
-        <supp4></supp4>
-        <supp5></supp5>
-        <supp6></supp6>
-        <supp7></supp7>
-        <supp8></supp8>
-        <histo>0</histo>
-        <idprop>0</idprop>
-        <idclient>0</idclient>
-    </immobilier>
-    <immobilier>
-        <annonce>Vente</annonce>
-        <bien>Commerce</bien>
-        <pieces>2</pieces>
-        <superficie>2</superficie>
-        <adresse>n</adresse>
-        <ville>f</ville>
-        <codepostal>f</codepostal>
-        <description>f</description>
-        <prix>2</prix>
-        <date>31/12/2015</date>
         <principale></principale>
         <supp1></supp1>
         <supp2></supp2>

@@ -616,12 +616,16 @@ void MainWindow::on_pushButton_clicked()
 
     if(!annule) {
         set_aff_annonces_vente();
+        this->aff_annonces_vente = immo_tri_date_decroissante(this->aff_annonces_vente);
         addTabAnnoncesVente();
         set_aff_annonces_location();
+        this->aff_annonces_location = immo_tri_date_decroissante(this->aff_annonces_location);
         addTabAnnoncesLocation();
         set_aff_histo_vente();
+        this->aff_histo_vente = immo_tri_date_decroissante(this->aff_histo_vente);
         addTabHistoVente();
         set_aff_histo_location();
+        this->aff_histo_location = immo_tri_date_decroissante(this->aff_histo_location);
         addTabHistoLocation();
     }
 }
@@ -633,8 +637,10 @@ void MainWindow::on_tableOffreVente_clicked(const QModelIndex &index)
     if (voir_annonce.getRefresh())
     {
         set_aff_annonces_vente();
+        this->aff_annonces_vente = immo_tri_date_decroissante(this->aff_annonces_vente);
         addTabAnnoncesVente();
         set_aff_histo_vente();
+        this->aff_histo_vente = immo_tri_date_decroissante(this->aff_histo_vente);
         addTabHistoVente();
     }
 }
@@ -646,8 +652,10 @@ void MainWindow::on_tableOffreLocation_clicked(const QModelIndex &index)
     if (voir_annonce.getRefresh())
     {
         set_aff_annonces_location();
+        this->aff_annonces_location = immo_tri_date_decroissante(this->aff_annonces_location);
         addTabAnnoncesLocation();
         set_aff_histo_location();
+        this->aff_histo_location = immo_tri_date_decroissante(this->aff_histo_location);
         addTabHistoLocation();
     }
 }
@@ -659,8 +667,10 @@ void MainWindow::on_tableBienVendu_clicked(const QModelIndex &index)
     if (voir_annonce.getRefresh())
     {
         set_aff_annonces_vente();
+        this->aff_annonces_vente = immo_tri_date_decroissante(this->aff_annonces_vente);
         addTabAnnoncesVente();
         set_aff_histo_vente();
+        this->aff_histo_vente = immo_tri_date_decroissante(this->aff_histo_vente);
         addTabHistoVente();
     }
 }
@@ -672,8 +682,10 @@ void MainWindow::on_tableBienLoue_clicked(const QModelIndex &index)
     if (voir_annonce.getRefresh())
     {
         set_aff_annonces_location();
+        this->aff_annonces_location = immo_tri_date_decroissante(this->aff_annonces_location);
         addTabAnnoncesLocation();
         set_aff_histo_location();
+        this->aff_histo_location = immo_tri_date_decroissante(this->aff_histo_location);
         addTabHistoLocation();
     }
 }
@@ -689,6 +701,7 @@ void MainWindow::on_ajout_client_clicked()
     ajoutClient.exec();
     if(!annule) {
         set_aff_clients();
+        this->aff_clients = client_tri_date_decroissante(this->aff_clients);
         addTabClients();
     }
 }
