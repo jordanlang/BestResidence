@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "ui_ajoutclient.h"
+#include "client.h"
 
 
 class AjoutClient : public QDialog
@@ -11,6 +12,7 @@ class AjoutClient : public QDialog
 
 public:
     explicit AjoutClient(QWidget *parent = Q_NULLPTR, Qt::WindowFlags f = Qt::WindowFlags());
+    explicit AjoutClient(QWidget *parent = Q_NULLPTR, Client* client = new Client(), Qt::WindowFlags f = Qt::WindowFlags());
     ~AjoutClient();
 
 private slots:

@@ -22,6 +22,28 @@ Ajout::Ajout(QWidget *parent, Qt::WindowFlags f) :
     ui->listWidget->setVisible(false);
 }
 
+Ajout::Ajout(QWidget *parent, Annonce* annonce, Qt::WindowFlags f) :
+    QDialog(parent, f),
+    ui(new Ui::Dialog)
+{
+    Ajout(parent, Qt::WindowFlags());
+    ui->q_typeAnnonce->setCurrentText(annonce->getTypeAnnonce());
+    ui->q_client->setCurrentText(annonce->getProp()->getNom() + " (" + annonce->getProp()->getId()+ ")");
+    ui->q_typeBien->setCurrentText(annonce->getTypeBien());
+    ui->q_adresse->setText(annonce->getAdresse());
+    ui->q_ville->setText(annonce->getVille());
+    ui->q_codePostal->setText(annonce->getCodePostal());
+    ui->q_nbPieces->setValue(annonce->getNbPieces());
+    ui->q_superficieTerrain->setValue(annonce->getSuperficie());
+    ui->q_description->setText(annonce->getDescription());
+    ui->q_prix->setValue(annonce->getPrix());
+    ui->l_photoPrincipal->setText(annonce->getPhotoPrincipale());
+    for(int i=0; i<annonce->getPhotosSupp().length(); i++)
+    {
+        ui->listWidget->addItem(annonce->getPhotosSupp().value(i));
+    }
+}
+
 Ajout::~Ajout()
 {
     delete ui;

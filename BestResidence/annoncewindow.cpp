@@ -7,6 +7,8 @@
 #include "choix_client.h"
 #include "ui_choix_client.h"
 #include "client.h"
+#include "ajout.h"
+#include "ui_ajout.h"
 
 AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlags f ) :
     QDialog(parent, f),
@@ -198,4 +200,11 @@ bool AnnonceWindow::getRefresh(){
 void AnnonceWindow::setAnnule(bool b)
 {
     this->annule = b;
+}
+
+void AnnonceWindow::on_b_modifier_clicked()
+{
+    Ajout add(((MainWindow*)this->parent()), this->annonce);
+    add.exec();
+
 }

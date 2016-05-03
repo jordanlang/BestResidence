@@ -13,6 +13,13 @@ AjoutClient::AjoutClient(QWidget *parent, Qt::WindowFlags f) :
     ui->b_valider->setStyleSheet("color: rgb(0, 0, 0)");
 }
 
+AjoutClient::AjoutClient(QWidget *parent, Client* client, Qt::WindowFlags f) :
+    QDialog(parent, f),
+    ui(new Ui::ajoutClient)
+{
+    AjoutClient(parent, Qt::WindowFlags());
+}
+
 AjoutClient::~AjoutClient()
 {
     delete ui;

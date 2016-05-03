@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "ui_ajout.h"
+#include "annonce.h"
 
 class Ajout : public QDialog
 {
@@ -10,6 +11,7 @@ class Ajout : public QDialog
 
 public:
     explicit Ajout(QWidget *parent = Q_NULLPTR, Qt::WindowFlags f = Qt::WindowFlags());
+    explicit Ajout(QWidget *parent = Q_NULLPTR, Annonce* annonce = new Annonce(), Qt::WindowFlags f = Qt::WindowFlags());
     ~Ajout();
 
 private slots:

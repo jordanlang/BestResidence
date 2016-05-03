@@ -644,7 +644,7 @@ void MainWindow::on_pushButton_clicked()
 {
     if(clients.length() > 0)
     {
-        Ajout ajout_bien(this);
+        Ajout ajout_bien(this, Qt::WindowFlags());
         ajout_bien.exec();
 
         if(!annule) {
@@ -734,7 +734,7 @@ void MainWindow::setAnnule(bool b)
 
 void MainWindow::on_ajout_client_clicked()
 {
-    AjoutClient ajoutClient(this);
+    AjoutClient ajoutClient(this, Qt::WindowFlags());
     ajoutClient.exec();
     if(!annule) {
         set_aff_clients();
