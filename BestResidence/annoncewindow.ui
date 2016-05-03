@@ -74,7 +74,7 @@
           <item row="1" column="1">
            <layout class="QGridLayout" name="gridLayout">
             <item row="0" column="0">
-             <widget class="QLabel" name="label_7">
+             <widget class="QLabel" name="l_loyer">
               <property name="text">
                <string>Prix :</string>
               </property>

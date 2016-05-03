@@ -5,82 +5,10 @@
         <bien>Maison</bien>
         <pieces>1</pieces>
         <superficie>1</superficie>
-        <adresse>f</adresse>
-        <ville>f</ville>
-        <codepostal>f</codepostal>
-        <description>f</description>
-        <prix>2</prix>
-        <date>03/05/2016</date>
-        <principale></principale>
-        <supp1></supp1>
-        <supp2></supp2>
-        <supp3></supp3>
-        <supp4></supp4>
-        <supp5></supp5>
-        <supp6></supp6>
-        <supp7></supp7>
-        <supp8></supp8>
-        <histo>0</histo>
-        <idprop></idprop>
-        <idclient></idclient>
-    </immobilier>
-    <immobilier>
-        <annonce>Vente</annonce>
-        <bien>Château</bien>
-        <pieces>25</pieces>
-        <superficie>400</superficie>
-        <adresse>rue de l'ail</adresse>
-        <ville>bourbonne</ville>
-        <codepostal>88400</codepostal>
-        <description>Bel endroit plein de minou</description>
-        <prix>400000</prix>
-        <date>03/05/2016</date>
-        <principale>/Users/romainhry/Documents/Photos/photo with Eléna/mouki/DSCF1326.JPG</principale>
-        <supp1>/Users/romainhry/Documents/Photos/photo with Eléna/mouki/DSCF1323.JPG</supp1>
-        <supp2>/Users/romainhry/Documents/Photos/photo with Eléna/mouki/DSCF1330.JPG</supp2>
-        <supp3></supp3>
-        <supp4></supp4>
-        <supp5></supp5>
-        <supp6></supp6>
-        <supp7></supp7>
-        <supp8></supp8>
-        <histo>0</histo>
-        <idprop></idprop>
-        <idclient></idclient>
-    </immobilier>
-    <immobilier>
-        <annonce>Location</annonce>
-        <bien>Maison</bien>
-        <pieces>1</pieces>
-        <superficie>1</superficie>
-        <adresse>df</adresse>
-        <ville>fd</ville>
-        <codepostal>d</codepostal>
-        <description>sdqqq</description>
-        <prix>2</prix>
-        <date>04/05/2016</date>
-        <principale></principale>
-        <supp1></supp1>
-        <supp2></supp2>
-        <supp3></supp3>
-        <supp4></supp4>
-        <supp5></supp5>
-        <supp6></supp6>
-        <supp7></supp7>
-        <supp8></supp8>
-        <histo>0</histo>
-        <idprop></idprop>
-        <idclient></idclient>
-    </immobilier>
-    <immobilier>
-        <annonce>Location</annonce>
-        <bien>Maison</bien>
-        <pieces>1</pieces>
-        <superficie>1</superficie>
-        <adresse>qs</adresse>
-        <ville>q</ville>
-        <codepostal>q</codepostal>
-        <description>sa</description>
+        <adresse>dq</adresse>
+        <ville>dq</ville>
+        <codepostal>qd</codepostal>
+        <description>qd</description>
         <prix>1</prix>
         <date>04/05/2016</date>
         <principale></principale>
@@ -93,7 +21,7 @@
         <supp7></supp7>
         <supp8></supp8>
         <histo>0</histo>
-        <idprop>0</idprop>
+        <idprop></idprop>
         <idclient></idclient>
     </immobilier>
     <client>

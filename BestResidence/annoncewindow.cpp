@@ -58,6 +58,7 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     else if(type=="Location" && histo ==0)
     {
         ui->date->setText("Offre disponible depuis le " + date);
+        ui->l_loyer->setText("Loyer :");
         ui->b_typeAnnonce->setText("Loué");
     }
     else if(type=="Vente" && histo ==1)
@@ -69,6 +70,7 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     else if(type=="Location" && histo ==1)
     {
         ui->date->setText("Loué depuis le " + date);
+        ui->l_loyer->setText("Loyer :");
         ui->b_typeAnnonce->setText("Remettre en location");
     }
     ui->description->setText(desc);

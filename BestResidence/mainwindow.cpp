@@ -26,6 +26,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->tableOffreLocation->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableOffreVente->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableBienLoue->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableBienVendu->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableClient->setSelectionBehavior(QAbstractItemView::SelectRows);
     int w = ui->l_icon->width();
     int h= ui->l_icon->height();
     QPixmap *pixmap_img2 = new QPixmap("../../../../BestResidence/Img/icon.png");
@@ -412,6 +417,13 @@ void MainWindow::addTabAnnoncesVente()
         QTableWidgetItem* wdg_ville = new QTableWidgetItem();
         QTableWidgetItem* wdg_prix = new QTableWidgetItem();
         QTableWidgetItem* wdg_date = new QTableWidgetItem();
+        wdg_photo->setFlags(wdg_photo->flags() ^ Qt::ItemIsEditable);
+        wdg_bien->setFlags(wdg_bien->flags() ^ Qt::ItemIsEditable);
+        wdg_pieces->setFlags(wdg_pieces->flags() ^ Qt::ItemIsEditable);
+        wdg_superficie->setFlags(wdg_superficie->flags() ^ Qt::ItemIsEditable);
+        wdg_ville->setFlags(wdg_ville->flags() ^ Qt::ItemIsEditable);
+        wdg_prix->setFlags(wdg_prix->flags() ^ Qt::ItemIsEditable);
+        wdg_date->setFlags(wdg_date->flags() ^ Qt::ItemIsEditable);
 
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
@@ -454,6 +466,14 @@ void MainWindow::addTabAnnoncesLocation()
         QTableWidgetItem* wdg_ville = new QTableWidgetItem();
         QTableWidgetItem* wdg_prix = new QTableWidgetItem();
         QTableWidgetItem* wdg_date = new QTableWidgetItem();
+
+        wdg_photo->setFlags(wdg_photo->flags() ^ Qt::ItemIsEditable);
+        wdg_bien->setFlags(wdg_bien->flags() ^ Qt::ItemIsEditable);
+        wdg_pieces->setFlags(wdg_pieces->flags() ^ Qt::ItemIsEditable);
+        wdg_superficie->setFlags(wdg_superficie->flags() ^ Qt::ItemIsEditable);
+        wdg_ville->setFlags(wdg_ville->flags() ^ Qt::ItemIsEditable);
+        wdg_prix->setFlags(wdg_prix->flags() ^ Qt::ItemIsEditable);
+        wdg_date->setFlags(wdg_date->flags() ^ Qt::ItemIsEditable);
 
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
@@ -498,6 +518,15 @@ void MainWindow::addTabHistoVente()
         QTableWidgetItem* wdg_prix = new QTableWidgetItem();
         QTableWidgetItem* wdg_date = new QTableWidgetItem();
         QTableWidgetItem* wdg_client = new QTableWidgetItem();
+
+        wdg_photo->setFlags(wdg_photo->flags() ^ Qt::ItemIsEditable);
+        wdg_bien->setFlags(wdg_bien->flags() ^ Qt::ItemIsEditable);
+        wdg_pieces->setFlags(wdg_pieces->flags() ^ Qt::ItemIsEditable);
+        wdg_superficie->setFlags(wdg_superficie->flags() ^ Qt::ItemIsEditable);
+        wdg_ville->setFlags(wdg_ville->flags() ^ Qt::ItemIsEditable);
+        wdg_prix->setFlags(wdg_prix->flags() ^ Qt::ItemIsEditable);
+        wdg_date->setFlags(wdg_date->flags() ^ Qt::ItemIsEditable);
+        wdg_client->setFlags(wdg_client->flags() ^ Qt::ItemIsEditable);
 
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
@@ -544,6 +573,15 @@ void MainWindow::addTabHistoLocation()
         QTableWidgetItem* wdg_date = new QTableWidgetItem();
         QTableWidgetItem* wdg_client = new QTableWidgetItem();
 
+        wdg_photo->setFlags(wdg_photo->flags() ^ Qt::ItemIsEditable);
+        wdg_bien->setFlags(wdg_bien->flags() ^ Qt::ItemIsEditable);
+        wdg_pieces->setFlags(wdg_pieces->flags() ^ Qt::ItemIsEditable);
+        wdg_superficie->setFlags(wdg_superficie->flags() ^ Qt::ItemIsEditable);
+        wdg_ville->setFlags(wdg_ville->flags() ^ Qt::ItemIsEditable);
+        wdg_prix->setFlags(wdg_prix->flags() ^ Qt::ItemIsEditable);
+        wdg_date->setFlags(wdg_date->flags() ^ Qt::ItemIsEditable);
+        wdg_client->setFlags(wdg_client->flags() ^ Qt::ItemIsEditable);
+
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
         wdg_bien->setText(aff_annonces.value(i)->getTypeBien());
@@ -584,6 +622,13 @@ void MainWindow::addTabClients()
         QTableWidgetItem* wdg_courriel = new QTableWidgetItem();
         QTableWidgetItem* wdg_telephone = new QTableWidgetItem();
         QTableWidgetItem* wdg_ville = new QTableWidgetItem();
+
+        wdg_id_client->setFlags(wdg_id_client->flags() ^ Qt::ItemIsEditable);
+        wdg_nom->setFlags(wdg_nom->flags() ^ Qt::ItemIsEditable);
+        wdg_prenom->setFlags(wdg_prenom->flags() ^ Qt::ItemIsEditable);
+        wdg_courriel->setFlags(wdg_courriel->flags() ^ Qt::ItemIsEditable);
+        wdg_ville->setFlags(wdg_ville->flags() ^ Qt::ItemIsEditable);
+        wdg_telephone->setFlags(wdg_telephone->flags() ^ Qt::ItemIsEditable);
 
         wdg_id_client->setText(aff_c.value(i)->getId());
         wdg_nom->setText(aff_c.value(i)->getNom());
