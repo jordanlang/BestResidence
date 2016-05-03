@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bestresidence>
+    <client>
+        <identifiant>0</identifiant>
+        <genre>Mr.</genre>
+        <nom>Henry</nom>
+        <prenom>Romain</prenom>
+        <datenaissance>28/08/1995</datenaissance>
+        <adresseclient>10 rue de betschdorf</adresseclient>
+        <villeclient>HOHWILLER</villeclient>
+        <codepostalclient>67250</codepostalclient>
+        <courriel>romainhry@gmail.com</courriel>
+        <telephone>0617087436</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>03/05/2016</datecreation>
+    </client>
+</bestresidence>

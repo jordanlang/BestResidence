@@ -13,353 +13,347 @@
   <property name="windowTitle">
    <string>Ajouter une annonce</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>601</width>
-     <height>675</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout_6">
-    <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout_5">
-      <item row="0" column="0">
-       <widget class="QGroupBox" name="groupBox">
-        <property name="title">
-         <string>Informations générales</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout">
-         <item row="4" column="2">
-          <widget class="QLineEdit" name="q_codePostal">
+  <layout class="QGridLayout" name="gridLayout_7">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout_6">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Informations générales</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="4" column="2">
+           <widget class="QLineEdit" name="q_codePostal">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>Code Postal</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="q_typeAnnonce">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <item>
+             <property name="text">
+              <string>Location</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Vente</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="l_typeAnnonce">
+            <property name="text">
+             <string>Type d'annonce :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="l_ville">
+            <property name="text">
+             <string>Ville :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="l_typeBien">
+            <property name="text">
+             <string>Type de bien :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="q_typeBien">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <item>
+             <property name="text">
+              <string>Maison</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Appartement</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Château</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Ferme</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Bureau</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Commerce</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="l_adresse">
+            <property name="text">
+             <string>Adresse :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="q_ville"/>
+          </item>
+          <item row="3" column="1" colspan="2">
+           <widget class="QLineEdit" name="q_adresse"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="q_client"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="l_client">
+            <property name="text">
+             <string>Client :</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Descriptif</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="6" colspan="2">
+           <widget class="QLabel" name="l_mCarre">
+            <property name="text">
+             <string>m2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="7">
+           <widget class="QLabel" name="l_euros">
+            <property name="text">
+             <string>€</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QSpinBox" name="q_superficieTerrain">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="maximum">
+             <number>100000</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="7">
+           <widget class="QTextEdit" name="q_description">
+            <property name="cursor" stdset="0">
+             <cursorShape>IBeamCursor</cursorShape>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="l_description">
+            <property name="text">
+             <string>Description du bien :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QLabel" name="l_prix">
+            <property name="text">
+             <string>Prix :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QSpinBox" name="q_nbPieces">
+            <property name="maximum">
+             <number>1000</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="l_nbPieces">
+            <property name="text">
+             <string>Nombre de pièces :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3" colspan="2">
+           <widget class="QLabel" name="l_superficieTerrain">
+            <property name="text">
+             <string>Superficie du terrain :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4" colspan="3">
+           <widget class="QDoubleSpinBox" name="q_prix">
+            <property name="maximum">
+             <double>1000000000.990000009536743</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="1" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="b_annuler">
            <property name="text">
-            <string/>
-           </property>
-           <property name="placeholderText">
-            <string>Code Postal</string>
+            <string>Annuler</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QComboBox" name="q_typeAnnonce">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <item>
-            <property name="text">
-             <string>Location</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Vente</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="l_typeAnnonce">
+         <item>
+          <widget class="QPushButton" name="b_valider">
            <property name="text">
-            <string>Type d'annonce :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="l_ville">
-           <property name="text">
-            <string>Ville :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="l_typeBien">
-           <property name="text">
-            <string>Type de bien :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QComboBox" name="q_typeBien">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <item>
-            <property name="text">
-             <string>Maison</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Appartement</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Château</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Ferme</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Bureau</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Commerce</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="l_adresse">
-           <property name="text">
-            <string>Adresse :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="q_ville"/>
-         </item>
-         <item row="3" column="1" colspan="2">
-          <widget class="QLineEdit" name="q_adresse"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="QComboBox" name="q_client"/>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="l_client">
-           <property name="text">
-            <string>Client :</string>
+            <string>Valider</string>
            </property>
           </widget>
          </item>
         </layout>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QGroupBox" name="groupBox">
-        <property name="title">
-         <string>Descriptif</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_2">
-         <item row="0" column="6" colspan="2">
-          <widget class="QLabel" name="l_mCarre">
-           <property name="text">
-            <string>m2</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="7">
-          <widget class="QLabel" name="l_euros">
-           <property name="text">
-            <string>€</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="5">
-          <widget class="QSpinBox" name="q_superficieTerrain">
-           <property name="cursor">
-            <cursorShape>ArrowCursor</cursorShape>
-           </property>
-           <property name="maximum">
-            <number>100000</number>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" colspan="7">
-          <widget class="QTextEdit" name="q_description">
-           <property name="cursor" stdset="0">
-            <cursorShape>IBeamCursor</cursorShape>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="l_description">
-           <property name="text">
-            <string>Description du bien :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="3">
-          <widget class="QLabel" name="l_prix">
-           <property name="text">
-            <string>Prix :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QSpinBox" name="q_nbPieces">
-           <property name="maximum">
-            <number>1000</number>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0" colspan="2">
-          <widget class="QLabel" name="l_nbPieces">
-           <property name="text">
-            <string>Nombre de pièces :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3" colspan="2">
-          <widget class="QLabel" name="l_superficieTerrain">
-           <property name="text">
-            <string>Superficie du terrain :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="4" colspan="3">
-          <widget class="QDoubleSpinBox" name="q_prix">
-           <property name="maximum">
-            <double>1000000000.990000009536743</double>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="1" column="0">
-     <layout class="QGridLayout" name="gridLayout_4">
-      <item row="1" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="b_annuler">
-          <property name="text">
-           <string>Annuler</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="b_valider">
-          <property name="text">
-           <string>Valider</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="0" column="0">
-       <widget class="QGroupBox" name="groupBox">
-        <property name="title">
-         <string>Photos</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="q_photoPrincipale"/>
-         </item>
-         <item row="0" column="2">
-          <widget class="QPushButton" name="b_parcourirPrincipal">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="text">
-            <string>...</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="3">
-          <widget class="QPushButton" name="b_ajouterSupp">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="text">
-            <string>Ajouter</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="l_photoPrincipale">
-           <property name="text">
-            <string> Photo principale :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="q_photosSupp"/>
-         </item>
-         <item row="2" column="2">
-          <widget class="QPushButton" name="b_parcourirSupp">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="text">
-            <string>...</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4">
-          <widget class="QPushButton" name="b_supprPrincipale">
-           <property name="text">
-            <string>Supprimer</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1" colspan="4">
-          <widget class="QListWidget" name="listWidget">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="l_photosSupp">
-           <property name="text">
-            <string> Photos supplémentaires :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QPushButton" name="b_ajouterPrincipal">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="text">
-            <string>Ajouter</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="4">
-          <widget class="QPushButton" name="b_supprSupp">
-           <property name="text">
-            <string>Supprimer</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" colspan="4">
-          <widget class="QLabel" name="l_photoPrincipal">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Photos</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="q_photoPrincipale"/>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="b_parcourirPrincipal">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QPushButton" name="b_ajouterSupp">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Ajouter</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="l_photoPrincipale">
+            <property name="text">
+             <string> Photo principale :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="q_photosSupp"/>
+          </item>
+          <item row="2" column="2">
+           <widget class="QPushButton" name="b_parcourirSupp">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="b_supprPrincipale">
+            <property name="text">
+             <string>Supprimer</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" colspan="4">
+           <widget class="QListWidget" name="listWidget">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="l_photosSupp">
+            <property name="text">
+             <string> Photos supplémentaires :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QPushButton" name="b_ajouterPrincipal">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Ajouter</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <widget class="QPushButton" name="b_supprSupp">
+            <property name="text">
+             <string>Supprimer</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="4">
+           <widget class="QLabel" name="l_photoPrincipal">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

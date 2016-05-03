@@ -18,6 +18,8 @@
 #include "choix_client.h"
 #include "ui_choix_client.h"
 #include <string>
+#include "ui_clientwindow.h"
+#include "clientwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -724,6 +726,16 @@ void MainWindow::on_tableBienLoue_clicked(const QModelIndex &index)
         set_aff_histo_location();
         this->aff_histo_location = immo_tri_date_decroissante(this->aff_histo_location);
         addTabHistoLocation();
+    }
+}
+
+void MainWindow::on_tableClient_clicked(const QModelIndex &index)
+{
+    ClientWindow voirClient(this,this->aff_clients.value(index.row()));
+    voirClient.exec();
+    if (voirClient.getRefresh())
+    {
+        addTabClients();
     }
 }
 

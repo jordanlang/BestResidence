@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     ajoutclient.cpp \
     stats_immo.cpp \
     stats_clients.cpp \
-    choix_client.cpp
+    choix_client.cpp \
+    clientwindow.cpp
 
 HEADERS  += mainwindow.h \
     ajout.h \
@@ -32,7 +33,8 @@ HEADERS  += mainwindow.h \
     ajoutclient.h \
     stats_immo.h \
     stats_clients.h \
-    choix_client.h
+    choix_client.h \
+    clientwindow.h
 
 FORMS    += mainwindow.ui \
     ajout.ui \
