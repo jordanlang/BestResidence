@@ -40,7 +40,8 @@ FORMS    += mainwindow.ui \
     annoncewindow.ui \
     stats_immo.ui \
     stats_clients.ui \
-    choix_client.ui
+    choix_client.ui \
+    clientwindow.ui
 
 DISTFILES += \
     annonces.xml
