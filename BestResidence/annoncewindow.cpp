@@ -127,16 +127,16 @@ void AnnonceWindow::on_b_typeAnnonce_clicked()
         ChoixClient choix(this);
         choix.exec();
         if(!annule) {
-            Client* prop;
+            Client* client;
             for(int i=0;i<((MainWindow*)this->parent())->clients.length();i++)
             {
                 if(((MainWindow*)this->parent())->clients.value(i)->getId() == QString::number(choix.getIdClient()))
                 {
-                    prop = ((MainWindow*)this->parent())->clients.value(i);
+                    client = ((MainWindow*)this->parent())->clients.value(i);
                 }
             }
 
-            this->annonce->setClient(prop);
+            this->annonce->setClient(client);
             this->annonce->setDate(QDate::fromString(date, "dd-MM-yyyy"));
             this->annonce->setHisto(1);
         }
