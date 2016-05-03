@@ -198,7 +198,26 @@ void MainWindow::readXmlFile()
                 } else if(element_immo == "idclient") {
                     xml_idclient = reader.readElementText();
                     element_immo = "immobilier";
-                    Annonce* a = new Annonce(xml_typeAnnonce, xml_typeBien, xml_nbPieces.toInt(), xml_superficie.toDouble(), xml_adresse, xml_ville, xml_codePostal, xml_description, xml_prix.toDouble(), QDate::fromString(xml_date, "dd/MM/yyyy"), xml_photoPrincipale, xml_photosSupp, xml_histo.toInt(), xml_idprop.toInt(), xml_idclient.toInt());
+
+                    Client* prop;
+                    for(int i=0;i<clients.length();i++)
+                    {
+                        if(clients.value(i)->getId() == xml_idprop)
+                        {
+                            prop = clients.value(i);
+                        }
+                    }
+
+                    Client* client;
+                    for(int i=0;i<clients.length();i++)
+                    {
+                        if(clients.value(i)->getId() == xml_idclient)
+                        {
+                            client = clients.value(i);
+                        }
+                    }
+
+                    Annonce* a = new Annonce(xml_typeAnnonce, xml_typeBien, xml_nbPieces.toInt(), xml_superficie.toDouble(), xml_adresse, xml_ville, xml_codePostal, xml_description, xml_prix.toDouble(), QDate::fromString(xml_date, "dd/MM/yyyy"), xml_photoPrincipale, xml_photosSupp, xml_histo.toInt(), prop, client);
                     annonces.append(a);
                 }
             } else if(reader.name() == element_client) {
@@ -454,6 +473,7 @@ void MainWindow::addTabHistoVente()
         QTableWidgetItem* wdg_ville = new QTableWidgetItem();
         QTableWidgetItem* wdg_prix = new QTableWidgetItem();
         QTableWidgetItem* wdg_date = new QTableWidgetItem();
+        QTableWidgetItem* wdg_client = new QTableWidgetItem();
 
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
@@ -463,6 +483,7 @@ void MainWindow::addTabHistoVente()
         wdg_ville->setText(aff_annonces.value(i)->getVille());
         wdg_prix->setText(QString::number(aff_annonces.value(i)->getPrix()));
         wdg_date->setText(aff_annonces.value(i)->getDate().toString("dd/MM/yyyy"));
+        wdg_client->setText(aff_annonces.value(i)->getClient()->getId());
 
         ui->tableBienVendu->insertRow(i);
         ui->tableBienVendu->setItem(i, 0, wdg_photo);
@@ -472,6 +493,7 @@ void MainWindow::addTabHistoVente()
         ui->tableBienVendu->setItem(i, 4, wdg_ville);
         ui->tableBienVendu->setItem(i, 5, wdg_prix);
         ui->tableBienVendu->setItem(i, 6, wdg_date);
+        ui->tableBienVendu->setItem(i, 7, wdg_client);
     }
 }
 
@@ -493,6 +515,7 @@ void MainWindow::addTabHistoLocation()
         QTableWidgetItem* wdg_ville = new QTableWidgetItem();
         QTableWidgetItem* wdg_prix = new QTableWidgetItem();
         QTableWidgetItem* wdg_date = new QTableWidgetItem();
+        QTableWidgetItem* wdg_client = new QTableWidgetItem();
 
         QIcon icon(aff_annonces.value(i)->getPhotoPrincipale());
         wdg_photo->setIcon(icon);
@@ -502,6 +525,7 @@ void MainWindow::addTabHistoLocation()
         wdg_ville->setText(aff_annonces.value(i)->getVille());
         wdg_prix->setText(QString::number(aff_annonces.value(i)->getPrix()));
         wdg_date->setText(aff_annonces.value(i)->getDate().toString("dd/MM/yyyy"));
+        wdg_client->setText(aff_annonces.value(i)->getClient()->getId());
 
         ui->tableBienLoue->insertRow(i);
         ui->tableBienLoue->setItem(i, 0, wdg_photo);
@@ -511,6 +535,7 @@ void MainWindow::addTabHistoLocation()
         ui->tableBienLoue->setItem(i, 4, wdg_ville);
         ui->tableBienLoue->setItem(i, 5, wdg_prix);
         ui->tableBienLoue->setItem(i, 6, wdg_date);
+        ui->tableBienVendu->setItem(i, 7, wdg_client);
     }
 }
 
@@ -583,8 +608,8 @@ void MainWindow::writeXmlFile()
                 writer.writeTextElement("supp"+QString::number(i+1), "");
         }
         writer.writeTextElement("histo", QString::number(a->getHisto()));
-        writer.writeTextElement("idprop", QString::number(a->getIdProp()));
-        writer.writeTextElement("idclient", QString::number(a->getIdClient()));
+        writer.writeTextElement("idprop", a->getProp()->getId());
+        writer.writeTextElement("idclient", a->getClient()->getId());
         writer.writeEndElement();
     }
 
@@ -1034,7 +1059,7 @@ QList<Annonce*> MainWindow::immo_recherche_id_client(QList<Annonce*> ann, int id
 {
     QList<Annonce*> r_annonces;
     for(int i=0; i<ann.length(); i++) {
-        if(ann.value(i)->getIdClient() == id) {
+        if(ann.value(i)->getClient()->getId().toInt() == id) {
             r_annonces.append(ann.value(i));
         }
     }

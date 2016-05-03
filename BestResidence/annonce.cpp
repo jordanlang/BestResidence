@@ -1,11 +1,12 @@
 #include "annonce.h"
 #include "mainwindow.h"
+#include "client.h"
 
 Annonce::Annonce()
 {
 }
 
-Annonce::Annonce(QString annonce, QString bien, int pieces, double superficie, QString adresse, QString ville, QString codepostal, QString description, double prix, QDate date, QString pp, QList<QString> ps, int histo, int idprop, int idclient)
+Annonce::Annonce(QString annonce, QString bien, int pieces, double superficie, QString adresse, QString ville, QString codepostal, QString description, double prix, QDate date, QString pp, QList<QString> ps, int histo, Client* prop, Client* client)
 {
     this->setTypeAnnonce(annonce);
     this->setTypeBien(bien);
@@ -20,8 +21,8 @@ Annonce::Annonce(QString annonce, QString bien, int pieces, double superficie, Q
     this->setPhotoPrincipale(pp);
     this->setPhotosSupp(ps);
     this->setHisto(histo);
-    this->setIdProp(idprop);
-    this->setIdClient(idclient);
+    this->setProp(prop);
+    this->setClient(client);
 }
 
 Annonce::~Annonce()
@@ -95,14 +96,14 @@ void Annonce::setHisto(int b)
     this->histo = b;
 }
 
-void Annonce::setIdProp(int id)
+void Annonce::setProp(Client* cl)
 {
-    this->idprop = id;
+    this->prop = cl;
 }
 
-void Annonce::setIdClient(int id)
+void Annonce::setClient(Client* cl)
 {
-    this->idclient = id;
+    this->client = cl;
 }
 
 QString Annonce::getTypeAnnonce()
@@ -170,13 +171,13 @@ int Annonce::getHisto()
     return this->histo;
 }
 
-int Annonce::getIdProp()
+Client* Annonce::getProp()
 {
-    return this->idprop;
+    return this->prop;
 }
 
-int Annonce::getIdClient()
+Client* Annonce::getClient()
 {
-    return this->idclient;
+    return this->client;
 }
 

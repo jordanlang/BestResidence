@@ -6,8 +6,7 @@
 #include <QDomDocument>
 #include <QtXml>
 #include <iostream>
-
-
+#include "client.h"
 
 class Annonce : public QObject
 {
@@ -15,7 +14,7 @@ class Annonce : public QObject
 
 public:
     explicit Annonce();
-    explicit Annonce(QString, QString, int, double, QString, QString, QString, QString, double, QDate, QString, QList<QString>, int, int, int);
+    explicit Annonce(QString, QString, int, double, QString, QString, QString, QString, double, QDate, QString, QList<QString>, int, Client*, Client*);
     ~Annonce();
 
     void setTypeAnnonce(QString);
@@ -31,8 +30,8 @@ public:
     void setPhotoPrincipale(QString);
     void setPhotosSupp(QList<QString>);
     void setHisto(int);
-    void setIdProp(int);
-    void setIdClient(int);
+    void setProp(Client*);
+    void setClient(Client*);
 
     QString getTypeAnnonce();
     QString getTypeBien();
@@ -47,9 +46,8 @@ public:
     QString getPhotoPrincipale();
     QList<QString> getPhotosSupp();
     int getHisto();
-    int getIdProp();
-    int getIdClient();
-
+    Client* getProp();
+    Client* getClient();
 
 private slots:
 
@@ -68,8 +66,8 @@ private:
     QString photoPrincipale;
     QList<QString> photosSupp;
     int histo;
-    int idprop;
-    int idclient;
+    Client* prop;
+    Client* client;
 };
 
 #endif // ANNONCE_H

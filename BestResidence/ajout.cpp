@@ -159,7 +159,16 @@ void Ajout::on_b_valider_clicked()
             ps.append(ui->listWidget->item(i)->text());
         }
 
-        Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), ui->l_photoPrincipal->text(), ps, 0, ui->q_client->currentData().toInt(), 0);
+        Client* prop;
+        for(int i=0;i<parent->clients.length();i++)
+        {
+            if(parent->clients.value(i)->getId() == ui->q_client->currentData().toString())
+            {
+                prop = parent->clients.value(i);
+            }
+        }
+
+        Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), ui->l_photoPrincipal->text(), ps, 0, prop, NULL);
         parent->annonces.append(a);
         parent->setAnnule(false);
         this->close();
