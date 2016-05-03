@@ -18,6 +18,8 @@
 #include "choix_client.h"
 #include "ui_choix_client.h"
 #include <string>
+#include "ui_clientwindow.h"
+#include "clientwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -378,6 +380,8 @@ QList<Client*> MainWindow::get_aff_clients()
 
 void MainWindow::addTabAnnoncesVente()
 {
+    ui->tableOffreVente->setIconSize(QSize(100, 200));
+    ui->tableOffreVente->setColumnWidth(0,200);
     int nb = ui->tableOffreVente->rowCount();
     for(int k=0; k<nb; k++)
     {
@@ -405,6 +409,7 @@ void MainWindow::addTabAnnoncesVente()
         wdg_date->setText(aff_annonces.value(i)->getDate().toString("dd/MM/yyyy"));
 
         ui->tableOffreVente->insertRow(i);
+        ui->tableOffreVente->setRowHeight(i,100);
         ui->tableOffreVente->setItem(i, 0, wdg_photo);
         ui->tableOffreVente->setItem(i, 1, wdg_bien);
         ui->tableOffreVente->setItem(i, 2, wdg_pieces);
@@ -417,6 +422,8 @@ void MainWindow::addTabAnnoncesVente()
 
 void MainWindow::addTabAnnoncesLocation()
 {
+    ui->tableOffreLocation->setIconSize(QSize(100, 200));
+    ui->tableOffreLocation->setColumnWidth(0,200);
     int nb = ui->tableOffreLocation->rowCount();
     for(int k=0; k<nb; k++)
     {
@@ -444,6 +451,7 @@ void MainWindow::addTabAnnoncesLocation()
         wdg_date->setText(aff_annonces.value(i)->getDate().toString("dd/MM/yyyy"));
 
         ui->tableOffreLocation->insertRow(i);
+        ui->tableOffreLocation->setRowHeight(i,100);
         ui->tableOffreLocation->setItem(i, 0, wdg_photo);
         ui->tableOffreLocation->setItem(i, 1, wdg_bien);
         ui->tableOffreLocation->setItem(i, 2, wdg_pieces);
@@ -456,6 +464,8 @@ void MainWindow::addTabAnnoncesLocation()
 
 void MainWindow::addTabHistoVente()
 {
+    ui->tableBienVendu->setIconSize(QSize(100, 200));
+    ui->tableBienVendu->setColumnWidth(0,200);
     int nb = ui->tableBienVendu->rowCount();
     for(int k=0; k<nb; k++)
     {
@@ -486,6 +496,7 @@ void MainWindow::addTabHistoVente()
         wdg_client->setText(aff_annonces.value(i)->getClient()->getId());
 
         ui->tableBienVendu->insertRow(i);
+        ui->tableBienVendu->setRowHeight(i,100);
         ui->tableBienVendu->setItem(i, 0, wdg_photo);
         ui->tableBienVendu->setItem(i, 1, wdg_bien);
         ui->tableBienVendu->setItem(i, 2, wdg_pieces);
@@ -500,6 +511,8 @@ void MainWindow::addTabHistoVente()
 void MainWindow::addTabHistoLocation()
 {
     int nb = ui->tableBienLoue->rowCount();
+    ui->tableBienLoue->setIconSize(QSize(100, 200));
+    ui->tableBienLoue->setColumnWidth(0,200);
     for(int k=0; k<nb; k++)
     {
         ui->tableBienLoue->removeRow(0);
@@ -528,6 +541,7 @@ void MainWindow::addTabHistoLocation()
         wdg_client->setText(aff_annonces.value(i)->getClient()->getId());
 
         ui->tableBienLoue->insertRow(i);
+        ui->tableBienLoue->setRowHeight(i,100);
         ui->tableBienLoue->setItem(i, 0, wdg_photo);
         ui->tableBienLoue->setItem(i, 1, wdg_bien);
         ui->tableBienLoue->setItem(i, 2, wdg_pieces);
@@ -541,7 +555,11 @@ void MainWindow::addTabHistoLocation()
 
 void MainWindow::addTabClients()
 {
-    ui->tableClient->clearContents();
+    int nb = ui->tableClient->rowCount();
+    for(int k=0; k<nb; k++)
+    {
+        ui->tableClient->removeRow(0);
+    }
     QList<Client*> aff_c = this->aff_clients;
 
     for(int i=0; i<aff_c.length(); i++)
@@ -724,6 +742,17 @@ void MainWindow::on_tableBienLoue_clicked(const QModelIndex &index)
         set_aff_histo_location();
         this->aff_histo_location = immo_tri_date_decroissante(this->aff_histo_location);
         addTabHistoLocation();
+    }
+}
+
+void MainWindow::on_tableClient_clicked(const QModelIndex &index)
+{
+    ClientWindow voirClient(this,this->aff_clients.value(index.row()));
+    voirClient.exec();
+    if (voirClient.getRefresh())
+    {
+        set_aff_clients();
+        addTabClients();
     }
 }
 

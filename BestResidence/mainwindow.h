@@ -78,6 +78,7 @@ private slots:
     void on_tableOffreLocation_clicked(const QModelIndex &index);
     void on_tableBienVendu_clicked(const QModelIndex &index);
     void on_tableBienLoue_clicked(const QModelIndex &index);
+    void on_tableClient_clicked(const QModelIndex &index);
     void on_ajout_client_clicked();
     void on_ov_btn_rechercher_clicked();
     void on_ol_btn_rechercher_clicked();
