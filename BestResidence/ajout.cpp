@@ -160,7 +160,7 @@ void Ajout::on_b_valider_clicked()
             ps.append(ui->listWidget->item(i)->text());
         }
 
-        Client* prop = NULL;
+        Client* prop;
         for(int i=0;i<parent->clients.length();i++)
         {
             if(parent->clients.value(i)->getId() == ui->q_client->currentData().toString())

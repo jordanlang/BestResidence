@@ -642,23 +642,29 @@ void MainWindow::writeXmlFile()
 
 void MainWindow::on_pushButton_clicked()
 {
-    Ajout ajout_bien(this);
-    ajout_bien.exec();
+    if(clients.length() > 0)
+    {
+        Ajout ajout_bien(this);
+        ajout_bien.exec();
 
-    if(!annule) {
-        set_aff_annonces_vente();
-        this->aff_annonces_vente = immo_tri_date_decroissante(this->aff_annonces_vente);
-        addTabAnnoncesVente();
-        set_aff_annonces_location();
-        this->aff_annonces_location = immo_tri_date_decroissante(this->aff_annonces_location);
-        addTabAnnoncesLocation();
-        set_aff_histo_vente();
-        this->aff_histo_vente = immo_tri_date_decroissante(this->aff_histo_vente);
-        addTabHistoVente();
-        set_aff_histo_location();
-        this->aff_histo_location = immo_tri_date_decroissante(this->aff_histo_location);
-        addTabHistoLocation();
+        if(!annule) {
+            set_aff_annonces_vente();
+            this->aff_annonces_vente = immo_tri_date_decroissante(this->aff_annonces_vente);
+            addTabAnnoncesVente();
+            set_aff_annonces_location();
+            this->aff_annonces_location = immo_tri_date_decroissante(this->aff_annonces_location);
+            addTabAnnoncesLocation();
+            set_aff_histo_vente();
+            this->aff_histo_vente = immo_tri_date_decroissante(this->aff_histo_vente);
+            addTabHistoVente();
+            set_aff_histo_location();
+            this->aff_histo_location = immo_tri_date_decroissante(this->aff_histo_location);
+            addTabHistoLocation();
+        }
+    } else {
+        QMessageBox::warning(this, "Impossible", "Impossible d'ajouter une annonce, il n'existe aucun client");
     }
+
 }
 
 void MainWindow::on_tableOffreVente_clicked(const QModelIndex &index)
