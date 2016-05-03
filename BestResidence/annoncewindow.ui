@@ -170,19 +170,6 @@
    <property name="title">
     <string/>
    </property>
-   <widget class="QLabel" name="l_photo">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>20</y>
-      <width>281</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QWidget" name="photoPrincipale" native="true">
     <property name="geometry">
      <rect>
@@ -192,6 +179,19 @@
       <height>211</height>
      </rect>
     </property>
+    <widget class="QLabel" name="l_photo">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>281</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="">
     <property name="geometry">

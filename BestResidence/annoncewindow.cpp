@@ -6,6 +6,7 @@
 #include "annonce.h"
 #include "choix_client.h"
 #include "ui_choix_client.h"
+#include "client.h"
 
 AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlags f ) :
     QDialog(parent, f),
@@ -31,6 +32,8 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     ui->l_prix->setStyleSheet("QLabel { color : orange; }");
     ui->l_codeP->setText(monAnnonce->getCodePostal());
     ui->l_prix->setText(QString::number(monAnnonce->getPrix()) + " €");
+    ui->l_client->setText(monAnnonce->getClient()->getNom() + " " + monAnnonce->getClient()->getPrenom() + " ID : " + monAnnonce->getClient()->getId());
+    ui->l_contact->setText(monAnnonce->getClient()->getCourriel());
     desc += monAnnonce->getDescription();
 
     QString date = monAnnonce->getDate().toString("dd/MM/yyyy");
