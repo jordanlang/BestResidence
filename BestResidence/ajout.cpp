@@ -12,24 +12,21 @@ Ajout::Ajout(QWidget *parent, Qt::WindowFlags f) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-    ui->b_valider->setStyleSheet("color: rgb(0, 0, 0)");
-    ((MainWindow*)this->parent())->setAnnule(true);
-    this->nb_photos = 0;
-    for(int i=0; i<((MainWindow*)this->parent())->clients.length(); i++)
-    {
-        ui->q_client->addItem(((MainWindow*)this->parent())->clients.value(i)->getNom() + " (" + ((MainWindow*)this->parent())->clients.value(i)->getId() + ")", ((MainWindow*)this->parent())->clients.value(i)->getId());
-    }
-    ui->listWidget->setVisible(false);
+    setup();
+    modif = 0;
 }
 
 Ajout::Ajout(QWidget *parent, Annonce* annonce, Qt::WindowFlags f) :
     QDialog(parent, f),
     ui(new Ui::Dialog)
 {
-    Ajout(parent, Qt::WindowFlags());
-    ui->q_typeAnnonce->setCurrentText(annonce->getTypeAnnonce());
-    ui->q_client->setCurrentText(annonce->getProp()->getNom() + " (" + annonce->getProp()->getId()+ ")");
-    ui->q_typeBien->setCurrentText(annonce->getTypeBien());
+    ui->setupUi(this);
+    setup();
+    modif = 1;
+    ann_a_modif = annonce;
+    ui->q_typeAnnonce->setCurrentIndex(ui->q_typeAnnonce->findText(annonce->getTypeAnnonce()));
+    ui->q_client->setCurrentIndex(ui->q_client->findData(annonce->getProp()->getId()));
+    ui->q_typeBien->setCurrentIndex(ui->q_typeBien->findText(annonce->getTypeBien()));
     ui->q_adresse->setText(annonce->getAdresse());
     ui->q_ville->setText(annonce->getVille());
     ui->q_codePostal->setText(annonce->getCodePostal());
@@ -38,10 +35,23 @@ Ajout::Ajout(QWidget *parent, Annonce* annonce, Qt::WindowFlags f) :
     ui->q_description->setText(annonce->getDescription());
     ui->q_prix->setValue(annonce->getPrix());
     ui->l_photoPrincipal->setText(annonce->getPhotoPrincipale());
+    this->nb_photos = annonce->getPhotosSupp().length();
     for(int i=0; i<annonce->getPhotosSupp().length(); i++)
     {
         ui->listWidget->addItem(annonce->getPhotosSupp().value(i));
     }
+}
+
+void Ajout::setup()
+{
+    ui->b_valider->setStyleSheet("color: rgb(0, 0, 0)");
+    ((MainWindow*)this->parent())->setAnnule(true);
+    this->nb_photos = 0;
+    for(int i=0; i<((MainWindow*)this->parent())->clients.length(); i++)
+    {
+        ui->q_client->addItem(((MainWindow*)this->parent())->clients.value(i)->getNom() + " (" + ((MainWindow*)this->parent())->clients.value(i)->getId() + ")", ((MainWindow*)this->parent())->clients.value(i)->getId());
+    }
+    ui->listWidget->setVisible(false);
 }
 
 Ajout::~Ajout()
@@ -176,7 +186,6 @@ void Ajout::on_b_valider_clicked()
     else
     {
         QList<QString> ps;
-        QString date = QString::fromStdString(currentDate());
         for(int i=0;i<ui->listWidget->count();i++)
         {
             ps.append(ui->listWidget->item(i)->text());
@@ -187,13 +196,32 @@ void Ajout::on_b_valider_clicked()
         {
             if(parent->clients.value(i)->getId() == ui->q_client->currentData().toString())
             {
-
                 prop = parent->clients.value(i);
             }
         }
 
-        Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), ui->l_photoPrincipal->text(), ps, 0, prop, NULL);
-        parent->annonces.append(a);
+        if(modif == 0)
+        {
+            QString date = QString::fromStdString(currentDate());
+            Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), ui->l_photoPrincipal->text(), ps, 0, prop, NULL);
+            parent->annonces.append(a);
+        }
+        else
+        {
+            ann_a_modif->setTypeAnnonce(ui->q_typeAnnonce->currentText());
+            ann_a_modif->setTypeBien(ui->q_typeBien->currentText());
+            ann_a_modif->setNbPieces(ui->q_nbPieces->value());
+            ann_a_modif->setSuperficie(ui->q_superficieTerrain->value());
+            ann_a_modif->setAdresse(ui->q_adresse->text());
+            ann_a_modif->setVille(ui->q_ville->text());
+            ann_a_modif->setCodePostal(ui->q_codePostal->text());
+            ann_a_modif->setDescription(ui->q_description->toPlainText());
+            ann_a_modif->setPrix(ui->q_prix->value());
+            ann_a_modif->setPhotoPrincipale(ui->l_photoPrincipal->text());
+            ann_a_modif->setPhotosSupp(ps);
+            ann_a_modif->setProp(prop);
+        }
+
         parent->setAnnule(false);
         this->close();
     }
@@ -219,18 +247,28 @@ void Ajout::on_b_parcourirSupp_clicked()
 
 void Ajout::on_b_ajouterPrincipal_clicked()
 {
-    ui->l_photoPrincipal->setText(ui->q_photoPrincipale->text());
-    ui->q_photoPrincipale->setText("");
+    if(ui->q_photoPrincipale->text() != "") {
+        ui->l_photoPrincipal->setText(ui->q_photoPrincipale->text());
+        ui->q_photoPrincipale->setText("");
+    } else {
+        QMessageBox::warning(this,"","Cliquez sur le bouton parcourir pour ajouter une photo");
+    }
 }
 
 void Ajout::on_b_ajouterSupp_clicked()
 {
     if(this->nb_photos<8)
     {
-        this->nb_photos++;
-        ui->listWidget->addItem(ui->q_photosSupp->text());
-        ui->q_photosSupp->setText("");
-        ui->listWidget->setVisible(true);
+        if(ui->q_photosSupp->text() != "")
+        {
+            this->nb_photos++;
+            ui->listWidget->addItem(ui->q_photosSupp->text());
+            ui->q_photosSupp->setText("");
+            ui->listWidget->setVisible(true);
+        } else
+        {
+            QMessageBox::warning(this,"","Cliquez sur le bouton parcourir pour ajouter une photo");
+        }
     }
     else
     {

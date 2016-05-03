@@ -206,5 +206,5 @@ void AnnonceWindow::on_b_modifier_clicked()
 {
     Ajout add(((MainWindow*)this->parent()), this->annonce);
     add.exec();
-
+    this->close();
 }

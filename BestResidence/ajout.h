@@ -25,8 +25,11 @@ private slots:
     void on_b_supprPrincipale_clicked();
 
 private:
+    void setup();
     Ui::Dialog *ui;
     int nb_photos;
+    Annonce* ann_a_modif;
+    bool modif;
 };
 
 #endif // AJOUT_H
