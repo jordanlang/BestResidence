@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bestresidence>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Maison</bien>
+        <pieces>1</pieces>
+        <superficie>1</superficie>
+        <adresse>f</adresse>
+        <ville>f</ville>
+        <codepostal>f</codepostal>
+        <description>f</description>
+        <prix>2</prix>
+        <date>03/05/2016</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop></idprop>
+        <idclient></idclient>
+    </immobilier>
     <client>
         <identifiant>0</identifiant>
+        <genre>Mr.</genre>
+        <nom>Romain</nom>
+        <prenom>f</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>f</adresseclient>
+        <villeclient>f</villeclient>
+        <codepostalclient>f</codepostalclient>
+        <courriel>f</courriel>
+        <telephone>f</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>03/05/2016</datecreation>
+    </client>
+    <client>
+        <identifiant>1</identifiant>
         <genre>Mr.</genre>
         <nom>f</nom>
         <prenom>f</prenom>

@@ -202,21 +202,31 @@ void MainWindow::readXmlFile()
                     element_immo = "immobilier";
 
                     Client* prop;
+                    bool trouve = 0;
                     for(int i=0;i<clients.length();i++)
                     {
                         if(clients.value(i)->getId() == xml_idprop)
                         {
                             prop = clients.value(i);
+                            trouve = 1;
                         }
+                    }
+                    if(!trouve) {
+                        prop = new Client();
                     }
 
                     Client* client;
+                    trouve = 0;
                     for(int i=0;i<clients.length();i++)
                     {
                         if(clients.value(i)->getId() == xml_idclient)
                         {
                             client = clients.value(i);
+                            trouve = 1;
                         }
+                    }
+                    if(!trouve) {
+                        client = new Client();
                     }
 
                     Annonce* a = new Annonce(xml_typeAnnonce, xml_typeBien, xml_nbPieces.toInt(), xml_superficie.toDouble(), xml_adresse, xml_ville, xml_codePostal, xml_description, xml_prix.toDouble(), QDate::fromString(xml_date, "dd/MM/yyyy"), xml_photoPrincipale, xml_photosSupp, xml_histo.toInt(), prop, client);
@@ -627,7 +637,11 @@ void MainWindow::writeXmlFile()
         }
         writer.writeTextElement("histo", QString::number(a->getHisto()));
         writer.writeTextElement("idprop", a->getProp()->getId());
-        writer.writeTextElement("idclient", a->getClient()->getId());
+        if(a->getClient() != NULL) {
+            writer.writeTextElement("idclient", a->getClient()->getId());
+        } else {
+            writer.writeTextElement("idclient", "");
+        }
         writer.writeEndElement();
     }
 
@@ -648,13 +662,30 @@ void MainWindow::writeXmlFile()
         writer.writeTextElement("nbcontrats", QString::number(c->getNbContrats()));
         writer.writeTextElement("datecreation", c->getDateCreation().toString("dd/MM/yyyy"));
         writer.writeEndElement();
-
     }
-
     writer.writeEndElement();
     writer.writeEndDocument();
 
     fileXml.close();
+}
+
+void MainWindow::majAllTables()
+{
+    set_aff_annonces_vente();
+    this->aff_annonces_vente = immo_tri_date_decroissante(this->aff_annonces_vente);
+    addTabAnnoncesVente();
+    set_aff_annonces_location();
+    this->aff_annonces_location = immo_tri_date_decroissante(this->aff_annonces_location);
+    addTabAnnoncesLocation();
+    set_aff_histo_vente();
+    this->aff_histo_vente = immo_tri_date_decroissante(this->aff_histo_vente);
+    addTabHistoVente();
+    set_aff_histo_location();
+    this->aff_histo_location = immo_tri_date_decroissante(this->aff_histo_location);
+    addTabHistoLocation();
+    set_aff_clients();
+    this->aff_clients = client_tri_date_decroissante(this->aff_clients);
+    addTabClients();
 }
 
 
@@ -752,6 +783,7 @@ void MainWindow::on_tableClient_clicked(const QModelIndex &index)
     if (voirClient.getRefresh())
     {
         set_aff_clients();
+        this->aff_clients = client_tri_date_decroissante(this->aff_clients);
         addTabClients();
     }
 }

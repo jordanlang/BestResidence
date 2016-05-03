@@ -16,12 +16,11 @@ public:
     explicit ClientWindow(QWidget *parent = Q_NULLPTR,Client *monClient = new Client(), Qt::WindowFlags f = Qt::WindowFlags());
     ~ClientWindow();
     bool getRefresh();
+    void setAnnule(bool);
 
 private slots:
     void on_b_retour_clicked();
-
     void on_b_supprimer_clicked();
-
     void on_b_modifier_clicked();
 
 private:
@@ -29,7 +28,7 @@ private:
     MainWindow * p;
     Client *client;
     bool refresh;
-
+    bool annule;
 };
 
 #endif // CLIENTWINDOW_H

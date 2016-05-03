@@ -1,9 +1,10 @@
 #include "clientwindow.h"
 #include "client.h"
 #include "mainwindow.h"
-#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ui_clientwindow.h"
+#include "ajoutclient.h"
+#include "ui_ajoutclient.h"
 
 ClientWindow::ClientWindow(QWidget *parent,Client *monClient, Qt::WindowFlags f ) :
     QDialog(parent, f),
@@ -36,6 +37,11 @@ ClientWindow::~ClientWindow()
     delete ui;
 }
 
+void ClientWindow::setAnnule(bool b)
+{
+    this->annule = b;
+}
+
 void ClientWindow::on_b_retour_clicked()
 {
     this->close();
@@ -50,7 +56,12 @@ void ClientWindow::on_b_supprimer_clicked()
 
 void ClientWindow::on_b_modifier_clicked()
 {
-
+    AjoutClient add(((MainWindow*)this->parent()), this->client);
+    add.exec();
+    ((MainWindow*)this->parent())->majAllTables();
+    this->close();
+    ClientWindow aff_win(((MainWindow*)this->parent()), this->client);
+    aff_win.exec();
 }
 
 bool ClientWindow::getRefresh(){

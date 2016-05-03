@@ -32,6 +32,7 @@ public:
     void addTabHistoLocation();
     void addTabClients();
     void setAnnule(bool);
+    void majAllTables();
 
     QList<Annonce*> get_aff_annonces_vente();
     void set_aff_annonces_vente();

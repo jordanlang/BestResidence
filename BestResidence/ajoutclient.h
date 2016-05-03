@@ -22,7 +22,10 @@ private slots:
 
 
 private:
+    void setup();
     Ui::ajoutClient *ui;
+    Client* cl_a_modif;
+    bool modif;
 };
 
 #endif // AJOUTCLIENT_H

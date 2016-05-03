@@ -25,7 +25,6 @@ private slots:
     void on_b_previous_clicked();
     void on_b_next_clicked();
     void on_b_supprimer_clicked();
-
     void on_b_modifier_clicked();
 
 private:

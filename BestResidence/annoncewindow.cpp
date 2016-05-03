@@ -206,5 +206,8 @@ void AnnonceWindow::on_b_modifier_clicked()
 {
     Ajout add(((MainWindow*)this->parent()), this->annonce);
     add.exec();
+    ((MainWindow*)this->parent())->majAllTables();
     this->close();
+    AnnonceWindow aff_win(((MainWindow*)this->parent()), this->annonce);
+    aff_win.exec();
 }
