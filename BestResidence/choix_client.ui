@@ -6,61 +6,48 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>334</width>
+    <width>340</width>
     <height>107</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Choix client</string>
   </property>
-  <widget class="QComboBox" name="cbo_choix_client">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>15</y>
-     <width>221</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
-     <width>59</width>
-     <height>16</height>
+     <y>15</y>
+     <width>301</width>
+     <height>81</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Client :</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_valider">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>60</y>
-     <width>113</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Valider</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_annuler">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>60</y>
-     <width>113</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Annuler</string>
-   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Client bénéficiaire :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" colspan="2">
+     <widget class="QComboBox" name="cbo_choix_client"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="btn_annuler">
+      <property name="text">
+       <string>Annuler</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QPushButton" name="btn_valider">
+      <property name="text">
+       <string>Valider</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

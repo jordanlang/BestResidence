@@ -16,11 +16,10 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
 
     QPixmap *pixmap_img;
     QPixmap *pixmap_img2;
-    QString desc = "Description :";
+    QString desc = "Description : \n";
     this->numPhoto=0;
     this->annonce=monAnnonce;
     p = ((MainWindow*)this->parent());
-
     this->type=monAnnonce->getTypeAnnonce();
     this->histo=monAnnonce->getHisto();
     this->photos=monAnnonce->getPhotosSupp();
@@ -29,13 +28,21 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     ui->l_pieces->setText(QString::number(monAnnonce->getNbPieces()));
     ui->l_surface->setText(QString::number(monAnnonce->getSuperficie()) + " m²");
     ui->l_ville->setText(monAnnonce->getVille());
+    ui->l_prix->setStyleSheet("QLabel { color : orange; }");
+    ui->l_codeP->setText(monAnnonce->getCodePostal());
     ui->l_prix->setText(QString::number(monAnnonce->getPrix()) + " €");
     desc += monAnnonce->getDescription();
 
     QString date = monAnnonce->getDate().toString("dd/MM/yyyy");
+    if(monAnnonce->getPhotoPrincipale()=="")
+    {
+        pixmap_img = new QPixmap("../../../../BestResidence/Img/no_image.png");
+    }
+    else
+    {
+        pixmap_img = new QPixmap(monAnnonce->getPhotoPrincipale());
+    }
 
-    pixmap_img = new QPixmap(monAnnonce->getPhotoPrincipale());
-    pixmap_img2 = new QPixmap(monAnnonce->getPhotosSupp().value(0));
 
     if(type=="Vente" && histo==0)
     {
@@ -70,8 +77,10 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     h= ui->photoSupp->height();
     if(photos.length() !=0)
     {
+        pixmap_img2 = new QPixmap(monAnnonce->getPhotosSupp().value(0));
         ui->photoSupp->setPixmap((*pixmap_img2).scaled(w,h,Qt::KeepAspectRatio));
         ui->l_nbPhotos->setText(QString::number(monAnnonce->getPhotosSupp().length()) + " photos disponibles" );
+
     }
     else
     {
@@ -118,7 +127,16 @@ void AnnonceWindow::on_b_typeAnnonce_clicked()
         ChoixClient choix(this);
         choix.exec();
         if(!annule) {
-            this->annonce->setIdClient(choix.getIdClient());
+            Client* prop;
+            for(int i=0;i<((MainWindow*)this->parent())->clients.length();i++)
+            {
+                if(((MainWindow*)this->parent())->clients.value(i)->getId() == QString::number(choix.getIdClient()))
+                {
+                    prop = ((MainWindow*)this->parent())->clients.value(i);
+                }
+            }
+
+            this->annonce->setClient(prop);
             this->annonce->setDate(QDate::fromString(date, "dd-MM-yyyy"));
             this->annonce->setHisto(1);
         }
@@ -126,7 +144,7 @@ void AnnonceWindow::on_b_typeAnnonce_clicked()
     else
     {
         QString date = QString::fromStdString(currentDate3());
-        Annonce* ann = new Annonce(this->annonce->getTypeAnnonce(), this->annonce->getTypeBien(), this->annonce->getNbPieces(), this->annonce->getSuperficie(), this->annonce->getAdresse(), this->annonce->getVille(), this->annonce->getCodePostal(), this->annonce->getDescription(), this->annonce->getPrix(), QDate::fromString(date, "dd-MM-yyyy"), this->annonce->getPhotoPrincipale(), this->annonce->getPhotosSupp(), 0, this->annonce->getIdProp(), this->annonce->getIdClient());
+        Annonce* ann = new Annonce(this->annonce->getTypeAnnonce(), this->annonce->getTypeBien(), this->annonce->getNbPieces(), this->annonce->getSuperficie(), this->annonce->getAdresse(), this->annonce->getVille(), this->annonce->getCodePostal(), this->annonce->getDescription(), this->annonce->getPrix(), QDate::fromString(date, "dd-MM-yyyy"), this->annonce->getPhotoPrincipale(), this->annonce->getPhotosSupp(), 0, this->annonce->getProp(), this->annonce->getClient());
         ((MainWindow*)this->parent())->annonces.append(ann);
     }
     this->refresh=true;

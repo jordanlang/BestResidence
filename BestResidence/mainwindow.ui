@@ -75,7 +75,7 @@
      <item row="1" column="0" colspan="2">
       <widget class="QTabWidget" name="onglets">
        <property name="currentIndex">
-        <number>4</number>
+        <number>3</number>
        </property>
        <widget class="QWidget" name="tab">
         <attribute name="title">
@@ -846,7 +846,7 @@
              <enum>Qt::SolidLine</enum>
             </property>
             <property name="columnCount">
-             <number>7</number>
+             <number>8</number>
             </property>
             <attribute name="verticalHeaderVisible">
              <bool>false</bool>
@@ -884,6 +884,11 @@
             <column>
              <property name="text">
               <string>Date de vente</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Bénéficiaire</string>
              </property>
             </column>
            </widget>
@@ -1135,7 +1140,7 @@
              <enum>Qt::SolidLine</enum>
             </property>
             <property name="columnCount">
-             <number>7</number>
+             <number>8</number>
             </property>
             <attribute name="verticalHeaderVisible">
              <bool>false</bool>
@@ -1173,6 +1178,11 @@
             <column>
              <property name="text">
               <string>Date de vente</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Bénéficiaire</string>
              </property>
             </column>
            </widget>

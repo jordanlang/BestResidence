@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>623</width>
-    <height>601</height>
+    <height>687</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Ajouter une annonce</string>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">

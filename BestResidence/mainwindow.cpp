@@ -51,8 +51,8 @@ MainWindow::~MainWindow()
 void MainWindow::readXmlFile()
 {
     QXmlStreamReader reader; // Objet servant à la lecture du fichier Xml
-    QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
-    //QString fileXmlName = "/Users/romainhry/Dropbox/L3/S6/IHM/BestResidence/BestResidence/annonces.xml";
+    //QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
+    QString fileXmlName = "../../../../BestResidence/annonces.xml";
     QFile fileXml(fileXmlName);
 
     QString xml_typeAnnonce;
@@ -572,8 +572,8 @@ void MainWindow::addTabClients()
 
 void MainWindow::writeXmlFile()
 {
-    QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
-    //QString fileXmlName = "/Users/romainhry/Dropbox/L3/S6/IHM/BestResidence/BestResidence/annonces.xml";
+    //QString fileXmlName = "/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/annonces.xml";
+    QString fileXmlName = "../../../../BestResidence/annonces.xml";
     QFile fileXml(fileXmlName);
 
     // Ouverture du fichier en écriture et en texte. (sort de la fonction si le fichier ne s'ouvre pas)
