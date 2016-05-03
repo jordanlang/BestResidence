@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bestresidence>
+    <client>
+        <identifiant>0</identifiant>
+        <genre>Mr.</genre>
+        <nom>sqd</nom>
+        <prenom>qsd</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>qSD</adresseclient>
+        <villeclient>QSDSQD</villeclient>
+        <codepostalclient>SQS</codepostalclient>
+        <courriel>SQSQQS</courriel>
+        <telephone>QSQSQS</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>03/05/2016</datecreation>
+    </client>
+</bestresidence>

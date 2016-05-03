@@ -32,8 +32,9 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     ui->l_prix->setStyleSheet("QLabel { color : orange; }");
     ui->l_codeP->setText(monAnnonce->getCodePostal());
     ui->l_prix->setText(QString::number(monAnnonce->getPrix()) + " €");
-    ui->l_client->setText(monAnnonce->getClient()->getNom() + " " + monAnnonce->getClient()->getPrenom() + " ID : " + monAnnonce->getClient()->getId());
-    ui->l_contact->setText(monAnnonce->getClient()->getCourriel());
+    ui->l_client->setText(monAnnonce->getProp()->getNom() + " " + monAnnonce->getProp()->getPrenom());
+    ui->l_id->setText("ID : " + monAnnonce->getProp()->getId());
+    ui->l_contact->setText(monAnnonce->getProp()->getCourriel());
     desc += monAnnonce->getDescription();
 
     QString date = monAnnonce->getDate().toString("dd/MM/yyyy");
