@@ -12,6 +12,7 @@ Ajout::Ajout(QWidget *parent, Qt::WindowFlags f) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    ui->b_valider->setStyleSheet("color: rgb(0, 0, 0)");
     ((MainWindow*)this->parent())->setAnnule(true);
     this->nb_photos = 0;
 }

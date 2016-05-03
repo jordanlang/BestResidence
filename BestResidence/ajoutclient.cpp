@@ -10,6 +10,7 @@ AjoutClient::AjoutClient(QWidget *parent, Qt::WindowFlags f) :
     ui(new Ui::ajoutClient)
 {
     ui->setupUi(this);
+    ui->b_valider->setStyleSheet("color: rgb(0, 0, 0)");
 }
 
 AjoutClient::~AjoutClient()

@@ -10,15 +10,16 @@ StatsImmo::StatsImmo(QWidget *parent, QString biens_dispos, QString biens_archiv
     ui(new Ui::StatsImmo)
 {
     ui->setupUi(this);
-    ui->biens_dispo->text() = biens_dispos;
-    ui->biens_archives->text() = biens_archives;
-    ui->nb_clients->text() = nb_clients;
-    ui->nb_annonces->text() = nb_annonces;
-    ui->prix_moyen->text() = prix_moyen + " €";
-    ui->pieces_moyenne->text() = pieces_moyenne;
-    ui->annonces_photo->text() = annonces_photo + " %";
-    ui->annonce_ancienne->text() = annonce_ancienne;
-    ui->annonce_recente->text() = annonce_recente;
+    ui->biens_dispo->setText(biens_dispos);
+    ui->biens_archives->setText(biens_archives);
+    ui->nb_clients->setText(nb_clients);
+    ui->nb_annonces->setText(nb_annonces);
+    ui->prix_moyen->setText(prix_moyen + " €");
+    ui->pieces_moyenne->setText(pieces_moyenne);
+    ui->annonces_photo->setText(annonces_photo + " %");
+    ui->annonce_ancienne->setText(annonce_ancienne);
+    ui->annonce_recente->setText(annonce_recente);
+    ui->btn_fermer->setStyleSheet("color: rgb(0, 0, 0)");
 }
 
 StatsImmo::~StatsImmo()

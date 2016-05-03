@@ -1195,10 +1195,10 @@ void MainWindow::affiche_stats_immo(QList<Annonce*> ann)
     int nb_annonces_histo = 0;
     int nb_clients = clients.length();
     int nb_annonces_rech = ann.length();
-    int prix_moyen = 0;
-    int pieces_moyenne = 0;
+    double prix_moyen = 0;
+    double pieces_moyenne = 0;
     double pourcentage = 0;
-    int annonces_photo = 0;
+    double annonces_photo = 0;
     QDate date_ancienne;
     QDate date_recente;
     QString annonce_ancienne = "";
@@ -1241,6 +1241,10 @@ void MainWindow::affiche_stats_immo(QList<Annonce*> ann)
     annonce_ancienne = date_ancienne.toString("dd/MM/yyyy");
     annonce_recente = date_recente.toString("dd/MM/yyyy");
 
+    prix_moyen = roundf(prix_moyen * 100) / 100;
+    pieces_moyenne = roundf(pieces_moyenne * 100) / 100;
+    annonces_photo = roundf(annonces_photo * 100) / 100;
+
     StatsImmo aff_stats_immo(this, QString::number(nb_annonces_dispo), QString::number(nb_annonces_histo), QString::number(nb_clients), QString::number(nb_annonces_rech), QString::number(prix_moyen), QString::number(pieces_moyenne), QString::number(annonces_photo), annonce_ancienne, annonce_recente);
     aff_stats_immo.exec();
 }
@@ -1251,7 +1255,7 @@ void MainWindow::affiche_stats_client(QList<Client*> cl)
     int nb_annonces_histo = 0;
     int nb_clients = clients.length();
     int nb_clients_rech = cl.length();
-    int nb_contrats = 0;
+    double nb_contrats = 0;
     QDate date_ancienne;
     QDate date_recente;
     QString client_ancien = "";
@@ -1287,6 +1291,8 @@ void MainWindow::affiche_stats_client(QList<Client*> cl)
     }
     client_ancien = date_ancienne.toString("dd/MM/yyyy");
     client_recent = date_recente.toString("dd/MM/yyyy");
+
+    nb_contrats = roundf(nb_contrats * 100) / 100;
 
     StatsClients aff_stats_client(this, QString::number(nb_annonces_dispo), QString::number(nb_annonces_histo), QString::number(nb_clients), QString::number(nb_clients_rech), QString::number(nb_contrats), client_ancien, client_recent);
     aff_stats_client.exec();

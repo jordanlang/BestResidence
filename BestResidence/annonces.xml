@@ -256,4 +256,18 @@
         <nbcontrats>0</nbcontrats>
         <datecreation></datecreation>
     </client>
+    <client>
+        <identifiant>4</identifiant>
+        <genre>Mr.</genre>
+        <nom>Lang</nom>
+        <prenom>Jordan</prenom>
+        <datenaissance>18/05/1995</datenaissance>
+        <adresseclient>33 grand-rue</adresseclient>
+        <villeclient>Aschbach</villeclient>
+        <codepostalclient>67250</codepostalclient>
+        <courriel>contact@jordanlang.fr</courriel>
+        <telephone>0635521951</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>03/05/2016</datecreation>
+    </client>
 </bestresidence>

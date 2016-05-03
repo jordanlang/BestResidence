@@ -10,13 +10,14 @@ StatsClients::StatsClients(QWidget *parent, QString biens_dispos, QString biens_
     ui(new Ui::StatsClients)
 {
     ui->setupUi(this);
-    ui->biens_dispos->text() = biens_dispos;
-    ui->biens_archives->text() = biens_archives;
-    ui->nb_clients->text() = nb_clients;
-    ui->nb_clients_rech->text() = nb_clients_rech;
-    ui->contrats_moyenne->text() = nb_contrats;
-    ui->client_ancien->text() = client_ancien;
-    ui->client_recent->text() = client_recent;
+    ui->biens_dispos->setText(biens_dispos);
+    ui->biens_archives->setText(biens_archives);
+    ui->nb_clients->setText(nb_clients);
+    ui->nb_clients_rech->setText(nb_clients_rech);
+    ui->contrats_moyenne->setText(nb_contrats);
+    ui->client_ancien->setText(client_ancien);
+    ui->client_recent->setText(client_recent);
+    ui->btn_fermer->setStyleSheet("color: rgb(0, 0, 0)");
 }
 
 StatsClients::~StatsClients()
