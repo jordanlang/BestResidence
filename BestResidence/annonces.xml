@@ -1,16 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bestresidence>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Maison</bien>
+        <pieces>1</pieces>
+        <superficie>1</superficie>
+        <adresse>qsd</adresse>
+        <ville>qs</ville>
+        <codepostal>sdqsqd</codepostal>
+        <description>sqdqsdsqd</description>
+        <prix>1</prix>
+        <date>03/05/2016</date>
+        <principale>/Users/romainhry/Documents/Photos/Badminton/11707692_1147080851982910_6346305882720934997_o.jpg</principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>1</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Maison</bien>
+        <pieces>1</pieces>
+        <superficie>1</superficie>
+        <adresse>qsd</adresse>
+        <ville>qs</ville>
+        <codepostal>sdqsqd</codepostal>
+        <description>sqdqsdsqd</description>
+        <prix>1</prix>
+        <date>03/05/2016</date>
+        <principale>/Users/romainhry/Documents/Photos/Badminton/11707692_1147080851982910_6346305882720934997_o.jpg</principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
     <client>
         <identifiant>0</identifiant>
         <genre>Mr.</genre>
-        <nom>Henry</nom>
-        <prenom>Romain</prenom>
-        <datenaissance>28/08/1995</datenaissance>
-        <adresseclient>10 rue de betschdorf</adresseclient>
-        <villeclient>HOHWILLER</villeclient>
-        <codepostalclient>67250</codepostalclient>
-        <courriel>romainhry@gmail.com</courriel>
-        <telephone>0617087436</telephone>
+        <nom>d</nom>
+        <prenom>sdss</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>qq</adresseclient>
+        <villeclient>sddd</villeclient>
+        <codepostalclient>sqq</codepostalclient>
+        <courriel>qqq</courriel>
+        <telephone>qq</telephone>
         <nbcontrats>0</nbcontrats>
         <datecreation>03/05/2016</datecreation>
     </client>
