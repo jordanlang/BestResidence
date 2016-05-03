@@ -15,6 +15,10 @@ Ajout::Ajout(QWidget *parent, Qt::WindowFlags f) :
     ui->b_valider->setStyleSheet("color: rgb(0, 0, 0)");
     ((MainWindow*)this->parent())->setAnnule(true);
     this->nb_photos = 0;
+    for(int i=0; i<((MainWindow*)this->parent())->clients.length(); i++)
+    {
+        ui->q_client->addItem(((MainWindow*)this->parent())->clients.value(i)->getNom() + " (" + ((MainWindow*)this->parent())->clients.value(i)->getId() + ")", ((MainWindow*)this->parent())->clients.value(i)->getId());
+    }
 }
 
 Ajout::~Ajout()
@@ -155,7 +159,7 @@ void Ajout::on_b_valider_clicked()
             ps.append(ui->listWidget->item(i)->text());
         }
 
-        Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), ui->l_photoPrincipal->text(), ps, 0, 0, 0);
+        Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), ui->l_photoPrincipal->text(), ps, 0, ui->q_client->currentData().toInt(), 0);
         parent->annonces.append(a);
         parent->setAnnule(false);
         this->close();

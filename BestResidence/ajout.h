@@ -14,7 +14,6 @@ public:
 
 private slots:
     void on_b_valider_clicked();
-
     void on_b_annuler_clicked();
     void on_b_parcourirPrincipal_clicked();
     void on_b_parcourirSupp_clicked();

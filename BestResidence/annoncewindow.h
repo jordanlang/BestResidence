@@ -15,6 +15,7 @@ public:
     explicit AnnonceWindow(QWidget *parent = Q_NULLPTR,Annonce *monAnnonce = new Annonce(), Qt::WindowFlags f = Qt::WindowFlags());
     ~AnnonceWindow();
     bool getRefresh();
+    void setAnnule(bool);
 
 private slots:
     void on_b_retour_clicked();
@@ -33,5 +34,6 @@ private:
     QList<QString> photos;
     Annonce *annonce;
     bool refresh;
+    bool annule;
 };
 #endif // ANNONCEWINDOW_H

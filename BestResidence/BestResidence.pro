@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     client.cpp \
     ajoutclient.cpp \
     stats_immo.cpp \
-    stats_clients.cpp
+    stats_clients.cpp \
+    choix_client.cpp
 
 HEADERS  += mainwindow.h \
     ajout.h \
@@ -30,14 +31,16 @@ HEADERS  += mainwindow.h \
     client.h \
     ajoutclient.h \
     stats_immo.h \
-    stats_clients.h
+    stats_clients.h \
+    choix_client.h
 
 FORMS    += mainwindow.ui \
     ajout.ui \
     ajoutclient.ui \
     annoncewindow.ui \
     stats_immo.ui \
-    stats_clients.ui
+    stats_clients.ui \
+    choix_client.ui
 
 DISTFILES += \
     annonces.xml

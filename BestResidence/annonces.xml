@@ -144,6 +144,54 @@
         <idprop>0</idprop>
         <idclient>0</idclient>
     </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Bureau</bien>
+        <pieces>3</pieces>
+        <superficie>2</superficie>
+        <adresse>bhjb</adresse>
+        <ville>bkj</ville>
+        <codepostal> khb</codepostal>
+        <description>dhikjn</description>
+        <prix>4</prix>
+        <date>03/05/2016</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>4</idprop>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Ferme</bien>
+        <pieces>4</pieces>
+        <superficie>9</superficie>
+        <adresse>d</adresse>
+        <ville>d</ville>
+        <codepostal>d</codepostal>
+        <description>d</description>
+        <prix>8</prix>
+        <date>03/05/2016</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>4</idprop>
+        <idclient>0</idclient>
+    </immobilier>
     <client>
         <identifiant>0</identifiant>
         <genre>Mr.</genre>

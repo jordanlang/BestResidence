@@ -13,24 +13,51 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
      <width>601</width>
-     <height>583</height>
+     <height>675</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_6">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_5">
       <item row="0" column="0">
-       <widget class="QGroupBox" name="">
+       <widget class="QGroupBox" name="groupBox">
         <property name="title">
          <string>Informations générales</string>
         </property>
         <layout class="QGridLayout" name="gridLayout">
+         <item row="4" column="2">
+          <widget class="QLineEdit" name="q_codePostal">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>Code Postal</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="q_typeAnnonce">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <item>
+            <property name="text">
+             <string>Location</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Vente</string>
+            </property>
+           </item>
+          </widget>
+         </item>
          <item row="0" column="0">
           <widget class="QLabel" name="l_typeAnnonce">
            <property name="text">
@@ -38,21 +65,21 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="0">
+         <item row="4" column="0">
           <widget class="QLabel" name="l_ville">
            <property name="text">
             <string>Ville :</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
+         <item row="2" column="0">
           <widget class="QLabel" name="l_typeBien">
            <property name="text">
             <string>Type de bien :</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
+         <item row="2" column="1">
           <widget class="QComboBox" name="q_typeBien">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
@@ -89,51 +116,34 @@
            </item>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="3" column="0">
           <widget class="QLabel" name="l_adresse">
            <property name="text">
             <string>Adresse :</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1" colspan="2">
-          <widget class="QLineEdit" name="q_adresse"/>
-         </item>
-         <item row="3" column="1">
+         <item row="4" column="1">
           <widget class="QLineEdit" name="q_ville"/>
          </item>
-         <item row="3" column="2">
-          <widget class="QLineEdit" name="q_codePostal">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="placeholderText">
-            <string>Code Postal</string>
-           </property>
-          </widget>
+         <item row="3" column="1" colspan="2">
+          <widget class="QLineEdit" name="q_adresse"/>
          </item>
-         <item row="0" column="1">
-          <widget class="QComboBox" name="q_typeAnnonce">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="q_client"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="l_client">
+           <property name="text">
+            <string>Client :</string>
            </property>
-           <item>
-            <property name="text">
-             <string>Location</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Vente</string>
-            </property>
-           </item>
           </widget>
          </item>
         </layout>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QGroupBox" name="">
+       <widget class="QGroupBox" name="groupBox">
         <property name="title">
          <string>Descriptif</string>
         </property>
@@ -250,7 +260,7 @@
        </layout>
       </item>
       <item row="0" column="0">
-       <widget class="QGroupBox" name="">
+       <widget class="QGroupBox" name="groupBox">
         <property name="title">
          <string>Photos</string>
         </property>
@@ -350,40 +360,6 @@
     </item>
    </layout>
   </widget>
-  <zorder>q_typeBien</zorder>
-  <zorder>l_typeBien</zorder>
-  <zorder>l_superficieTerrain</zorder>
-  <zorder>q_superficieTerrain</zorder>
-  <zorder>l_mCarre</zorder>
-  <zorder>l_nbPieces</zorder>
-  <zorder>q_nbPieces</zorder>
-  <zorder>q_adresse</zorder>
-  <zorder>l_adresse</zorder>
-  <zorder>q_codePostal</zorder>
-  <zorder>l_ville</zorder>
-  <zorder>q_ville</zorder>
-  <zorder>l_description</zorder>
-  <zorder>q_description</zorder>
-  <zorder>l_prix</zorder>
-  <zorder>q_prix</zorder>
-  <zorder>l_euros</zorder>
-  <zorder>l_photoPrincipale</zorder>
-  <zorder>q_photoPrincipale</zorder>
-  <zorder>b_parcourirPrincipal</zorder>
-  <zorder>l_typeAnnonce</zorder>
-  <zorder>q_typeAnnonce</zorder>
-  <zorder>b_ajouterPrincipal</zorder>
-  <zorder>b_ajouterSupp</zorder>
-  <zorder>l_photosSupp</zorder>
-  <zorder>b_parcourirSupp</zorder>
-  <zorder>q_photosSupp</zorder>
-  <zorder>b_valider</zorder>
-  <zorder>b_annuler</zorder>
-  <zorder>listWidget</zorder>
-  <zorder></zorder>
-  <zorder></zorder>
-  <zorder></zorder>
-  <zorder></zorder>
  </widget>
  <resources/>
  <connections/>

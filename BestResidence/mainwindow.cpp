@@ -15,6 +15,8 @@
 #include "ui_stats_immo.h"
 #include "stats_clients.h"
 #include "ui_stats_clients.h"
+#include "choix_client.h"
+#include "ui_choix_client.h"
 #include <string>
 
 MainWindow::MainWindow(QWidget *parent) :

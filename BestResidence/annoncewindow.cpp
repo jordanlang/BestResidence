@@ -4,6 +4,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "annonce.h"
+#include "choix_client.h"
+#include "ui_choix_client.h"
 
 AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlags f ) :
     QDialog(parent, f),
@@ -90,6 +92,18 @@ AnnonceWindow::~AnnonceWindow()
     delete ui;
 }
 
+const std::string currentDate3() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+    // for more information about date/time format
+    strftime(buf, sizeof(buf), "%d-%m-%Y", &tstruct);
+
+    return buf;
+}
+
 void AnnonceWindow::on_b_retour_clicked()
 {
     this->close();
@@ -104,7 +118,23 @@ void AnnonceWindow::on_b_supprimer_clicked()
 
 void AnnonceWindow::on_b_typeAnnonce_clicked()
 {
-    this->annonce->setHisto((this->histo+1)%2);
+    if(this->annonce->getHisto() == 0)
+    {
+        QString date = QString::fromStdString(currentDate3());
+        ChoixClient choix(this);
+        choix.exec();
+        if(!annule) {
+            this->annonce->setIdClient(choix.getIdClient());
+            this->annonce->setDate(QDate::fromString(date, "dd-MM-yyyy"));
+            this->annonce->setHisto(1);
+        }
+    }
+    else
+    {
+        QString date = QString::fromStdString(currentDate3());
+        Annonce* ann = new Annonce(this->annonce->getTypeAnnonce(), this->annonce->getTypeBien(), this->annonce->getNbPieces(), this->annonce->getSuperficie(), this->annonce->getAdresse(), this->annonce->getVille(), this->annonce->getCodePostal(), this->annonce->getDescription(), this->annonce->getPrix(), QDate::fromString(date, "dd-MM-yyyy"), this->annonce->getPhotoPrincipale(), this->annonce->getPhotosSupp(), 0, this->annonce->getIdProp(), this->annonce->getIdClient());
+        ((MainWindow*)this->parent())->annonces.append(ann);
+    }
     this->refresh=true;
     this->close();
 }
@@ -147,4 +177,9 @@ void AnnonceWindow::on_b_previous_clicked()
 
 bool AnnonceWindow::getRefresh(){
     return this->refresh;
+}
+
+void AnnonceWindow::setAnnule(bool b)
+{
+    this->annule = b;
 }

@@ -26,12 +26,6 @@ public:
     QList<Annonce*> annonces;
     QList<Client*> clients;
 
-    /*int nb_annonces = 0;
-    int nb_clients = 0;
-    int nb_aff_annonces_vente = 0;
-    int nb_aff_annonces_location = 0;
-    int nb_aff_histo_vente = 0;
-    int nb_aff_histo_location = 0;*/
     void addTabAnnoncesVente();
     void addTabAnnoncesLocation();
     void addTabHistoVente();
