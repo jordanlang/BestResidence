@@ -19,6 +19,7 @@ Ajout::Ajout(QWidget *parent, Qt::WindowFlags f) :
     {
         ui->q_client->addItem(((MainWindow*)this->parent())->clients.value(i)->getNom() + " (" + ((MainWindow*)this->parent())->clients.value(i)->getId() + ")", ((MainWindow*)this->parent())->clients.value(i)->getId());
     }
+    ui->listWidget->setVisible(false);
 }
 
 Ajout::~Ajout()
@@ -207,9 +208,21 @@ void Ajout::on_b_ajouterSupp_clicked()
         this->nb_photos++;
         ui->listWidget->addItem(ui->q_photosSupp->text());
         ui->q_photosSupp->setText("");
+        ui->listWidget->setVisible(true);
     }
     else
     {
         QMessageBox::warning(this,"","Impossible d'ajouter plus de 8 photos");
     }
+}
+
+void Ajout::on_b_supprPrincipale_clicked()
+{
+    ui->l_photoPrincipal->setText("");
+}
+
+void Ajout::on_b_supprSupp_clicked()
+{
+    ui->listWidget->clear();
+    nb_photos =0;
 }

@@ -19,6 +19,8 @@ private slots:
     void on_b_parcourirSupp_clicked();
     void on_b_ajouterPrincipal_clicked();
     void on_b_ajouterSupp_clicked();
+    void on_b_supprSupp_clicked();
+    void on_b_supprPrincipale_clicked();
 
 private:
     Ui::Dialog *ui;
