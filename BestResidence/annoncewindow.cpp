@@ -14,15 +14,9 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     ui->setupUi(this);
     this->refresh= false;
 
-    QTableWidgetItem* wdg_adresse = new QTableWidgetItem();
-    QTableWidgetItem* wdg_pieces = new QTableWidgetItem();
-    QTableWidgetItem* wdg_superficie = new QTableWidgetItem();
-    QTableWidgetItem* wdg_ville = new QTableWidgetItem();
-    QTableWidgetItem* wdg_prix = new QTableWidgetItem();
     QPixmap *pixmap_img;
     QPixmap *pixmap_img2;
     QString desc = "Description :";
-    ui->table->clearContents();
     this->numPhoto=0;
     this->annonce=monAnnonce;
     p = ((MainWindow*)this->parent());
@@ -31,11 +25,11 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     this->histo=monAnnonce->getHisto();
     this->photos=monAnnonce->getPhotosSupp();
 
-    wdg_adresse->setText(monAnnonce->getAdresse());
-    wdg_pieces->setText(QString::number(monAnnonce->getNbPieces()));
-    wdg_superficie->setText(QString::number(monAnnonce->getSuperficie()) + " m²");
-    wdg_ville->setText(monAnnonce->getVille());
-    wdg_prix->setText(QString::number(monAnnonce->getPrix()) + " €");
+    ui->l_adresse->setText(monAnnonce->getAdresse());
+    ui->l_pieces->setText(QString::number(monAnnonce->getNbPieces()));
+    ui->l_surface->setText(QString::number(monAnnonce->getSuperficie()) + " m²");
+    ui->l_ville->setText(monAnnonce->getVille());
+    ui->l_prix->setText(QString::number(monAnnonce->getPrix()) + " €");
     desc += monAnnonce->getDescription();
 
     QString date = monAnnonce->getDate().toString("dd/MM/yyyy");
@@ -64,12 +58,6 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
         ui->date->setText("Loué depuis le " + date);
         ui->b_typeAnnonce->setText("Remettre en location");
     }
-    ui->table->insertColumn(0);
-    ui->table->setItem(0, 0, wdg_prix);
-    ui->table->setItem(1, 0, wdg_pieces);
-    ui->table->setItem(2, 0, wdg_superficie);
-    ui->table->setItem(3, 0, wdg_ville);
-    ui->table->setItem(4, 0, wdg_adresse);
     ui->description->setText(desc);
     ui->description->setReadOnly(true);
     int w = ui->l_photo->width();
@@ -80,9 +68,15 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
 
     w = ui->photoSupp->width();
     h= ui->photoSupp->height();
-
-    ui->photoSupp->setPixmap((*pixmap_img2).scaled(w,h,Qt::KeepAspectRatio));
-    ui->l_nbPhotos->setText(QString::number(monAnnonce->getPhotosSupp().length()) + " photos disponibles" );
+    if(photos.length() !=0)
+    {
+        ui->photoSupp->setPixmap((*pixmap_img2).scaled(w,h,Qt::KeepAspectRatio));
+        ui->l_nbPhotos->setText(QString::number(monAnnonce->getPhotosSupp().length()) + " photos disponibles" );
+    }
+    else
+    {
+        ui->groupPhotos->setVisible(false);
+    }
 
 
 }

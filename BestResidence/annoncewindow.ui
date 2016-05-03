@@ -93,7 +93,7 @@
     <string>Esc</string>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox">
+  <widget class="QGroupBox" name="groupPhotos">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -363,6 +363,19 @@
     </property>
     <property name="text">
      <string>Pièces</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="l_codeP">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>160</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Code postal</string>
     </property>
    </widget>
   </widget>
