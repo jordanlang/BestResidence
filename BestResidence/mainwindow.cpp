@@ -26,6 +26,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    int w = ui->l_icon->width();
+    int h= ui->l_icon->height();
+    QPixmap *pixmap_img2 = new QPixmap("../../../../BestResidence/Img/icon.png");
+    ui->l_icon->setPixmap((*pixmap_img2).scaled(w,h,Qt::KeepAspectRatio));
     readXmlFile();
     set_aff_annonces_vente();
     this->aff_annonces_vente = immo_tri_date_decroissante(this->aff_annonces_vente);

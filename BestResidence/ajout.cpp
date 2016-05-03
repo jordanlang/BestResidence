@@ -36,6 +36,7 @@ Ajout::Ajout(QWidget *parent, Annonce* annonce, Qt::WindowFlags f) :
     ui->q_prix->setValue(annonce->getPrix());
     ui->l_photoPrincipal->setText(annonce->getPhotoPrincipale());
     this->nb_photos = annonce->getPhotosSupp().length();
+    ui->listWidget->setVisible(true);
     for(int i=0; i<annonce->getPhotosSupp().length(); i++)
     {
         ui->listWidget->addItem(annonce->getPhotosSupp().value(i));

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>623</width>
-    <height>687</height>
+    <height>699</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -128,7 +128,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="l_client">
             <property name="text">
-             <string>Client :</string>
+             <string>Client propriétaire :</string>
             </property>
            </widget>
           </item>

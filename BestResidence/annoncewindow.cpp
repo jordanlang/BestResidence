@@ -79,13 +79,14 @@ AnnonceWindow::AnnonceWindow(QWidget *parent,Annonce *monAnnonce, Qt::WindowFlag
     // set a scaled pixmap to a w x h window keeping its aspect ratio
     ui->l_photo->setPixmap((*pixmap_img).scaled(w,h,Qt::KeepAspectRatio));
 
-    w = ui->photoSupp->width();
-    h= ui->photoSupp->height();
+
     if(photos.length() !=0)
     {
-        pixmap_img2 = new QPixmap(monAnnonce->getPhotosSupp().value(0));
+        w = ui->photoSupp->width();
+        h= ui->photoSupp->height();
+        pixmap_img2 = new QPixmap(photos.value(0));
         ui->photoSupp->setPixmap((*pixmap_img2).scaled(w,h,Qt::KeepAspectRatio));
-        ui->l_nbPhotos->setText(QString::number(monAnnonce->getPhotosSupp().length()) + " photos disponibles" );
+        ui->l_nbPhotos->setText(QString::number(photos.length()) + " photos disponibles" );
 
     }
     else
