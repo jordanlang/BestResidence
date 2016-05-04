@@ -238,6 +238,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="b_annuler">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="text">
             <string>Annuler</string>
            </property>
@@ -245,6 +248,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="b_valider">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="text">
             <string>Valider</string>
            </property>
@@ -303,6 +309,9 @@
           </item>
           <item row="0" column="4">
            <widget class="QPushButton" name="b_supprPrincipale">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>Supprimer</string>
             </property>
@@ -334,6 +343,9 @@
           </item>
           <item row="2" column="4">
            <widget class="QPushButton" name="b_supprSupp">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>Supprimer</string>
             </property>

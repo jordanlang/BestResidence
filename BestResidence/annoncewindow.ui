@@ -209,6 +209,9 @@
           </item>
           <item row="3" column="0">
            <widget class="QPushButton" name="b_previous">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>&lt;</string>
             </property>
@@ -244,6 +247,9 @@
           </item>
           <item row="3" column="4">
            <widget class="QPushButton" name="b_next">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="text">
              <string>&gt;</string>
             </property>
@@ -291,6 +297,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="b_modifier">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="text">
           <string>Modifier</string>
          </property>

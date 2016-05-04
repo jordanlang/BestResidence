@@ -81,7 +81,7 @@
       <item row="1" column="0" colspan="2">
        <widget class="QTabWidget" name="onglets">
         <property name="currentIndex">
-         <number>3</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
@@ -228,6 +228,9 @@
                  </item>
                  <item row="3" column="2" colspan="2">
                   <widget class="QPushButton" name="ov_btn_rechercher">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>RECHERCHER</string>
                    </property>
@@ -263,6 +266,9 @@
                  </item>
                  <item row="3" column="0" colspan="2">
                   <widget class="QPushButton" name="ov_btn_stats">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>STATISTIQUES</string>
                    </property>
@@ -518,6 +524,9 @@
                  </item>
                  <item row="3" column="0" colspan="2">
                   <widget class="QPushButton" name="ol_btn_stats">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>STATISTIQUES</string>
                    </property>
@@ -525,6 +534,9 @@
                  </item>
                  <item row="3" column="2" colspan="2">
                   <widget class="QPushButton" name="ol_btn_rechercher">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>RECHERCHER</string>
                    </property>
@@ -801,6 +813,9 @@
                  </item>
                  <item row="3" column="0" colspan="2">
                   <widget class="QPushButton" name="bv_btn_stats">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>STATISTIQUES</string>
                    </property>
@@ -808,6 +823,9 @@
                  </item>
                  <item row="3" column="2" colspan="2">
                   <widget class="QPushButton" name="bv_btn_rechercher">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>RECHERCHER</string>
                    </property>
@@ -1092,6 +1110,9 @@
                  </item>
                  <item row="3" column="0" colspan="2">
                   <widget class="QPushButton" name="bl_btn_stats">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>STATISTIQUES</string>
                    </property>
@@ -1099,6 +1120,9 @@
                  </item>
                  <item row="3" column="2" colspan="2">
                   <widget class="QPushButton" name="bl_btn_rechercher">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
                     <string>RECHERCHER</string>
                    </property>
