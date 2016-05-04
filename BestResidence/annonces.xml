@@ -2,31 +2,115 @@
 <bestresidence>
     <client>
         <identifiant>0</identifiant>
-        <genre>Mlle.</genre>
+        <genre>Mr.</genre>
         <nom>Henry</nom>
         <prenom>Romain</prenom>
-        <datenaissance>22/05/1996</datenaissance>
-        <adresseclient>56 er rue </adresseclient>
-        <villeclient>Strasbourg</villeclient>
-        <codepostalclient>63970</codepostalclient>
-        <courriel>henry@romain.fr</courriel>
-        <telephone>0173693762</telephone>
+        <datenaissance>28/08/1995</datenaissance>
+        <adresseclient>10 rue de Bestchdorf</adresseclient>
+        <villeclient>HOHWILLER</villeclient>
+        <codepostalclient>67250</codepostalclient>
+        <courriel>romainhry@gmail.com</courriel>
+        <telephone>0617087436</telephone>
+        <nbcontrats>3</nbcontrats>
+        <datecreation>04/05/2016</datecreation>
+    </client>
+    <client>
+        <identifiant>1</identifiant>
+        <genre>Mr.</genre>
+        <nom>Lang</nom>
+        <prenom>Jordan</prenom>
+        <datenaissance>18/05/1995</datenaissance>
+        <adresseclient>10 grand rue</adresseclient>
+        <villeclient>Aschbach</villeclient>
+        <codepostalclient>67250</codepostalclient>
+        <courriel>contact@lang.fr</courriel>
+        <telephone>0716325611</telephone>
+        <nbcontrats>3</nbcontrats>
+        <datecreation>04/05/2016</datecreation>
+    </client>
+    <client>
+        <identifiant>2</identifiant>
+        <genre>Mlle.</genre>
+        <nom>Hosti</nom>
+        <prenom>Elena</prenom>
+        <datenaissance>09/07/1995</datenaissance>
+        <adresseclient>7 rue du fleuve</adresseclient>
+        <villeclient>Beinheim</villeclient>
+        <codepostalclient>67300</codepostalclient>
+        <courriel>elenahosti@gmail.com</courriel>
+        <telephone>0765423110</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>04/05/2016</datecreation>
+    </client>
+    <client>
+        <identifiant>3</identifiant>
+        <genre>Mme.</genre>
+        <nom>Muller</nom>
+        <prenom>Nanthalie</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>10 rue de Betschdorf</adresseclient>
+        <villeclient>HOHWILLER</villeclient>
+        <codepostalclient>67250</codepostalclient>
+        <courriel>mullernat@hotmail.fr</courriel>
+        <telephone>0388547182</telephone>
+        <nbcontrats>1</nbcontrats>
+        <datecreation>04/05/2016</datecreation>
+    </client>
+    <client>
+        <identifiant>4</identifiant>
+        <genre>Mr.</genre>
+        <nom>HENRY</nom>
+        <prenom>Stéphane</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>7 rue de Viller</adresseclient>
+        <villeclient>Nancy</villeclient>
+        <codepostalclient>54100</codepostalclient>
+        <courriel>henrystaphane@gmail.fr</courriel>
+        <telephone>0456789324</telephone>
         <nbcontrats>2</nbcontrats>
         <datecreation>04/05/2016</datecreation>
     </client>
+    <client>
+        <identifiant>5</identifiant>
+        <genre>Mr.</genre>
+        <nom>SOUHAIT</nom>
+        <prenom>Josette</prenom>
+        <datenaissance>01/01/1968</datenaissance>
+        <adresseclient>4 grand rue</adresseclient>
+        <villeclient>Bourbonne</villeclient>
+        <codepostalclient>88350</codepostalclient>
+        <courriel>josette@hotmail.fr</courriel>
+        <telephone>0618095327</telephone>
+        <nbcontrats>1</nbcontrats>
+        <datecreation>04/05/2016</datecreation>
+    </client>
+    <client>
+        <identifiant>6</identifiant>
+        <genre>Mr.</genre>
+        <nom>DUPONT</nom>
+        <prenom>Jerome</prenom>
+        <datenaissance>01/01/2000</datenaissance>
+        <adresseclient>4 rue du lycée</adresseclient>
+        <villeclient>Wissembourg</villeclient>
+        <codepostalclient>67400</codepostalclient>
+        <courriel>etu@jerome.fr</courriel>
+        <telephone>0765423900</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>04/05/2016</datecreation>
+    </client>
     <immobilier>
-        <annonce>Location</annonce>
-        <bien>Maison</bien>
-        <pieces>6</pieces>
-        <superficie>150</superficie>
-        <adresse>33 grand rue</adresse>
-        <ville>Asc</ville>
+        <annonce>Vente</annonce>
+        <bien>Commerce</bien>
+        <pieces>4</pieces>
+        <superficie>134</superficie>
+        <adresse>3 rue de la saline</adresse>
+        <ville>Soultz sous forets</ville>
         <codepostal>67250</codepostal>
-        <description>belle maison beukabhvukj</description>
-        <prix>150</prix>
+        <description>Apres un dépot de bilan je cede mon commerce, sa cour et son atelier ainsi le fond de commerce</description>
+        <prix>200000</prix>
         <date>04/05/2016</date>
-        <principale>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</principale>
-        <supp1>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</supp1>
+        <principale>../../../../BestResidence/Photos/commerce.jpg</principale>
+        <supp1>../../../../BestResidence/Photos/commerce2.jpg</supp1>
         <supp2></supp2>
         <supp3></supp3>
         <supp4></supp4>
@@ -34,23 +118,28 @@
         <supp6></supp6>
         <supp7></supp7>
         <supp8></supp8>
-        <histo>1</histo>
-        <idprop>0</idprop>
-        <idclient>0</idclient>
+        <histo>0</histo>
+        <idprop>1</idprop>
+        <idclient></idclient>
     </immobilier>
     <immobilier>
         <annonce>Location</annonce>
-        <bien>Maison</bien>
-        <pieces>6</pieces>
-        <superficie>150</superficie>
-        <adresse>33 grand rue</adresse>
-        <ville>Asc</ville>
+        <bien>Appartement</bien>
+        <pieces>1</pieces>
+        <superficie>20</superficie>
+        <adresse>4 rue de l'ail</adresse>
+        <ville>Strasbourg</ville>
         <codepostal>67250</codepostal>
-        <description>belle maison beukabhvukj</description>
-        <prix>150</prix>
+        <description>Petit studio, inteligement agencé.
+Parfait pour un Etudiant car les fac sont à proximité
+
+Loyer : 500euros hors charges
+
+Je suis disponible pour visite le lundi et jeudi</description>
+        <prix>500</prix>
         <date>04/05/2016</date>
-        <principale>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</principale>
-        <supp1>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</supp1>
+        <principale>../../../../BestResidence/Photos/studio.jpg</principale>
+        <supp1>../../../../BestResidence/Photos/studio2.jpg</supp1>
         <supp2></supp2>
         <supp3></supp3>
         <supp4></supp4>
@@ -60,20 +149,52 @@
         <supp8></supp8>
         <histo>0</histo>
         <idprop>0</idprop>
-        <idclient>0</idclient>
+        <idclient></idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Appartement</bien>
+        <pieces>7</pieces>
+        <superficie>180</superficie>
+        <adresse>7 rue de villers</adresse>
+        <ville>Nancy</ville>
+        <codepostal>54100</codepostal>
+        <description>Magnifique duplex pensé par un architect renommé.
+A procimité du tram =&gt; Centre-Ville en 20 mins.
+
+Loyer : 1300euros par mois HORS charges
+Frais d'agence : 650euros</description>
+        <prix>1300</prix>
+        <date>04/05/2016</date>
+        <principale>../../../../BestResidence/Photos/duplex-appartement-design.jpg</principale>
+        <supp1>../../../../BestResidence/Photos/planDuplex.jpg</supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>0</idprop>
+        <idclient></idclient>
     </immobilier>
     <immobilier>
         <annonce>Vente</annonce>
-        <bien>Maison</bien>
-        <pieces>1</pieces>
-        <superficie>1</superficie>
-        <adresse>d</adresse>
-        <ville>d</ville>
-        <codepostal>d</codepostal>
-        <description>d</description>
-        <prix>3</prix>
+        <bien>Ferme</bien>
+        <pieces>4</pieces>
+        <superficie>1200</superficie>
+        <adresse>5 rue de Betschdorf</adresse>
+        <ville>HOHWILLER</ville>
+        <codepostal>67250</codepostal>
+        <description>Ferme comprenant 4 compartiments à animaux, 5 champs pour une superficie cultivable de 643m carré.
+
+Une moisonneuse batteuse est également disponible
+
+Je ne réponds pas aux propositions non sérieuses.</description>
+        <prix>650000</prix>
         <date>04/05/2016</date>
-        <principale></principale>
+        <principale>../../../../BestResidence/Photos/ferme.jpg</principale>
         <supp1></supp1>
         <supp2></supp2>
         <supp3></supp3>
@@ -82,8 +203,174 @@
         <supp6></supp6>
         <supp7></supp7>
         <supp8></supp8>
-        <histo>1</histo>
+        <histo>0</histo>
+        <idprop>3</idprop>
+        <idclient></idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Maison</bien>
+        <pieces>5</pieces>
+        <superficie>130</superficie>
+        <adresse>1 petite rue</adresse>
+        <ville>Baucharmoix</ville>
+        <codepostal>88100</codepostal>
+        <description>Cède petite maison de hauteur.
+
+**** Attention ****
+Les normes de sécurité de sont plus réspéctées
+
+A rénover.</description>
+        <prix>26000</prix>
+        <date>04/05/2016</date>
+        <principale>../../../../BestResidence/Photos/maison.jpg</principale>
+        <supp1>../../../../BestResidence/Photos/maison2.jpg</supp1>
+        <supp2>../../../../BestResidence/Photos/maison3.jpg</supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>5</idprop>
+        <idclient></idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Maison</bien>
+        <pieces>24</pieces>
+        <superficie>653</superficie>
+        <adresse>1 rue des stars</adresse>
+        <ville>Cannes</ville>
+        <codepostal>64000</codepostal>
+        <description>Villa pouvant acceuillir 18 personnes.
+
+Prix à la semaine du 1 mai au 1 octobre : 6200euros
+		4500 sinon
+</description>
+        <prix>6200</prix>
+        <date>04/05/2016</date>
+        <principale>../../../../BestResidence/Photos/Villa.jpg</principale>
+        <supp1>../../../../BestResidence/Photos/villa2.jpg</supp1>
+        <supp2>../../../../BestResidence/Photos/villa3.jpg</supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>4</idprop>
+        <idclient></idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Maison</bien>
+        <pieces>1</pieces>
+        <superficie>300</superficie>
+        <adresse>9 rue du fleuve</adresse>
+        <ville>Aschbach</ville>
+        <codepostal>67400</codepostal>
+        <description>Belle opportunité de reconstruire après démolition d'une (tres) vieille maison.</description>
+        <prix>44000</prix>
+        <date>04/05/2016</date>
+        <principale>../../../../BestResidence/Photos/maisonmoche.jpg</principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>1</idprop>
+        <idclient></idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Bureau</bien>
+        <pieces>77</pieces>
+        <superficie>1200</superficie>
+        <adresse>1 rue des affaires</adresse>
+        <ville>Paris</ville>
+        <codepostal>93000</codepostal>
+        <description>Cède mes bureaux car mon entreprise faiblit peu à peu.
+Affaire bien placée.</description>
+        <prix>999999</prix>
+        <date>04/05/2016</date>
+        <principale>../../../../BestResidence/Photos/bureau.jpg</principale>
+        <supp1>../../../../BestResidence/Photos/bureau2.jpg</supp1>
+        <supp2>../../../../BestResidence/Photos/bureau3.jpg</supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
         <idprop>0</idprop>
-        <idclient>0</idclient>
+        <idclient></idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Appartement</bien>
+        <pieces>2</pieces>
+        <superficie>29</superficie>
+        <adresse>1 rue des ecoles</adresse>
+        <ville>Grenoble</ville>
+        <codepostal>69100</codepostal>
+        <description>Appartement idéal pour étudiant de l'ENSIMAG.
+
+Appartement venant d'être rénové.
+
+Ville en devenir.</description>
+        <prix>230000</prix>
+        <date>04/05/2016</date>
+        <principale>../../../../BestResidence/Photos/appartement-de-ville.jpg</principale>
+        <supp1>../../../../BestResidence/Photos/appartement de ville2.jpg</supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>4</idprop>
+        <idclient></idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Château</bien>
+        <pieces>44</pieces>
+        <superficie>1300</superficie>
+        <adresse>1 rue du chateau</adresse>
+        <ville>Lille</ville>
+        <codepostal>1100</codepostal>
+        <description>Ancien château du DUC de Bretagne.
+
+Château comprenant :
+
+18 chambres
+6 cuisines
+5 salons
+11 salles de bains
+</description>
+        <prix>999999</prix>
+        <date>04/05/2016</date>
+        <principale>../../../../BestResidence/Photos/Chateau.jpg</principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>0</histo>
+        <idprop>1</idprop>
+        <idclient></idclient>
     </immobilier>
 </bestresidence>

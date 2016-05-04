@@ -189,7 +189,11 @@ void Ajout::on_b_valider_clicked()
         QList<QString> ps;
         for(int i=0;i<ui->listWidget->count();i++)
         {
-            ps.append(ui->listWidget->item(i)->text());
+            QList<QString> file = ui->listWidget->item(i)->text().split('/');
+
+            QString filePath ="../../../../BestResidence/Photos/"+file.value(file.length()-1);
+            QFile::copy(ui->listWidget->item(i)->text(),filePath);
+            ps.append(filePath);
         }
 
         Client* prop;
@@ -200,11 +204,15 @@ void Ajout::on_b_valider_clicked()
                 prop = parent->clients.value(i);
             }
         }
+        QList<QString> file = ui->l_photoPrincipal->text().split('/');
 
+        QString filePath ="../../../../BestResidence/Photos/"+file.value(file.length()-1);
+        QFile::copy(ui->l_photoPrincipal->text(),filePath);
         if(modif == 0)
         {
             QString date = QString::fromStdString(currentDate());
-            Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), ui->l_photoPrincipal->text(), ps, 0, prop, NULL);
+
+            Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), filePath, ps, 0, prop, NULL);
             parent->annonces.append(a);
             prop->setNbContrats(prop->getNbContrats()+1);
         }
@@ -219,7 +227,7 @@ void Ajout::on_b_valider_clicked()
             ann_a_modif->setCodePostal(ui->q_codePostal->text());
             ann_a_modif->setDescription(ui->q_description->toPlainText());
             ann_a_modif->setPrix(ui->q_prix->value());
-            ann_a_modif->setPhotoPrincipale(ui->l_photoPrincipal->text());
+            ann_a_modif->setPhotoPrincipale(filePath);
             ann_a_modif->setPhotosSupp(ps);
             ann_a_modif->setProp(prop);
         }
