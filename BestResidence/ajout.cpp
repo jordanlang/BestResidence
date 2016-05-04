@@ -206,6 +206,7 @@ void Ajout::on_b_valider_clicked()
             QString date = QString::fromStdString(currentDate());
             Annonce* a = new Annonce(ui->q_typeAnnonce->currentText(), ui->q_typeBien->currentText(), ui->q_nbPieces->value(), ui->q_superficieTerrain->value(), ui->q_adresse->text(), ui->q_ville->text(), ui->q_codePostal->text(), ui->q_description->toPlainText(), ui->q_prix->value(), QDate::fromString(date, "dd-MM-yyyy"), ui->l_photoPrincipal->text(), ps, 0, prop, NULL);
             parent->annonces.append(a);
+            prop->setNbContrats(prop->getNbContrats()+1);
         }
         else
         {

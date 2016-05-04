@@ -140,7 +140,7 @@ void AnnonceWindow::on_b_typeAnnonce_clicked()
                     client = ((MainWindow*)this->parent())->clients.value(i);
                 }
             }
-
+            client->setNbContrats(client->getNbContrats()+1);
             this->annonce->setClient(client);
             this->annonce->setDate(QDate::fromString(date, "dd-MM-yyyy"));
             this->annonce->setHisto(1);
@@ -151,6 +151,7 @@ void AnnonceWindow::on_b_typeAnnonce_clicked()
         QString date = QString::fromStdString(currentDate3());
         Annonce* ann = new Annonce(this->annonce->getTypeAnnonce(), this->annonce->getTypeBien(), this->annonce->getNbPieces(), this->annonce->getSuperficie(), this->annonce->getAdresse(), this->annonce->getVille(), this->annonce->getCodePostal(), this->annonce->getDescription(), this->annonce->getPrix(), QDate::fromString(date, "dd-MM-yyyy"), this->annonce->getPhotoPrincipale(), this->annonce->getPhotosSupp(), 0, this->annonce->getProp(), this->annonce->getClient());
         ((MainWindow*)this->parent())->annonces.append(ann);
+        this->annonce->getProp()->setNbContrats(this->annonce->getProp()->getNbContrats()+1);
     }
     this->refresh=true;
     this->close();

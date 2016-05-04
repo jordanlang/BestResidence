@@ -11,7 +11,7 @@
         <codepostalclient>63970</codepostalclient>
         <courriel>henry@romain.fr</courriel>
         <telephone>0173693762</telephone>
-        <nbcontrats>0</nbcontrats>
+        <nbcontrats>2</nbcontrats>
         <datecreation>04/05/2016</datecreation>
     </client>
     <immobilier>
@@ -23,7 +23,31 @@
         <ville>Asc</ville>
         <codepostal>67250</codepostal>
         <description>belle maison beukabhvukj</description>
-        <prix>150000</prix>
+        <prix>150</prix>
+        <date>04/05/2016</date>
+        <principale>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</principale>
+        <supp1>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>1</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Location</annonce>
+        <bien>Maison</bien>
+        <pieces>6</pieces>
+        <superficie>150</superficie>
+        <adresse>33 grand rue</adresse>
+        <ville>Asc</ville>
+        <codepostal>67250</codepostal>
+        <description>belle maison beukabhvukj</description>
+        <prix>150</prix>
         <date>04/05/2016</date>
         <principale>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</principale>
         <supp1>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</supp1>
@@ -36,6 +60,30 @@
         <supp8></supp8>
         <histo>0</histo>
         <idprop>0</idprop>
-        <idclient></idclient>
+        <idclient>0</idclient>
+    </immobilier>
+    <immobilier>
+        <annonce>Vente</annonce>
+        <bien>Maison</bien>
+        <pieces>1</pieces>
+        <superficie>1</superficie>
+        <adresse>d</adresse>
+        <ville>d</ville>
+        <codepostal>d</codepostal>
+        <description>d</description>
+        <prix>3</prix>
+        <date>04/05/2016</date>
+        <principale></principale>
+        <supp1></supp1>
+        <supp2></supp2>
+        <supp3></supp3>
+        <supp4></supp4>
+        <supp5></supp5>
+        <supp6></supp6>
+        <supp7></supp7>
+        <supp8></supp8>
+        <histo>1</histo>
+        <idprop>0</idprop>
+        <idclient>0</idclient>
     </immobilier>
 </bestresidence>

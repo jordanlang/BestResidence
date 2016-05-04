@@ -440,6 +440,11 @@ void MainWindow::addTabAnnoncesVente()
         ui->tableOffreVente->setItem(i, 4, wdg_ville);
         ui->tableOffreVente->setItem(i, 5, wdg_prix);
         ui->tableOffreVente->setItem(i, 6, wdg_date);
+
+        ui->tableOffreVente->resizeRowsToContents();
+        ui->tableOffreVente->resizeColumnsToContents();
+        ui->tableOffreVente->horizontalHeader()->setStretchLastSection(true);
+        ui->tableOffreVente->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
 }
 
@@ -490,6 +495,11 @@ void MainWindow::addTabAnnoncesLocation()
         ui->tableOffreLocation->setItem(i, 4, wdg_ville);
         ui->tableOffreLocation->setItem(i, 5, wdg_prix);
         ui->tableOffreLocation->setItem(i, 6, wdg_date);
+
+        ui->tableOffreLocation->resizeRowsToContents();
+        ui->tableOffreLocation->resizeColumnsToContents();
+        ui->tableOffreLocation->horizontalHeader()->setStretchLastSection(true);
+        ui->tableOffreLocation->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
 }
 
@@ -545,6 +555,11 @@ void MainWindow::addTabHistoVente()
         ui->tableBienVendu->setItem(i, 5, wdg_prix);
         ui->tableBienVendu->setItem(i, 6, wdg_date);
         ui->tableBienVendu->setItem(i, 7, wdg_client);
+
+        ui->tableBienVendu->resizeRowsToContents();
+        ui->tableBienVendu->resizeColumnsToContents();
+        ui->tableBienVendu->horizontalHeader()->setStretchLastSection(true);
+        ui->tableBienVendu->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
 }
 
@@ -598,7 +613,12 @@ void MainWindow::addTabHistoLocation()
         ui->tableBienLoue->setItem(i, 4, wdg_ville);
         ui->tableBienLoue->setItem(i, 5, wdg_prix);
         ui->tableBienLoue->setItem(i, 6, wdg_date);
-        ui->tableBienVendu->setItem(i, 7, wdg_client);
+        ui->tableBienLoue->setItem(i, 7, wdg_client);
+
+        ui->tableBienLoue->resizeRowsToContents();
+        ui->tableBienLoue->resizeColumnsToContents();
+        ui->tableBienLoue->horizontalHeader()->setStretchLastSection(true);
+        ui->tableBienLoue->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
 }
 
@@ -641,6 +661,11 @@ void MainWindow::addTabClients()
         ui->tableClient->setItem(i, 3, wdg_ville);
         ui->tableClient->setItem(i, 4, wdg_courriel);
         ui->tableClient->setItem(i, 5, wdg_telephone);
+
+        ui->tableClient->resizeRowsToContents();
+        ui->tableClient->resizeColumnsToContents();
+        ui->tableClient->horizontalHeader()->setStretchLastSection(true);
+        ui->tableClient->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
 }
 
