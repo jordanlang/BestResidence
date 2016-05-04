@@ -86,6 +86,7 @@ void Annonce::setPhotoPrincipale(QString pp)
 
 void Annonce::setPhotosSupp(QList<QString> ps)
 {
+    this->photosSupp.clear();
     for(int i=0; i<ps.length(); i++) {
         this->photosSupp.append(ps.value(i));
     }

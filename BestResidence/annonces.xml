@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bestresidence>
+    <client>
+        <identifiant>0</identifiant>
+        <genre>Mlle.</genre>
+        <nom>Henry</nom>
+        <prenom>Romain</prenom>
+        <datenaissance>22/05/1996</datenaissance>
+        <adresseclient>56 er rue </adresseclient>
+        <villeclient>Strasbourg</villeclient>
+        <codepostalclient>63970</codepostalclient>
+        <courriel>henry@romain.fr</courriel>
+        <telephone>0173693762</telephone>
+        <nbcontrats>0</nbcontrats>
+        <datecreation>04/05/2016</datecreation>
+    </client>
     <immobilier>
         <annonce>Location</annonce>
         <bien>Maison</bien>
-        <pieces>1</pieces>
-        <superficie>1</superficie>
-        <adresse>dq</adresse>
-        <ville>dq</ville>
-        <codepostal>qd</codepostal>
-        <description>qd</description>
-        <prix>1</prix>
+        <pieces>6</pieces>
+        <superficie>150</superficie>
+        <adresse>33 grand rue</adresse>
+        <ville>Asc</ville>
+        <codepostal>67250</codepostal>
+        <description>belle maison beukabhvukj</description>
+        <prix>150000</prix>
         <date>04/05/2016</date>
-        <principale></principale>
-        <supp1></supp1>
+        <principale>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</principale>
+        <supp1>/Users/jordan/Dropbox/Cours/L3 - S6/Interface homme-machine/Projet/BestResidence/BestResidence/maison.jpg</supp1>
         <supp2></supp2>
         <supp3></supp3>
         <supp4></supp4>
@@ -21,49 +35,7 @@
         <supp7></supp7>
         <supp8></supp8>
         <histo>0</histo>
-        <idprop></idprop>
+        <idprop>0</idprop>
         <idclient></idclient>
     </immobilier>
-    <client>
-        <identifiant>0</identifiant>
-        <genre>Mr.</genre>
-        <nom>Romain</nom>
-        <prenom>f</prenom>
-        <datenaissance>01/01/2000</datenaissance>
-        <adresseclient>f</adresseclient>
-        <villeclient>f</villeclient>
-        <codepostalclient>f</codepostalclient>
-        <courriel>f</courriel>
-        <telephone>f</telephone>
-        <nbcontrats>0</nbcontrats>
-        <datecreation>03/05/2016</datecreation>
-    </client>
-    <client>
-        <identifiant>1</identifiant>
-        <genre>Mr.</genre>
-        <nom>f</nom>
-        <prenom>f</prenom>
-        <datenaissance>01/01/2000</datenaissance>
-        <adresseclient>f</adresseclient>
-        <villeclient>f</villeclient>
-        <codepostalclient>f1</codepostalclient>
-        <courriel>f</courriel>
-        <telephone>f</telephone>
-        <nbcontrats>0</nbcontrats>
-        <datecreation>03/05/2016</datecreation>
-    </client>
-    <client>
-        <identifiant>2</identifiant>
-        <genre>Mlle.</genre>
-        <nom>Hosti</nom>
-        <prenom>Elena</prenom>
-        <datenaissance>01/01/2000</datenaissance>
-        <adresseclient>7 rue du fleuve</adresseclient>
-        <villeclient>Beinheim</villeclient>
-        <codepostalclient>67930</codepostalclient>
-        <courriel>elenahosti@gmail.com</courriel>
-        <telephone>0743572631</telephone>
-        <nbcontrats>0</nbcontrats>
-        <datecreation>03/05/2016</datecreation>
-    </client>
 </bestresidence>

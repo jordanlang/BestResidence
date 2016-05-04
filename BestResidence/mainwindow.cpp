@@ -109,7 +109,63 @@ void MainWindow::readXmlFile()
     while (!reader.atEnd())
     {
         if(reader.isStartElement()) {
-            if(reader.name() == element_immo) {
+            if(reader.name() == element_client) {
+                if(element_client == "client") {
+                    xml_identifiant = "";
+                    xml_genre = "";
+                    xml_nom = "";
+                    xml_prenom = "";
+                    xml_dateNaissance = "";
+                    xml_adresseClient = "";
+                    xml_villeClient = "";
+                    xml_codePostalClient = "";
+                    xml_courriel = "";
+                    xml_telephone = "";
+                    xml_nbContrats = "";
+                    xml_dateCreation = "";
+                    element_client = "identifiant";
+                } else if(element_client == "identifiant") {
+                    xml_identifiant = reader.readElementText();
+                    element_client = "genre";
+                } else if(element_client == "genre") {
+                    xml_genre = reader.readElementText();
+                    element_client = "nom";
+                } else if(element_client == "nom") {
+                    xml_nom = reader.readElementText();
+                    element_client = "prenom";
+                } else if(element_client == "prenom") {
+                    xml_prenom = reader.readElementText();
+                    element_client = "datenaissance";
+                } else if(element_client == "datenaissance") {
+                    xml_dateNaissance = reader.readElementText();
+                    element_client = "adresseclient";
+                } else if(element_client == "adresseclient") {
+                    xml_adresseClient = reader.readElementText();
+                    element_client = "villeclient";
+                } else if(element_client == "villeclient") {
+                    xml_villeClient = reader.readElementText();
+                    element_client = "codepostalclient";
+                } else if(element_client == "codepostalclient") {
+                    xml_codePostalClient = reader.readElementText();
+                    element_client = "courriel";
+                } else if(element_client == "courriel") {
+                    xml_courriel = reader.readElementText();
+                    element_client = "telephone";
+                } else if(element_client == "telephone") {
+                    xml_telephone = reader.readElementText();
+                    element_client = "nbcontrats";
+                } else if(element_client == "nbcontrats") {
+                    xml_nbContrats = reader.readElementText();
+                    element_client = "datecreation";
+                } else if(element_client == "datecreation") {
+                    xml_dateCreation = reader.readElementText();
+                    element_client = "client";
+                    if(xml_identifiant.toInt()>=Client::id)
+                        Client::id=xml_identifiant.toInt()+1;
+                    Client* c = new Client(xml_identifiant, xml_genre, xml_nom, xml_prenom, xml_dateNaissance, xml_adresseClient, xml_villeClient, xml_codePostalClient, xml_courriel, xml_telephone, xml_nbContrats.toInt(), QDate::fromString(xml_dateCreation, "dd/MM/yyyy"));
+                    clients.append(c);
+                }
+            } else if(reader.name() == element_immo) {
                 if(element_immo == "immobilier") {
                     xml_typeAnnonce = "";
                     xml_typeBien = "";
@@ -241,62 +297,6 @@ void MainWindow::readXmlFile()
                     Annonce* a = new Annonce(xml_typeAnnonce, xml_typeBien, xml_nbPieces.toInt(), xml_superficie.toDouble(), xml_adresse, xml_ville, xml_codePostal, xml_description, xml_prix.toDouble(), QDate::fromString(xml_date, "dd/MM/yyyy"), xml_photoPrincipale, xml_photosSupp, xml_histo.toInt(), prop, client);
                     annonces.append(a);
                 }
-            } else if(reader.name() == element_client) {
-                if(element_client == "client") {
-                    xml_identifiant = "";
-                    xml_genre = "";
-                    xml_nom = "";
-                    xml_prenom = "";
-                    xml_dateNaissance = "";
-                    xml_adresseClient = "";
-                    xml_villeClient = "";
-                    xml_codePostalClient = "";
-                    xml_courriel = "";
-                    xml_telephone = "";
-                    xml_nbContrats = "";
-                    xml_dateCreation = "";
-                    element_client = "identifiant";
-                } else if(element_client == "identifiant") {
-                    xml_identifiant = reader.readElementText();
-                    element_client = "genre";
-                } else if(element_client == "genre") {
-                    xml_genre = reader.readElementText();
-                    element_client = "nom";
-                } else if(element_client == "nom") {
-                    xml_nom = reader.readElementText();
-                    element_client = "prenom";
-                } else if(element_client == "prenom") {
-                    xml_prenom = reader.readElementText();
-                    element_client = "datenaissance";
-                } else if(element_client == "datenaissance") {
-                    xml_dateNaissance = reader.readElementText();
-                    element_client = "adresseclient";
-                } else if(element_client == "adresseclient") {
-                    xml_adresseClient = reader.readElementText();
-                    element_client = "villeclient";
-                } else if(element_client == "villeclient") {
-                    xml_villeClient = reader.readElementText();
-                    element_client = "codepostalclient";
-                } else if(element_client == "codepostalclient") {
-                    xml_codePostalClient = reader.readElementText();
-                    element_client = "courriel";
-                } else if(element_client == "courriel") {
-                    xml_courriel = reader.readElementText();
-                    element_client = "telephone";
-                } else if(element_client == "telephone") {
-                    xml_telephone = reader.readElementText();
-                    element_client = "nbcontrats";
-                } else if(element_client == "nbcontrats") {
-                    xml_nbContrats = reader.readElementText();
-                    element_client = "datecreation";
-                } else if(element_client == "datecreation") {
-                    xml_dateCreation = reader.readElementText();
-                    element_client = "client";
-                    if(xml_identifiant.toInt()>=Client::id)
-                        Client::id=xml_identifiant.toInt()+1;
-                    Client* c = new Client(xml_identifiant, xml_genre, xml_nom, xml_prenom, xml_dateNaissance, xml_adresseClient, xml_villeClient, xml_codePostalClient, xml_courriel, xml_telephone, xml_nbContrats.toInt(), QDate::fromString(xml_dateCreation, "dd/MM/yyyy"));
-                    clients.append(c);
-                }
             }
         }
         reader.readNext();
@@ -304,9 +304,6 @@ void MainWindow::readXmlFile()
 
     fileXml.close();
 }
-
-
-
 
 void MainWindow::set_aff_annonces_vente()
 {
@@ -662,6 +659,25 @@ void MainWindow::writeXmlFile()
     writer.writeStartDocument();
     writer.writeStartElement("bestresidence");
 
+    for(int i=0; i<this->clients.length(); i++)
+    {
+        Client *c = this->clients.value(i);
+        writer.writeStartElement("client");
+        writer.writeTextElement("identifiant", c->getId());
+        writer.writeTextElement("genre", c->getGenre());
+        writer.writeTextElement("nom", c->getNom());
+        writer.writeTextElement("prenom", c->getPrenom());
+        writer.writeTextElement("datenaissance", c->getDateNaissance());
+        writer.writeTextElement("adresseclient", c->getAdresseClient());
+        writer.writeTextElement("villeclient", c->getVilleClient());
+        writer.writeTextElement("codepostalclient", c->getCodePostalClient());
+        writer.writeTextElement("courriel", c->getCourriel());
+        writer.writeTextElement("telephone", c->getTelephone());
+        writer.writeTextElement("nbcontrats", QString::number(c->getNbContrats()));
+        writer.writeTextElement("datecreation", c->getDateCreation().toString("dd/MM/yyyy"));
+        writer.writeEndElement();
+    }
+
     for(int i=0; i<annonces.length(); i++)
     {
         Annonce* a = annonces.value(i);
@@ -694,24 +710,6 @@ void MainWindow::writeXmlFile()
         writer.writeEndElement();
     }
 
-    for(int i=0; i<this->clients.length(); i++)
-    {
-        Client *c = this->clients.value(i);
-        writer.writeStartElement("client");
-        writer.writeTextElement("identifiant", c->getId());
-        writer.writeTextElement("genre", c->getGenre());
-        writer.writeTextElement("nom", c->getNom());
-        writer.writeTextElement("prenom", c->getPrenom());
-        writer.writeTextElement("datenaissance", c->getDateNaissance());
-        writer.writeTextElement("adresseclient", c->getAdresseClient());
-        writer.writeTextElement("villeclient", c->getVilleClient());
-        writer.writeTextElement("codepostalclient", c->getCodePostalClient());
-        writer.writeTextElement("courriel", c->getCourriel());
-        writer.writeTextElement("telephone", c->getTelephone());
-        writer.writeTextElement("nbcontrats", QString::number(c->getNbContrats()));
-        writer.writeTextElement("datecreation", c->getDateCreation().toString("dd/MM/yyyy"));
-        writer.writeEndElement();
-    }
     writer.writeEndElement();
     writer.writeEndDocument();
 
