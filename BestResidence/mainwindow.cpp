@@ -32,8 +32,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableBienVendu->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableClient->setSelectionBehavior(QAbstractItemView::SelectRows);
     int w = ui->l_icon->width();
-    int h= ui->l_icon->height();
-    QPixmap *pixmap_img2 = new QPixmap("../../../../BestResidence/Img/icon.png");
+    int h= ui->l_icon->height()+40;
+    QPixmap *pixmap_img2 = new QPixmap("../../../../BestResidence/Img/icon.jpg");
     ui->l_icon->setPixmap((*pixmap_img2).scaled(w,h,Qt::KeepAspectRatio));
     readXmlFile();
     set_aff_annonces_vente();
